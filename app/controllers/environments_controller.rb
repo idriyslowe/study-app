@@ -26,5 +26,8 @@ class EnvironmentsController < ApplicationController
     redirect_to '/environments'
   end
   def destroy
+    environment = Environment.find_by(id: params[:id])
+    environment.update(status: "archive")
+    redirect_to '/environments'
   end
 end

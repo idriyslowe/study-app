@@ -1,2 +1,8 @@
 <h1>This environment is</h1>
 <h1><%= @environments.name %></h1>
+<div>
+  <%= link_to 'Edit', "/environments/#{@environments.id}/edit" %>
+</div>
+<div>
+  <%= link_to 'Archive', "/environments/#{@environments.id}", method: :delete %>
+</div>
