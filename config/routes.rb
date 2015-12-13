@@ -7,6 +7,13 @@ Rails.application.routes.draw do
   get '/environments/:id/edit' => 'environments#edit'
   patch '/environments/:id' => 'environments#update'
   delete '/environments/:id' => 'environments#destroy'
+
+  get '/note_pages/new' => 'note_pages#new'
+  post '/note_pages' => 'note_pages#create'
+  get '/note_pages/:id' => 'note_pages#show'
+  get '/note_pages/:id/edit' => 'note_pages#edit'
+  patch '/note_pages/:id' => 'note_pages#update'
+  delete '/note_pages/:id' => 'note_pages#destroy'
   # The priority is based upon order of creation: first created -> highest priority.
   # See how all your routes lay out with "rake routes".
 
