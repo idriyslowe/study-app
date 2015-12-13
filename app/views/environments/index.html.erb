@@ -1,1 +1,4 @@
-<h1>Home Environment!</h1>
+<h1>All Environments</h1>
+<% @environments.each do |environment| %>
+  <h1><%= environment.name %></h1>
+<% end %>

@@ -1,5 +1,6 @@
 class EnvironmentsController < ApplicationController
   def index
+    @environments = Environment.all
   end
   def new
   end
