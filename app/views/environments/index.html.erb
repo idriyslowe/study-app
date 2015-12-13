@@ -1,4 +1,4 @@
 <h1>All Environments</h1>
 <% @environments.each do |environment| %>
-  <h1><%= environment.name %></h1>
+  <h1><%= link_to environment.name, "/environments/#{environment.id}" %></h1>
 <% end %>
