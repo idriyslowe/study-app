@@ -1,3 +1,3 @@
 class Comment < ActiveRecord::Base
-  belongs_to :notepage
+  belongs_to :note_page
 end

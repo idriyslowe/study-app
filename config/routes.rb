@@ -1,4 +1,5 @@
 Rails.application.routes.draw do
+  devise_for :users
   get '/' => 'environments#index'
   get '/environments' => 'environments#index'
   get '/environments/new' => 'environments#new'

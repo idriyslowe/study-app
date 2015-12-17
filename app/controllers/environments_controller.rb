@@ -1,6 +1,6 @@
 class EnvironmentsController < ApplicationController
   def index
-    @environments = Environment.all
+    @environments = Environment.where("status = ?", "active")
   end
   def new
     @environments = Environment.new
@@ -11,7 +11,7 @@ class EnvironmentsController < ApplicationController
       status: "active", 
       last_used: 1, 
       visit_count: 1, 
-      user_id: 1)
+      user_id: current_user.id)
     redirect_to '/environments'
   end
   def show

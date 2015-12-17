@@ -1,5 +1,8 @@
 <h1>This environment is</h1>
 <h1><%= @environments.name %></h1>
+<ul><% @environments.note_pages.each do |page| %>
+  <li><%= page.title %></li>
+<% end %></ul>
 <div>
   <%= link_to 'Edit', "/environments/#{@environments.id}/edit" %>
 </div>
