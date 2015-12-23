@@ -1,4 +1,5 @@
-<h1>All Environments</h1>
+<p><%= link_to "Create New Environment", "/environments/new" %></p>
+<h1>Environments:</h1>
 <h3><%= current_user.email %></h3>
 <% @environments.each do |environment| %>
   <h1><%= link_to environment.name, "/environments/#{environment.id}" %></h1>
