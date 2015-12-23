@@ -1,7 +1,4 @@
 Rails.application.routes.draw do
-  # devise_for :users, controllers: {
-  #   sessions: 'users/sessions'
-  # }
   devise_for :users
     devise_scope :user do
       authenticated :user do
@@ -11,7 +8,6 @@ Rails.application.routes.draw do
         root :to => 'devise/registrations#new', as: :unauthenticated_root
     end
   end
-  # get '/' => 'environments#index'
   get '/environments' => 'environments#index'
   get '/environments/new' => 'environments#new'
   post '/environments' => 'environments#create'
