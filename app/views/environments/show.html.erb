@@ -9,6 +9,17 @@
     <% end %>
   <% end %>
 </ul>
+<h2>Create New Note Page</h2>
+<%= form_tag '/note_pages', method: :post do %>
+  <div>
+    <%= label_tag :title %>
+    <%= text_field_tag :title %>
+  </div>
+  <div>
+    <%= hidden_field_tag :environment_id, @environments.id %>
+  </div>
+  <%= submit_tag 'Submit' %>
+<% end %>
 <div>
   <%= link_to 'Edit', "/environments/#{@environments.id}/edit" %>
 </div>

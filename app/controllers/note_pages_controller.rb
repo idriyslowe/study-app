@@ -5,13 +5,13 @@ class NotePagesController < ApplicationController
   def create
     @note_pages = NotePage.create(
       title: params[:title],
-      text: params[:text],
-      environment_id: 1
+      environment_id: params[:environment_id]
       )
     render :show
   end
   def show
     @note_pages = NotePage.find_by(id: params[:id])
+    @environment = @note_pages.environment_id
   end
   def edit
     @note_pages = NotePage.find_by(id: params[:id])
