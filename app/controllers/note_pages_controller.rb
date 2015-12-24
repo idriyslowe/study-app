@@ -18,8 +18,8 @@ class NotePagesController < ApplicationController
   end
   def update
     @note_pages = NotePage.find_by(id: params[:id])
-    @note_pages.update(title: params[:title], text: params[:id])
-    render :show
+    @note_pages.update(title: params[:title], text: params[:text], id: params[:id])
+    redirect_to "/note_pages/#{@note_pages.id}"
   end
   def destroy
     @note_pages = NotePage.find_by(id: params[:id])

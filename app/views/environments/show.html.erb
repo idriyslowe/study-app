@@ -3,12 +3,13 @@
 <h3><%= current_user.email %></h3>
 <ul>
   <% @environments.note_pages.each do |page| %>
-    <li><a href="/note_pages/#{page.id}"><%= page.title %></a></li>
+    <li><a href="/note_pages/<%= page.id %>"><%= page.title %></a></li>
     <% page.bookmarks.each do |bookmark| %>
       <%= bookmark.name %>
     <% end %>
   <% end %>
 </ul>
+
 <h2>Create New Note Page</h2>
 <%= form_tag '/note_pages', method: :post do %>
   <div>
@@ -20,6 +21,7 @@
   </div>
   <%= submit_tag 'Submit' %>
 <% end %>
+
 <div>
   <%= link_to 'Edit', "/environments/#{@environments.id}/edit" %>
 </div>

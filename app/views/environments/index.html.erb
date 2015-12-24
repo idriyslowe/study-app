@@ -1,6 +1,14 @@
-<p><%= link_to "Create New Environment", "/environments/new" %></p>
 <h1>Environments:</h1>
 <h3><%= current_user.email %></h3>
 <% @environments.each do |environment| %>
   <h1><%= link_to environment.name, "/environments/#{environment.id}" %></h1>
+<% end %>
+<h3>Create new Environment</h3>
+
+<%= form_tag '/environments', method: :post do %>
+  <div>
+    <%= label_tag :name %>
+    <%= text_field_tag :name %>
+  </div>
+  <%= submit_tag 'Submit' %>
 <% end %>
