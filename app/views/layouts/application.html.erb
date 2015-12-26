@@ -1,7 +1,7 @@
 <!DOCTYPE html>
 <html>
 <head>
-  <title>BookmarkApp</title>
+  <title>Study App!</title>
   <%= stylesheet_link_tag    'application', media: 'all', 'data-turbolinks-track' => true %>
   <%= javascript_include_tag 'application', 'data-turbolinks-track' => true %>
   <%= csrf_meta_tags %>
@@ -33,52 +33,30 @@
 			</div>
 		
 			<div class="collapse navbar-collapse" id="custom-collapse">
-		
-				<ul class="nav navbar-nav">
-		
+
+        <% unless current_user %>
+
+					<ul class="nav navbar-nav">
+	          <li><%= link_to "Sign In", '/users/sign_in' %></li>
+						<li><%= link_to "Sign Up", '/users/sign_up' %></li>
+          </ul>
+        <% else %>
+        	<li><%= link_to "Sign Out", "/users/sign_out", method: :delete %></li>
+        <% end %>
+
 					<li class="dropdown">
-						<a href="#" class="dropdown-toggle" data-toggle="dropdown">Home</a>
+						<a href="#" class="dropdown-toggle" data-toggle="dropdown">Study Blog?</a>
 						<ul class="dropdown-menu" role="menu">
-							<li><a href="index.html">Image</a></li>
-							<li><a href="index-2.html">Slider</a></li>
-							<li><a href="index-3.html">Old Film</a></li>
-							<li><a href="index-4.html">Youtube video</a></li>
-							<li><a href="index-5.html">Youtube video + Sound</a></li>
-						</ul>
-					</li>
-		
-					<li><a href="about.html">About</a></li>
-		
-					<li class="dropdown">
-						<a href="#" class="dropdown-toggle" data-toggle="dropdown">Blog</a>
-						<ul class="dropdown-menu" role="menu">
-							<li><a href="blog.html">Standard</a></li>
-							<li><a href="blog-single.html">Single post</a></li>
-							<li><a href="blog-single-2.html">Single post - Video</a></li>
+							<li><a href="blog.html">Study Day 1</a></li>
+							<li><a href="blog-single.html">Study Day 2</a></li>
+							<li><a href="blog-single-2.html">Study Day 3 - Video</a></li>
 						</ul>
 					</li>
 		
 					<li class="dropdown">
-						<a href="#" class="dropdown-toggle" data-toggle="dropdown">Portfolio</a>
+						<a href="#" class="dropdown-toggle" data-toggle="dropdown">Environments</a>
 						<ul class="dropdown-menu" role="menu">
-							<li><a href="portfolio-single.html">Single Work 1</a></li>
-							<li><a href="portfolio-single-2.html">Single Work 2</a></li>
-							<li><a href="portfolio-single-3.html">Single Work 3</a></li>
-							<li><a href="portfolio-single-4.html">Single Work 4 & Youtube</a></li>
-							<li><a href="portfolio-single-5.html">Single Work 5 & Vimeo</a></li>
-							<li><a href="portfolio-single-6.html">Single Work 6 & Gallery</a></li>
-						</ul>
-					</li>
-		
-					<li class="dropdown">
-						<a href="#" class="dropdown-toggle" data-toggle="dropdown">Elements</a>
-						<ul class="dropdown-menu" role="menu">
-							<li><a href="components-1.html">Buttons</a></li>
-							<li><a href="components-2.html">Iconbox</a></li>
-							<li><a href="components-3.html">Progress bars</a></li>
-							<li><a href="components-4.html">Tab & Accordian</a></li>
-							<li><a href="components-5.html">Columns</a></li>
-							<li><a href="components-6.html">Modules & Overlays</a></li>
+							<li><a href="components-1.html">Loop do here</a></li>
 						</ul>
 					</li>
 		
