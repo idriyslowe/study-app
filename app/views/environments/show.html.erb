@@ -1,30 +1,32 @@
-<h1>This environment is</h1>
-<h1><%= @environments.name %></h1>
-<h3><%= current_user.email %></h3>
-<ul>
-  <% @environments.note_pages.each do |page| %>
-    <li><a href="/note_pages/<%= page.id %>"><%= page.title %></a></li>
-    <% page.bookmarks.each do |bookmark| %>
-      <%= bookmark.name %>
+<div class="show">
+  <h1>This environment is</h1>
+  <h1><%= @environments.name %></h1>
+  <h3><%= current_user.email %></h3>
+  <ul>
+    <% @environments.note_pages.each do |page| %>
+      <li><a href="/note_pages/<%= page.id %>"><%= page.title %></a></li>
+      <% page.bookmarks.each do |bookmark| %>
+        <%= bookmark.name %>
+      <% end %>
     <% end %>
+  </ul>
+
+  <h2>Create New Note Page</h2>
+  <%= form_tag '/note_pages', method: :post do %>
+    <div>
+      <%= label_tag :title %>
+      <%= text_field_tag :title %>
+    </div>
+    <div>
+      <%= hidden_field_tag :environment_id, @environments.id %>
+    </div>
+    <%= submit_tag 'Submit' %>
   <% end %>
-</ul>
 
-<h2>Create New Note Page</h2>
-<%= form_tag '/note_pages', method: :post do %>
   <div>
-    <%= label_tag :title %>
-    <%= text_field_tag :title %>
+    <%= link_to 'Edit', "/environments/#{@environments.id}/edit" %>
   </div>
   <div>
-    <%= hidden_field_tag :environment_id, @environments.id %>
+    <%= link_to 'Archive', "/environments/#{@environments.id}", method: :delete %>
   </div>
-  <%= submit_tag 'Submit' %>
-<% end %>
-
-<div>
-  <%= link_to 'Edit', "/environments/#{@environments.id}/edit" %>
-</div>
-<div>
-  <%= link_to 'Archive', "/environments/#{@environments.id}", method: :delete %>
 </div>
