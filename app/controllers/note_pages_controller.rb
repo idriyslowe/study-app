@@ -7,7 +7,7 @@ class NotePagesController < ApplicationController
       title: params[:title],
       environment_id: params[:environment_id]
       )
-    render :show
+    redirect_to "/note_pages/#{@note_pages.id}"
   end
   def show
     @note_pages = NotePage.find_by(id: params[:id])

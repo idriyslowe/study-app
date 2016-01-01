@@ -12,16 +12,28 @@
           <h6 class="m-b-30"><%= current_user.email %></h6>
           <h1 class="m-b-30">ENVIRONMENTS</h1>
           <h6 class="m-b-60"></h6>
-          <a href="/environments/new" class="btn btn-dark anim-scroll">Create New Environment</a>
-            <%= form_tag '/environments', method: :post do %>
-
+            
+          <!-- NEW FORM -->
+          <div class="row">
+          <div class="col-sm-4"></div>
+          <div class="col-sm-4">
+          <%= form_tag '/environments', method: :post do %> 
+            <form id="contact-form" role="form" novalidate>
               <div class="form-group">
-                <%= label_tag :name %>
-                <%= text_field_tag :name %>
+                <label class="sr-only" for="name">Name</label>
+                <input type="text" id="name" class="form-control" name="name" placeholder="New Environment Name">
+                <p class="help-block text-danger"></p>
               </div>
-              
-              <%= submit_tag 'Submit' %>
-            <% end %>
+              <div class="text-center">
+                <button type="submit" class="btn btn-block btn-round btn-dark">Create</button>
+              </div>
+            </form>
+          <% end %>
+          <div class="col-sm-4"></div>
+          <!-- FORM END -->
+          </div>
+          </div>
+
         </div>
       </div>
       <!-- /HERO TEXT -->
