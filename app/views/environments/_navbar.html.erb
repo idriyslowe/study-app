@@ -1,0 +1,75 @@
+<div class="sidebar">
+
+    <nav class="navbar navbar-custom font-alt">
+      <div class="navbar-header">
+        <button type="button" class="navbar-toggle" data-toggle="collapse" data-target="#custom-collapse">
+          <span class="sr-only">Toggle navigation</span>
+          <span class="icon-bar"></span>
+          <span class="icon-bar"></span>
+          <span class="icon-bar"></span>
+        </button>
+
+      </div>
+    
+      <div class="collapse navbar-collapse" id="custom-collapse">
+
+        <% unless current_user %>
+
+          <ul class="nav navbar-nav">
+            <li><%= link_to "Sign In", '/users/sign_in' %></li>
+            <li><%= link_to "Sign Up", '/users/sign_up' %></li>
+          </ul>
+        <% else %>
+          <li><%= link_to "Sign Out", "/users/sign_out", method: :delete %></li>
+        <% end %>
+
+          <li class="dropdown">
+            <a href="#" class="dropdown-toggle" data-toggle="dropdown">Study Blog?</a>
+            <ul class="dropdown-menu" role="menu">
+              <li><a href="blog.html">Study Day 1</a></li>
+              <li><a href="blog-single.html">Study Day 2</a></li>
+              <li><a href="blog-single-2.html">Study Day 3 - Video</a></li>
+            </ul>
+          </li>
+    
+          <li class="dropdown">
+            <a href="#" class="dropdown-toggle" data-toggle="dropdown">Environments</a>
+              <ul class="dropdown-menu" role="menu">
+                <% @environments.each do |environment| %>
+                  <li><%= link_to environment.name, "/environments/#{environment.id}" %></li>
+                <% end %>
+              </ul>
+          </li>
+    
+          <li class="dropdown">
+            <a href="#" class="dropdown-toggle" data-toggle="dropdown">Features</a>
+            <ul class="dropdown-menu" role="menu">
+              <li><a href="portfolio-gutter-3.html">Works Gutter 3 col</a></li>
+              <li><a href="portfolio-gutter-4.html">Works Gutter 4 col</a></li>
+              <li><a href="portfolio-masonry-3.html">Works Masonry 3 col</a></li>
+              <li><a href="portfolio-masonry-4.html">Works Masonry 4 col</a></li>
+              <li><a href="sidebar.html">Sidebar & Image</a></li>
+            </ul>
+          </li>
+    
+          <li><a href="contact.html">Contact</a></li>
+    
+        </ul>
+      </div>
+    
+    </nav>
+    
+    <!-- SOCIAL LINKS -->
+    <div class="copyright">
+      <div class="social-icons m-b-20">
+        <a href="#" target="_blank" class="fa fa-facebook facebook"></a>
+        <a href="#" target="_blank" class="fa fa-twitter twitter"></a>
+        <a href="#" target="_blank" class="fa fa-instagram instagram"></a>
+        <a href="#" target="_blank" class="fa fa-behance behance"></a>
+        <a href="#" target="_blank" class="fa fa-dribbble dribbble"></a>
+      </div>
+    
+    </div>
+    <!-- /SOCIAL LINKS -->
+
+  </div>
