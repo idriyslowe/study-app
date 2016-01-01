@@ -78,7 +78,7 @@
   <div class="wrapper">
 
     <!-- HERO -->
-    <section id="hero" class="module-hero bg-dark-30 js-fullheight" data-background="assets/images/module-1.jpg">
+    <section id="hero" class="module-hero bg-dark-30 js-fullheight" data-background="http://cdn.shopify.com/s/files/1/0072/7502/products/8888a_08727881-0ac8-442c-b843-b26b7be897e9.jpg?v=1438190485">
 
       <!-- HERO TEXT -->
       <div class="hero-caption">
@@ -88,10 +88,12 @@
           <h6 class="m-b-60"></h6>
           <a href="/environments/new" class="btn btn-dark anim-scroll">Create New Environment</a>
             <%= form_tag '/environments', method: :post do %>
-              <div>
+
+              <div class="form-group">
                 <%= label_tag :name %>
                 <%= text_field_tag :name %>
               </div>
+              
               <%= submit_tag 'Submit' %>
             <% end %>
         </div>
@@ -114,7 +116,7 @@
               <article class="work-item">
                 <div class="work-wrapper">
                   <div class="work-thumbnail">
-                    <%= image_tag "theme/portfolio-4.jpg" %>
+                    <%= image_tag "http://magickcanoe.com/CC-boyscout-forest-large.jpg" %>
                   </div>
                   <div class="work-caption">
                     <h3 class="work-title font-alt"><%= link_to environment.name, "/environments/#{environment.id}" %></h3>
