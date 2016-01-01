@@ -14,6 +14,7 @@
 //= require theme/jqBootstrapValidation
 //= require jquery_ujs
 //= require turbolinks
+//= require jquery.turbolinks
 //= require theme/jquery.superslides
 //= require theme/owl.carousel
 //= require theme/jquery.magnific-popup
