@@ -1,9 +1,10 @@
+<%= render partial: "navbar" %>
+
 <div class="show">
-  <h1>This environment is</h1>
-  <h1><%= @environments.name %></h1>
-  <h3><%= current_user.email %></h3>
+  <h3>Environment: <%= @environment.name %></h3>
+  <h1><%= current_user.email %></h1>
   <ul>
-    <% @environments.note_pages.each do |page| %>
+    <% @environment.note_pages.each do |page| %>
       <li><a href="/note_pages/<%= page.id %>"><%= page.title %></a></li>
       <% page.bookmarks.each do |bookmark| %>
         <%= bookmark.name %>
@@ -18,15 +19,15 @@
       <%= text_field_tag :title %>
     </div>
     <div>
-      <%= hidden_field_tag :environment_id, @environments.id %>
+      <%= hidden_field_tag :environment_id, @environment.id %>
     </div>
     <%= submit_tag 'Submit' %>
   <% end %>
 
   <div>
-    <%= link_to 'Edit', "/environments/#{@environments.id}/edit" %>
+    <%= link_to 'Edit', "/environments/#{@environment.id}/edit" %>
   </div>
   <div>
-    <%= link_to 'Archive', "/environments/#{@environments.id}", method: :delete %>
+    <%= link_to 'Archive', "/environments/#{@environment.id}", method: :delete %>
   </div>
 </div>
