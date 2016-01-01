@@ -15,7 +15,7 @@
     <%= link_to 'Edit', "/note_pages/#{@note_pages.id}/edit" %>
   </div>
   <div>
-    <%= link_to 'Delete Page', "/environments/#{@note_pages.id}", method: :delete %>
+    <%= link_to 'Delete Page', "/note_pages/#{@note_pages.id}", method: :delete %>
   </div>
   <div>
     <%= link_to 'Back to Environment', "/environments/#{@note_pages.environment_id}" %>

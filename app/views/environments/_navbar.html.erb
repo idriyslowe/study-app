@@ -12,7 +12,9 @@
       </div>
     
       <div class="collapse navbar-collapse" id="custom-collapse">
-
+        <ul class="nav navbar-nav">
+          <li><%= link_to "Home", '/environments' %></li>
+        </ul>
         <% unless current_user %>
 
           <ul class="nav navbar-nav">
