@@ -1,24 +1,49 @@
 <%= render partial: "navbar" %>
 
-<div class="show">
-  <h3>Note Page: <%= @note_pages.title %></h3>
+<!-- PORTFOLIO SINGLE -->
+    <section class="module">
+      <div class="container-fluid container-custom">
 
-  <%= form_tag "/note_pages/#{@note_pages.id}", method: :patch do %>
-  <div>
-    <%= text_area_tag :text, @note_pages.text, size: "24 x 24" %>
-  </div>
-  <%= hidden_field_tag :title, @note_pages.title %>
-  <%= hidden_field_tag :id, @note_pages.id %>
-  <%= submit_tag "Submit" %>
-  <% end %>
+        <div class="row">
 
-  <div>
-    <%= link_to 'Edit', "/note_pages/#{@note_pages.id}/edit" %>
-  </div>
-  <div>
-    <%= link_to 'Delete Page', "/note_pages/#{@note_pages.id}", method: :delete %>
-  </div>
-  <div>
-    <%= link_to 'Back to Environment', "/environments/#{@note_pages.environment_id}" %>
-  </div>
-</div>
+          <div class="col-sm-8 col-sm-offset-2">
+
+            <!-- PORTFOLIO CONTENT -->
+            <article class="portfolio-post post">
+              <h3>Note Page: <%= @note_pages.title %></h3>
+              <%= form_tag "/note_pages/#{@note_pages.id}", method: :patch do %>
+
+              <textarea class="form-control" rows="23" placeholder="<%=@note_pages.text%>"></textarea>
+
+              <%= hidden_field_tag :title, @note_pages.title %>
+              <%= hidden_field_tag :id, @note_pages.id %>
+              <%= submit_tag "Submit" %>
+              <% end %>
+
+              <div>
+                <%= link_to 'Edit', "/note_pages/#{@note_pages.id}/edit" %>
+              </div>
+              <div>
+                <%= link_to 'Delete Page', "/note_pages/#{@note_pages.id}", method: :delete %>
+              </div>
+              <div>
+                <%= link_to 'Back to Environment', "/environments/#{@note_pages.environment_id}" %>
+              </div>
+            </article>
+            <!-- /PORTFOLIO CONTENT -->
+
+            <!-- TAGS -->
+            <div class="tags font-serif">
+              <a href="#">Fashion</a>
+              <a href="#">Typography</a>
+              <a href="#">Photography</a>
+            </div>
+            <!-- /TAGS -->
+
+          </div><!-- .col-* -->
+
+        </div>
+
+      </div>
+    </section>
+    <!-- PORTFOLIO SINGLE -->
