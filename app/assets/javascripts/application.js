@@ -13,7 +13,6 @@
 //= require jquery
 //= require theme/jqBootstrapValidation
 //= require jquery_ujs
-//= require turbolinks
 //= require jquery.turbolinks
 //= require theme/jquery.superslides
 //= require theme/owl.carousel
@@ -30,4 +29,5 @@
 //= require theme/npm
 //= require theme/smoothscroll
 //= require theme/submenu-fix
+//= require angular
 //= require_tree .
