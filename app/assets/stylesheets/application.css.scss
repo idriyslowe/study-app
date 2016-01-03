@@ -31,3 +31,11 @@
  div.show {
   padding-left: 25em;
  }
+ textarea#text {
+  width: 70vw;
+  height: 100vh;
+  -webkit-box-sizing: border-box;
+  -moz-box-sizing: border-box;
+  box-sizing: border-box;
+  border: none;
+ }

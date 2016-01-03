@@ -5,11 +5,14 @@
         <div class="col-sm-10 col-sm-offset-2">
 
           <!-- PORTFOLIO CONTENT -->
-          <article class="portfolio-post post">
+
             <h3>Note Page: <%= @note_pages.title %></h3>
+
             <%= form_tag "/note_pages/#{@note_pages.id}", method: :patch do %>
 
-            <textarea class="form-control" rows="23" placeholder="<%=@note_pages.text%>"></textarea>
+            <div class="full-notepage">
+              <%= text_area_tag :text, @note_pages.text %>
+            </div>
 
             <%= hidden_field_tag :title, @note_pages.title %>
             <%= hidden_field_tag :id, @note_pages.id %>
@@ -22,7 +25,7 @@
             <div>
               <%= link_to 'Delete Page', "/note_pages/#{@note_pages.id}", method: :delete %>
             </div>
-          </article>
+
           <!-- /PORTFOLIO CONTENT -->
 
           <!-- TAGS -->
@@ -31,5 +34,5 @@
           </div>
             <!-- /TAGS -->
         </div>
-      </div>s
+      </div>
     <!-- PORTFOLIO SINGLE -->
