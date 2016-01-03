@@ -1,3 +1,11 @@
 // Place all the styles related to the NotePages controller here.
 // They will automatically be included in application.css.
 // You can use Sass (SCSS) here: http://sass-lang.com/
+
+textarea.note-page {
+    background: none;
+    border: none;
+    outline: none;
+    padding: 0;
+    width: 100%;
+}

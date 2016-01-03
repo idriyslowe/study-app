@@ -1,15 +1,51 @@
 <!DOCTYPE html>
 <html>
 <head>
-  <title>BookmarkApp</title>
+  <title>Study App!</title>
   <%= stylesheet_link_tag    'application', media: 'all', 'data-turbolinks-track' => true %>
   <%= javascript_include_tag 'application', 'data-turbolinks-track' => true %>
   <%= csrf_meta_tags %>
 </head>
 <body>
-<%= link_to "Sign Out", "/users/sign_out", method: :delete %>
+		</section>
+		<!-- /PORTFOLIO -->
+		<hr class="divider">
+	
+		<div class="content-yield">
+			<%= yield %>
+		</div>
 
-<%= yield %>
+		<!-- FOOTER -->
+
+		<footer class="footer module-overlay-dark-3">
+			<div class="container-fluid container-custom">
+		
+				<div class="row">
+					<div class="col-sm-12">
+						<ul class="contact-info font-alt">
+							<li><a href="#">idriyswins@gmail.com</a></li>
+							<li><a href="#">+(773) 934 8218</a></li>
+							<li><a href="#">CHICAGO, IL, USA</a></li>
+						</ul>
+						<div class="copyright text-center font-alt">
+							© 2015 <a href="#">Study-App</a>, All Rights Reserved.
+						</div>
+					</div>
+				</div>
+		
+				<!-- SCROLLTOP -->
+				<a class="to-top-link" href="#top">
+					<i class="fa fa-angle-up"></i>
+				</a>
+		
+			</div>
+		</footer>
+
+		<!-- /FOOTER -->
+
+	</div>
+	<!-- /WRAPPER -->
+
 
 </body>
 </html>

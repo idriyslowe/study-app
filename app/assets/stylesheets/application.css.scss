@@ -10,6 +10,32 @@
  * defined in the other CSS/SCSS files in this directory. It is generally better to create a new
  * file per style scope.
  *
+ *= require theme/bootstrap-theme
+ *= require theme/bootstrap
+ *= require theme/et-line-font
+ *= require theme/font-awesome
+ *= require theme/magnific-popup
+ *= require theme/owl.carousel
+ *= require theme/superslides
+ *= require theme/template
+ *= require theme/vertical
  *= require_tree .
  *= require_self
  */
+ div.devise {
+  padding-left: 25em;
+ }
+ div.new-form {
+  padding-left: 25em;
+ }
+ div.show {
+  padding-left: 25em;
+ }
+ textarea#text {
+  width: 70vw;
+  height: 100vh;
+  -webkit-box-sizing: border-box;
+  -moz-box-sizing: border-box;
+  box-sizing: border-box;
+  border: none;
+ }

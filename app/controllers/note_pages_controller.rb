@@ -7,11 +7,11 @@ class NotePagesController < ApplicationController
       title: params[:title],
       environment_id: params[:environment_id]
       )
-    render :show
+    redirect_to "/note_pages/#{@note_pages.id}"
   end
   def show
     @note_pages = NotePage.find_by(id: params[:id])
-    @environment = @note_pages.environment_id
+    @environments = Environment.where("status = ? AND user_id = ?", "active", current_user.id)
   end
   def edit
     @note_pages = NotePage.find_by(id: params[:id])

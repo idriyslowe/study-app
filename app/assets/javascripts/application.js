@@ -11,6 +11,23 @@
 // about supported directives.
 //
 //= require jquery
+//= require theme/jqBootstrapValidation
 //= require jquery_ujs
 //= require turbolinks
+//= require jquery.turbolinks
+//= require theme/jquery.superslides
+//= require theme/owl.carousel
+//= require theme/jquery.magnific-popup
+//= require theme/jquery.fitvids
+//= require theme/jquery.mb.YTPlayer
+//= require theme/appear
+//= require theme/bootstrap
+//= require theme/contact
+//= require theme/custom
+//= require theme/gmap3
+//= require theme/imagesloaded.pkgd
+//= require theme/isotope.pkgd
+//= require theme/npm
+//= require theme/smoothscroll
+//= require theme/submenu-fix
 //= require_tree .

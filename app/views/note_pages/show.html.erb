@@ -1,20 +1,38 @@
-<h1>NotePage</h1>
-<h1><%= @note_pages.title %></h1>
+<%= render partial: "navbar" %>
 
-<%= form_tag "/note_pages/#{@note_pages.id}", method: :patch do %>
-<div>
-  <%= text_area_tag :text, @note_pages.text, size: "24 x 24" %>
-</div>
-<%= hidden_field_tag :id, @note_pages.id %>
-<%= submit_tag "Submit" %>
-<% end %>
+<!-- PORTFOLIO SINGLE -->
+      <div class="container-fluid container-custom">
+        <div class="col-sm-10 col-sm-offset-2">
 
-<div>
-  <%= link_to 'Edit', "/note_pages/#{@note_pages.id}/edit" %>
-</div>
-<div>
-  <%= link_to 'Delete Page', "/environments/#{@note_pages.id}", method: :delete %>
-</div>
-<div>
-  <%= link_to 'Back to Environment', "/environments/#{@environment}" %>
-</div>
+          <!-- PORTFOLIO CONTENT -->
+
+            <h3>Note Page: <%= @note_pages.title %></h3>
+
+            <%= form_tag "/note_pages/#{@note_pages.id}", method: :patch do %>
+
+            <div class="full-notepage">
+              <%= text_area_tag :text, @note_pages.text %>
+            </div>
+
+            <%= hidden_field_tag :title, @note_pages.title %>
+            <%= hidden_field_tag :id, @note_pages.id %>
+            <button type="submit" class="btn btn-block btn-round btn-dark">Submit</button>
+            <% end %>
+
+            <div>
+              <%= link_to 'Edit', "/note_pages/#{@note_pages.id}/edit" %>
+            </div>
+            <div>
+              <%= link_to 'Delete Page', "/note_pages/#{@note_pages.id}", method: :delete %>
+            </div>
+
+          <!-- /PORTFOLIO CONTENT -->
+
+          <!-- TAGS -->
+          <div class="tags font-serif">
+            <%= link_to 'Back to Environment', "/environments/#{@note_pages.environment_id}" %>
+          </div>
+            <!-- /TAGS -->
+        </div>
+      </div>
+    <!-- PORTFOLIO SINGLE -->

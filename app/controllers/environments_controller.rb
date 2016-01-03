@@ -3,7 +3,8 @@ class EnvironmentsController < ApplicationController
     @environments = Environment.where("status = ? AND user_id = ?", "active", current_user.id)
   end
   def new
-    @environments = Environment.new
+    @environment = Environment.new
+    @environments = Environment.where("status = ? AND user_id = ?", "active", current_user.id)
   end
   def create
     @environments = Environment.create(
@@ -15,10 +16,12 @@ class EnvironmentsController < ApplicationController
     redirect_to '/environments'
   end
   def show
-    @environments = Environment.find_by(id: params[:id])
+    @environment = Environment.find_by(id: params[:id])
+    @environments = Environment.where("status = ? AND user_id = ?", "active", current_user.id)
   end
   def edit
-    @environments = Environment.find_by(id: params[:id])
+    @environment = Environment.find_by(id: params[:id])
+    @environments = Environment.where("status = ? AND user_id = ?", "active", current_user.id)
   end
   def update
     environment = Environment.find_by(id: params[:id])
