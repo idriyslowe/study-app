@@ -34,6 +34,12 @@
           <% end %>
           <div class="col-sm-4"></div>
           <!-- FORM END -->
+        <div class="col-sm-4">
+          <%= link_to 'Edit Environment', "/environments/#{@environment.id}/edit" %>
+        </div>
+        <div class="col-sm-4">
+          <%= link_to 'Archive Environment', "/environments/#{@environment.id}", method: :delete %>
+        </div>
           </div>
           </div>
 
@@ -43,16 +49,27 @@
 
     </section>
     <!-- /HERO -->
+  </div>
 
-<div class="show">
-    <% @environment.note_pages.each do |page| %>
-      <li><a href="/note_pages/<%= page.id %>"><%= page.title %></a></li>
-        <div>
-          <%= link_to 'Edit', "/environments/#{@environment.id}/edit" %>
-        </div>
-        <div>
-          <%= link_to 'Archive', "/environments/#{@environment.id}", method: :delete %>
-        </div>
-    <% end %>
-  </ul>
-</div>
+<!-- EXAMPLE BELOW -->
+    <section class="module-accordion">
+      <div class="container-fluid container-custom">
+          <% @environment.note_pages.each do |page| %>
+            <!-- ACCORDIONS -->
+            <div id="accordion" class="panel-group">
+              <div class="panel panel-default">
+                <div class="panel-heading">
+                  <h4 class="panel-title"><a data-toggle="collapse" data-parent="#accordion" href="#support1"><%= page.title %></a></h4>
+                </div>
+                <div id="support1" class="panel-collapse collapse in">
+                  <div class="panel-body">
+                    <%= link_to "OPEN... ", "/note_pages/#{page.id}" %><%= page.text %>
+                  </div>
+                </div>
+              </div>
+            </div>
+          <% end %>
+            <!-- /ACCORDIONS -->
+      </div>
+    </section>
+  </div>

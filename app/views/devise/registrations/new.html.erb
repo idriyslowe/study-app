@@ -1,21 +1,18 @@
-<div class="wrapper-devise-login">
-
-    <!-- HERO -->
-    <section id="hero" class="module-hero bg-dark-30 js-fullheight" data-background="http://cdn.shopify.com/s/files/1/0072/7502/products/8888a_08727881-0ac8-442c-b843-b26b7be897e9.jpg?v=1438190485">
+  <!-- HERO -->
+  <section id="hero" class="module-hero bg-dark-30 js-fullheight" data-background="http://cdn.shopify.com/s/files/1/0072/7502/products/8888a_08727881-0ac8-442c-b843-b26b7be897e9.jpg?v=1438190485">
 
       <!-- HERO TEXT -->
-      <div class="hero-caption">
-        <div class="hero-text">
-          <h6 class="m-b-30">Welcome to Study-App!</h6>
-          <h1 class="m-b-30"></h1>
-          <h6 class="m-b-60"></h6>
-          
+    <div class="hero-caption">
+      <div class="hero-text">
+        <h6 class="m-b-30">Welcome to Study-App!</h6>
+        <h1 class="m-b-30"></h1>
+        <h6 class="m-b-60"></h6>
+          <div class="wrapper-devise-login">
           <div class="devise">
             <h2>Sign up</h2>
 
             <%= form_for(resource, as: resource_name, url: registration_path(resource_name)) do |f| %>
               <%= devise_error_messages! %>
-
               <div class="field">
                 <%= f.label :email %><br />
                 <%= f.email_field :email, autofocus: true %>
