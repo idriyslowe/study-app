@@ -13,7 +13,12 @@ class NotesController < ApplicationController
   def show
   end
   def update
-
+    @note = Note.find_by(id: params[:id])
+    @note.update(
+      text: params[:text],
+      note_page_id: params[:note_page_id]
+      )
+    redirect_to "/note_pages/#{@note.note_page_id}"
   end
   def destroy
     note = Note.find_by(id: params[:id])
