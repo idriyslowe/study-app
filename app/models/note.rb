@@ -1,3 +1,3 @@
 class Note < ActiveRecord::Base
-  has_may :notes
+  belongs_to :note_page
 end
