@@ -5,14 +5,15 @@ class NotesController < ApplicationController
     @note = Note.new
   end
   def create
-    @notes = Note.create(
+    @note = Note.create(
+      text: params[:text],
+      note_page_id: params[:id],
       )
   end
   def show
   end
-  def edit
-  end
   def update
+
   end
   def destroy
     note = Note.find_by(id: params[:id])
