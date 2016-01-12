@@ -6,7 +6,7 @@ class NotesController < ApplicationController
   end
   def create
     @note = Note.create(
-      text: params[:text],
+      text: nil,
       note_page_id: params[:id],
       )
   end
