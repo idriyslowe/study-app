@@ -11,10 +11,12 @@ Rails.application.routes.draw do
   get '/environments' => 'environments#index'
   get '/environments/new' => 'environments#new'
   post '/environments' => 'environments#create'
+  get '/environments/archived' => 'environments#archived'
   get '/environments/:id' => 'environments#show'
   get '/environments/:id/edit' => 'environments#edit'
   patch '/environments/:id' => 'environments#update'
   delete '/environments/:id' => 'environments#destroy'
+  patch '/environments/:id/reactivate' => 'environments#reactivate'
 
   get '/note_pages' => 'note_pages#new'
   get '/note_pages/new' => 'note_pages#new'
@@ -31,4 +33,12 @@ Rails.application.routes.draw do
   get '/bookmarks/:id/edit' => 'bookmarks#edit'
   patch '/bookmarks/:id' => 'bookmarks#update'
   delete '/bookmarks/:id' => 'bookmarks#destroy'
+
+  get '/notes' => 'notes#index'
+  get '/notes/new' => 'notes#new'
+  post '/notes' => 'notes#create'
+  get '/notes/:id' => 'notes#show'
+  get '/notes/:id/edit' => 'notes#edit'
+  patch '/notes/:id' => 'notes#update'
+  delete '/notes/:id' => 'notes#destroy'
 end

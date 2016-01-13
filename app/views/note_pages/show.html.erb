@@ -1,57 +1,68 @@
 <%= render partial: "navbar" %>
 
 <!-- PORTFOLIO SINGLE -->
-<div class="container-fluid container-custom">
-  <div class="col-sm-10 col-sm-offset-2">
-
-    <!-- PORTFOLIO CONTENT -->
-
-      <h3>Note Page: <%= @note_pages.title %></h3>
-
-      <%= form_tag "/note_pages/#{@note_pages.id}", method: :patch do %>
-
-      <%= text_area_tag :text, @note_pages.text %>
-
-      <%= hidden_field_tag :title, @note_pages.title %>
-      <%= hidden_field_tag :id, @note_pages.id %>
-      <button type="submit" class="btn btn-block btn-round btn-dark">Submit</button>
-      <% end %>
-
-      <div>
-        <%= link_to 'Edit', "/note_pages/#{@note_pages.id}/edit" %>
-      </div>
-      <div>
-        <%= link_to 'Delete Page', "/note_pages/#{@note_pages.id}", method: :delete %>
-      </div>
-
-    <!-- /PORTFOLIO CONTENT -->
-
-    <!-- TAGS -->
-    <div class="tags font-serif">
-      <%= link_to 'Back to Environment', "/environments/#{@note_pages.environment_id}" %>
-    </div>
-      <!-- /TAGS -->
-  </div>
-</div>
-<!-- /PORTFOLIO SINGLE -->
-
-<section class="module-accordion">
-  <div class="container-fluid container-custom">
-      <% @note_pages.bookmarks.each do |bookmark| %>
-        <!-- ACCORDIONS -->
-        <div id="accordion" class="panel-group">
-          <div class="panel panel-default">
-            <div class="panel-heading">
-              <h4 class="panel-title"><a data-toggle="collapse" data-parent="#accordion" href="#support<%=bookmark.id%>"><%= bookmark.name %></a></h4>
-            </div>
-            <div id="support<%= bookmark.id %>" class="panel-collapse collapse in">
-              <div class="panel-body">
-                <%= link_to "OPEN... ", "/bookmarks/#{bookmark.id}" %><%= bookmark.path %>
+<div ng-app="app">
+  <div ng-controller="notepage">
+    <section class="module-accordion">
+      <div class="container-fluid container-custom">
+          <% @note_pages.notes.each do |note| %>
+          <div class="row">
+            <% note.bookmarks.each do |bookmark| %>
+              <div class="col-sm-2 tags font-serif"> 
+                <%= link_to bookmark.name, bookmark.path, target: "_blank" %>
+              </div> 
+            <% end %>           
+            <!-- COLUMN 8 DIV -->
+            <div class="col-md-10">           
+            <!-- ACCORDIONS -->
+              <div id="accordion" class="panel-group">
+                <div class="panel panel-default">
+                  <div class="panel-heading">
+                    <h4 class="panel-title"><a data-toggle="collapse" data-parent="#accordion" href="#support<%=note.id%>">
+                    <%= note.id %>                              
+                    </a></h4>
+                  </div>
+                  <div id="support<%=note.id%>" class="panel-collapse collapse">
+                    <div class="panel-body">
+                      <%= form_tag "/notes/#{note.id}", method: :patch do %>
+                        <%= text_area_tag :text, note.text %>
+                        <%= hidden_field_tag :id, note.id %>
+                        <%= hidden_field_tag :note_page_id, note.note_page_id %>
+                        <button type="submit" class="btn btn-block btn-round btn-dark">Submit</button>
+                      <% end %>
+                    </div>
+                  </div>
+                </div>
               </div>
+            <!-- /ACCORDIONS --> 
+            </div>
+            <!-- /COLUMN 8 DIV -->
+            <div class="col-md-2">
+              <%= link_to 'New Bookmark', "https://www.google.com/", target: "_blank" %><br>
+              <%= link_to 'Delete Note', "/notes/#{note.id}", method: :delete %>
             </div>
           </div>
-        </div>
-      <% end %>
-        <!-- /ACCORDIONS -->
+          <% end %>       
+      </div>
+    </section>
   </div>
-</section>
+</div>
+
+<!-- FORM -->
+<div class="row">
+  <div class="col-sm-2"></div>
+  <div class="col-sm-8">
+    <%= form_tag '/notes', method: :post do %>
+    <%= hidden_field_tag :note_page_id, @note_pages.id %> 
+        <div class="text-center">
+          <button type="submit" class="btn btn-block btn-round btn-dark">New Note</button>
+        </div>
+    <% end %>
+  </div>
+  <!-- FORM END -->
+  <!-- TAGS -->
+<div class="col-sm-2 tags font-serif"> 
+<%= link_to 'Back to Environment', "/environments/#{@note_pages.environment_id}" %>
+</div> 
+  <!-- /TAGS -->
+
