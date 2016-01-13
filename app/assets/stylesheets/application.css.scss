@@ -36,7 +36,7 @@
   border-radius: 2px;
   box-shadow: none;
  }
- div.new-form {
+ span.new-form {
   padding-left: 25em;
  }
  div.show {
@@ -50,3 +50,6 @@
   box-sizing: border-box;
   border: none;
  }
+div.bookmark-inline {
+  display: inline;
+}

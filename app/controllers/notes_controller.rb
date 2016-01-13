@@ -10,7 +10,6 @@ class NotesController < ApplicationController
       text: nil,
       note_page_id: params[:note_page_id],
       )
-    end
     redirect_to "/note_pages/#{@note.note_page_id}"
   end
   def show
