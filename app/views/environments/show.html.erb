@@ -35,11 +35,17 @@
           <div class="col-sm-4"></div>
           <!-- FORM END -->
         <div class="col-sm-4">
-          <%= link_to 'Edit Environment', "/environments/#{@environment.id}/edit" %>
+        <%= link_to 'Edit Environment', "/environments/#{@environment.id}/edit" %>
         </div>
-        <div class="col-sm-4">
-          <%= link_to 'Archive Environment', "/environments/#{@environment.id}", method: :delete %>
-        </div>
+        <% if @environment.status == 'active' %>
+          <div class="col-sm-4">
+            <%= link_to 'Archive Environment', "/environments/#{@environment.id}", method: :delete %>
+          </div>
+        <% else %>
+          <div class="col-sm-4">
+            <%= link_to 'Reactivate Environment', "/environments/#{@environment.id}/reactivate", method: :patch %>
+          </div>          
+        <% end %>
           </div>
           </div>
 

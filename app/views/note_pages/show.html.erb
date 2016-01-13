@@ -17,7 +17,7 @@
                     <%= note.id %>                 
                     </a></h4>
                   </div>
-                  <div id="support<%=note.id%>" class="panel-collapse collapse in">
+                  <div id="support<%=note.id%>" class="panel-collapse collapse">
                     <div class="panel-body">
                       <%= form_tag "/notes/#{note.id}", method: :patch do %>
                         <%= text_area_tag :text, note.text %>
@@ -25,6 +25,13 @@
                         <%= hidden_field_tag :note_page_id, note.note_page_id %>
                         <button type="submit" class="btn btn-block btn-round btn-dark">Submit</button>
                       <% end %>
+
+                      <script>
+                        window.setInterval(function() {
+                          $('#text').submit();
+                        }, 5000);
+                      </script>
+
                     </div>
                   </div>
                 </div>

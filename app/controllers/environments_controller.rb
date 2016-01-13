@@ -19,6 +19,9 @@ class EnvironmentsController < ApplicationController
     @environment = Environment.find_by(id: params[:id])
     @environments = Environment.where("status = ? AND user_id = ?", "active", current_user.id)
   end
+  def archived
+    @environments = Environment.where("status = ? AND user_id = ?", "archive", current_user.id)
+  end
   def edit
     @environment = Environment.find_by(id: params[:id])
     @environments = Environment.where("status = ? AND user_id = ?", "active", current_user.id)
@@ -31,6 +34,11 @@ class EnvironmentsController < ApplicationController
   def destroy
     environment = Environment.find_by(id: params[:id])
     environment.update(status: "archive")
+    redirect_to '/environments'
+  end
+  def reactivate
+    environment = Environment.find_by(id: params[:id])
+    environment.update(status: "active")
     redirect_to '/environments'
   end
 end
