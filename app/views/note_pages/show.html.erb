@@ -25,10 +25,9 @@
                   <div id="support<%=note.id%>" class="panel-collapse collapse">
                     <div class="panel-body">
                       <%= form_tag "/notes/#{note.id}", method: :patch do %>
-                        <input ng-model="noteText">
-                        <%= text_area_tag :text, note.text %>
+                        <input type="text" ng-model="noteText.text" class="note-page" >
                         <%= hidden_field_tag :id, note.id %>
-                        <%= hidden_field_tag :note_page_id, note.note_page_id %>
+                        <input ng-model="noteText.notePageId" class="note-page">
                         <button type="submit" class="btn btn-block btn-round btn-dark">Submit</button>
                       <% end %>
                     </div>
