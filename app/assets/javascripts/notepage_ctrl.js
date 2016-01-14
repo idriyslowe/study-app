@@ -1,17 +1,25 @@
 /* global angular */
 
 (function() {
-  angular.module("app").controller("notepage", function($scope, $http) {
+  angular.module("app").controller("notepage", function($scope, $http, $timeout) {
 
-    // $scope.autoSave = setInterval(function() {
-    //   var form = $('#text');
-    //   var method = form.attr('patch').toLowerCase();
-    //   var action = form.attr('/note_pages');
-    //   $[method](action, form.serialize(), function(data) {
-    //   });
-    // },5000);
+    $scope.noteText = {};
+      var timeout = null;
+      var saveUpdates = function() {
+        // .... save data to server
+      };
+      var debounceSaveUpdates = function(newVal, oldVal) {
+        if (newVal != oldVal) {
+          if (timeout) {
+            $timeout.cancel(timeout);
+          }
+          timeout = $timeout(saveUpdates, 1000);
+        }
+      };
 
-    window.$scope = $scope;
+      $scope.$watch('noteText.text', debounceSaveUpdates);
+      $scope.$watch('noteText.note_page_id', debounceSaveUpdates);
+        window.$scope = $scope;
 
   });
 })();
