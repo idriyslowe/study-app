@@ -41,4 +41,22 @@ Rails.application.routes.draw do
   get '/notes/:id/edit' => 'notes#edit'
   patch '/notes/:id' => 'notes#update'
   delete '/notes/:id' => 'notes#destroy'
+
+  namespace :api do
+    get '/bookmarks' => 'bookmarks#index'
+    get '/bookmarks/new' => 'bookmarks#new'
+    post '/bookmarks' => 'bookmars#create'
+    get '/bookmarks/:id' => 'bookmarks#show'
+    get '/bookmarks/:id/edit' => 'bookmarks#edit'
+    patch '/bookmarks/:id' => 'bookmarks#update'
+    delete '/bookmarks/:id' => 'bookmarks#destroy'
+
+    get '/notes' => 'notes#index'
+    get '/notes/new' => 'notes#new'
+    post '/notes' => 'notes#create'
+    get '/notes/:id' => 'notes#show'
+    get '/notes/:id/edit' => 'notes#edit'
+    patch '/notes/:id' => 'notes#update'
+    delete '/notes/:id' => 'notes#destroy'
+  end
 end

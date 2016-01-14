@@ -11,6 +11,10 @@
     //   });
     // },5000);
 
+    $scope.clickedTextArea = function(textArea) {
+      console.log(textArea);
+    };
+
     window.$scope = $scope;
 
   });
