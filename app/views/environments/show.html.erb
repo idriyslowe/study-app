@@ -4,7 +4,7 @@
   <div class="wrapper">
 
     <!-- HERO -->
-    <section id="hero" class="module-hero bg-dark-30 js-fullheight" data-background="http://cdn.shopify.com/s/files/1/0072/7502/products/8888a_08727881-0ac8-442c-b843-b26b7be897e9.jpg?v=1438190485">
+    <section id="hero" class="module-hero bg-dark-30 js-fullheight" data-background="<%= @environment.image_path %>">
 
       <!-- HERO TEXT -->
       <div class="hero-caption">
@@ -12,6 +12,20 @@
           <h6 class="m-b-30"><%= current_user.email %></h6>
           <h3 class="m-b-30">ENVIRONMENT:</h3>
           <h1 class="m-b-60"><%= @environment.name %></h1>
+
+          <div class="row">
+          <div class="col-sm-4"></div>
+          <div class="col-sm-4">
+          <%= form_tag "/environments/#{@environment.id}", method: :patch do %>
+            <input type="text" id="name" class="form-control" name="title" placeholder="Image 2000px x 2000px"><br>
+            <div class="text-center">
+              <button type="submit" class="btn btn-block btn-round btn-dark">Change</button>
+            </div>            
+          <% end %>
+          </div>
+          <div class="col-sm-4"></div>
+          </div><br>
+
             
           <!-- NEW FORM -->
           <div class="row">
