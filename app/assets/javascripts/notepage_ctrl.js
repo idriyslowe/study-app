@@ -1,36 +1,62 @@
 /* global angular */
 
+    // $scope.autoSave = setInterval(function() {
+    //   var form = $('#text');
+    //   var method = form.attr('patch').toLowerCase();
+    //   var action = form.attr('/note_pages');
+    //   $[method](action, form.serialize(), function(data) {
+    //   });
+    // },5000);
+
 (function() {
-  angular.module("app").controller("notepage", function($scope, $http, $timeout) {
+  angular.module("app").controller("notes", function($scope, $http) {
     $scope.setup = function() {
-      $http.get('/notes.json').then(function(response) {
+      $http.get('/api/notes.json').then(function(response) {
         $scope.notes = response.data;
       });
     };
 
-    $scope.noteText = {};
-      var timeout = null;
-      var saveUpdates = function() {
-          $http.post('/notes.json', noteText).then(function(response) {
-            console.log(response);
-            $scope.incidents.push(noteText);
-          }, function(error) {
-            console.log(error);
-            $scope.errors = error.data.errors;
-          });
-      };
-      var debounceSaveUpdates = function(newVal, oldVal) {
-        if (newVal != oldVal) {
-          if (timeout) {
-            $timeout.cancel(timeout);
-          }
-          timeout = $timeout(saveUpdates, 1000);
-        }
-      };
+    $scope.clickedTextArea = function(textArea) {
+      console.log(textArea);
+    };
 
-      $scope.$watch('noteText.text', debounceSaveUpdates);
-      $scope.$watch('noteText.note_page_id', debounceSaveUpdates);
-        window.$scope = $scope;
+    $scope.newNote = function(inputNotePageId) {
+      var note = {
+        'text': null,
+        'note_page_id': inputNotePageId
+      };
+      $http.post('/api/notes.json', note).then(function(response) {
+        console.log(response);
+        $scope.note.push(note);
+        
+      }, function(error) {
+        console.log(error);
+        $scope.errors = error.data.errors;
+      });
+    };
 
+    $scope.editNote = function(inputText, inputNoteObject) {
+      $scope.note = {
+        'id': inputNoteObject.id,
+        'text': inputNoteObject.text + inputText,
+        'note_page_id': inputNoteObject.note_page_id
+      };
+      $http.patch('/api/notes/' + $scope.note.id + '.json', $scope.note).then(function(response) {
+        console.log(response);
+        console.log($scope.note);
+        $scope.notes.push($scope.note);
+        
+      }, function(error) {
+        console.log(error);
+        $scope.errors = error.data.errors;
+      });
+    };
+
+    $scope.deleteNote = function(inputText) {
+      var index = $scope.people.indexOf(inputText);
+      $scope.people.splice(index, 1);
+    };
+
+    window.$scope = $scope;
   });
 })();
