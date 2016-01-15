@@ -4,7 +4,6 @@ class Api::NotesController < ApplicationController
   end
   def new
     note = Note.new
-    note_page = NotePage.find_by(id: params[:note_page_id])
   end
   def create
     @note = Note.new(
@@ -16,13 +15,15 @@ class Api::NotesController < ApplicationController
     end
   end
   def show
+    @note = Note.find_by(id: params[:id])
   end
   def update
     @note = Note.find_by(id: params[:id])
     @note.update(
-      text: params[:text],
-      note_page_id: params[:note_page_id]
+      text: params[:text] || @note.text,
+      note_page_id: params[:note_page_id] || @note.note_page_id
       )
+    render :show
   end
   def destroy
     note = Note.find_by(id: params[:id])

@@ -37,14 +37,15 @@
       });
     };
 
-    $scope.editNote = function(inputNoteObject) {
-      var note = {
+    $scope.editNote = function(inputText, inputNoteObject) {
+      $scope.note = {
         'id': inputNoteObject.id,
-        'text': inputNoteObject.text,
+        'text': inputNoteObject.text + inputText,
         'note_page_id': inputNoteObject.note_page_id
       };
-      $http.patch('/api/notes/:id.json', note).then(function(response) {
+      $http.patch('/api/notes/' + note.id + '.json', note).then(function(response) {
         console.log(response);
+        console.log(note);
         $scope.note.push(note);
         
       }, function(error) {
