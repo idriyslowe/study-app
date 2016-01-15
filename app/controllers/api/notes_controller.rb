@@ -7,11 +7,13 @@ class Api::NotesController < ApplicationController
     note_page = NotePage.find_by(id: params[:note_page_id])
   end
   def create
-    @note = Note.create(
+    @note = Note.new(
       text: nil,
       note_page_id: params[:note_page_id],
       )
-    redirect_to "/note_pages/#{@note.note_page_id}"
+    if @note.save
+      render json: { errors: @note.errors.full_messages }, status: 422
+    end
   end
   def show
   end
@@ -21,11 +23,9 @@ class Api::NotesController < ApplicationController
       text: params[:text],
       note_page_id: params[:note_page_id]
       )
-    redirect_to "/note_pages/#{@note.note_page_id}"
   end
   def destroy
     note = Note.find_by(id: params[:id])
     note.destroy
-    redirect_to "/note_pages/#{note.id}"
   end
 end

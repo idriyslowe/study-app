@@ -2,34 +2,26 @@
 
 <!-- PORTFOLIO SINGLE -->
 <div ng-app="app">
-  <div ng-controller="notepage">
+  <div ng-controller="notes" ng-init="setup()">
     <section class="module-accordion">
-      <div class="container-fluid container-custom">
-          <% @note_pages.notes.each do |note| %>
-          <div class="row">
-            <% note.bookmarks.each do |bookmark| %>
-              <div class="col-sm-2 tags font-serif"> 
-                <%= link_to bookmark.name, bookmark.path, target: "_blank" %>
-              </div> 
-            <% end %>           
+      <div class="container-fluid container-custom" ng-repeat="note in notes">
+          <div class="row">          
             <!-- COLUMN 8 DIV -->
             <div class="col-md-10">           
             <!-- ACCORDIONS -->
               <div id="accordion" class="panel-group">
                 <div class="panel panel-default">
                   <div class="panel-heading">
-                    <h4 class="panel-title"><a data-toggle="collapse" data-parent="#accordion" href="#support<%=note.id%>">
-                    <%= note.id %>                            
+                    <h4 class="panel-title"><a data-toggle="collapse" data-parent="#accordion" href="#support{{note.id}}">
+                    {{ note.id }}                         
                     </a></h4>
                   </div>
-                  <div id="support<%=note.id%>" class="panel-collapse collapse">
+                  <div id="support{{note.id}}" class="panel-collapse collapse">
                     <div class="panel-body">
-                      <%= form_tag "/notes/#{note.id}", method: :patch do %>
-                        <textarea ng-keyup="clickedTextArea(<%= note.id %>)" name="text" id="text"><%= note.text %></textarea>
-                        <%= hidden_field_tag :id, note.id %>
-                        <%= hidden_field_tag :note_page_id, note.note_page_id %>
-                        <button type="submit" class="btn btn-block btn-round btn-dark">Submit</button>
-                      <% end %>
+                      <textarea name="text" ng-model="noteText" id="text">{{ note.text }}</textarea>
+                      <div>
+                        <button class="btn btn-block btn-round btn-dark" ng-click="editNote(note)">Update Note</button>
+                      </div>
                     </div>
                   </div>
                 </div>
@@ -39,10 +31,9 @@
             <!-- /COLUMN 8 DIV -->
             <div class="col-md-2">
               <%= link_to 'New Bookmark', "https://www.google.com/", target: "_blank" %><br>
-              <%= link_to 'Delete Note', "/notes/#{note.id}", method: :delete %>
+              <a ng-click="deleteNote(note)" href="#">Delete</a>
             </div>
-          </div>
-          <% end %>       
+          </div>      
       </div>
     </section>
   </div>
