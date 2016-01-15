@@ -43,10 +43,10 @@
         'text': inputNoteObject.text + inputText,
         'note_page_id': inputNoteObject.note_page_id
       };
-      $http.patch('/api/notes/' + note.id + '.json', note).then(function(response) {
+      $http.patch('/api/notes/' + $scope.note.id + '.json', $scope.note).then(function(response) {
         console.log(response);
-        console.log(note);
-        $scope.note.push(note);
+        console.log($scope.note);
+        $scope.notes.push($scope.note);
         
       }, function(error) {
         console.log(error);
