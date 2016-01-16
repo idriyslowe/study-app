@@ -13,7 +13,8 @@ class EnvironmentsController < ApplicationController
       last_used: 1, 
       visit_count: 1, 
       user_id: current_user.id,
-      image_path: 'http://cdn.shopify.com/s/files/1/0072/7502/products/8888a_08727881-0ac8-442c-b843-b26b7be897e9.jpg?v=1438190485')
+      image_path: 'http://cdn.shopify.com/s/files/1/0072/7502/products/8888a_08727881-0ac8-442c-b843-b26b7be897e9.jpg?v=1438190485'
+      )
     redirect_to '/environments'
   end
   def show
@@ -28,12 +29,15 @@ class EnvironmentsController < ApplicationController
     @environments = Environment.where("status = ? AND user_id = ?", "active", current_user.id)
   end
   def update
-    environment = Environment.find_by(id: params[:id])
-    environment.update(
-    name: params[:name],
-    status: params[:status],
-    image_path: params[:image_path])
-    redirect_to '/environmenst/#{environment.id}'
+    @environment = Environment.find_by(id: params[:id])
+    @environment.update(
+    id: params[:id] || @environment.id,
+    name: params[:name] || @environment.name,
+    status: params[:status] || @environment.status,
+    image_path: params[:image_path] || @environment.image_path
+    )
+    @environments = Environment.where("status = ? AND user_id = ?", "active", current_user.id)
+    render :show
   end
   def destroy
     environment = Environment.find_by(id: params[:id])

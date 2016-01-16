@@ -17,7 +17,8 @@
           <div class="col-sm-4"></div>
           <div class="col-sm-4">
           <%= form_tag "/environments/#{@environment.id}", method: :patch do %>
-            <input type="text" id="name" class="form-control" name="title" placeholder="Image 2000px x 2000px"><br>
+            <label class="sr-only" for="image_path">Name</label>
+            <input type="text" id="name" class="form-control" name="image_path" placeholder="Image 2000px x 2000px"><br>
             <div class="text-center">
               <button type="submit" class="btn btn-block btn-round btn-dark">Change</button>
             </div>            
