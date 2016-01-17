@@ -5,9 +5,9 @@
   <div ng-controller="notes" ng-init="setup()">
     <section class="module-accordion">
       <div class="container-fluid container-custom" ng-repeat="note in notes">
-        <div class="col-sm-2 tags font-serif"> 
+        <div class="col-sm-12 tags font-serif"> 
           <div class="col-sm-2 tags font-serif" ng-repeat="bookmark in note.bookmarks">
-            <a href="{{bookmark.path}}">{{ bookmark.path }}</a>
+            <a target="_blank" href="{{bookmark.path}}">{{ bookmark.name }}</a>
           </div>
         </div>      
           <div class="row">                     
@@ -62,4 +62,25 @@
 <%= link_to 'Back to Environment', "/environments/#{@note_pages.environment_id}" %>
 </div> 
   <!-- /TAGS -->
+
+<!-- COMMENTS SECTION -->
+<div class="shows">
+  <div class="row">
+  <div class="col-sm-10">
+    <% @note_pages.comments.each do |comment| %>
+      <p><%= comment.created_at %></p>
+      <p><%= comment.text %></p>
+      <hr>
+    <% end %>
+    <%= form_tag '/comments', method: :post do %>
+      <%= text_area_tag :text, "Add New Comment" %>
+      <%= hidden_field_tag :note_page_id, @note_pages.id %>
+       <div class="text-center">
+         <button type="submit" class="btn btn-block btn-round btn-dark">Submit Comment
+         </button>
+       </div>
+    <% end %>
+    </div>
+  </div>
+</div>
 

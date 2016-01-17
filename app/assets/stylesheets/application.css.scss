@@ -39,17 +39,14 @@
  span.new-form {
   padding-left: 25em;
  }
- div.show {
-  padding-left: 25em;
+ div.shows {
+  padding-left: 19em;
  }
  textarea#text {
   width: 100%;
-  height: 1000px;
+  height: 100%;
   -webkit-box-sizing: border-box;
   -moz-box-sizing: border-box;
   box-sizing: border-box;
   border: none;
  }
-div.bookmark-inline {
-  display: inline;
-}

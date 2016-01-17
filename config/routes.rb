@@ -42,6 +42,8 @@ Rails.application.routes.draw do
   patch '/notes/:id' => 'notes#update'
   delete '/notes/:id' => 'notes#destroy'
 
+  post '/comments' => 'comments#create'
+
   namespace :api do
     get '/bookmarks' => 'bookmarks#index'
     get '/bookmarks/new' => 'bookmarks#new'
