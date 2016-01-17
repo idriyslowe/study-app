@@ -13,7 +13,8 @@ class EnvironmentsController < ApplicationController
       last_used: 1, 
       visit_count: 1, 
       user_id: current_user.id,
-      image_path: 'http://cdn.shopify.com/s/files/1/0072/7502/products/8888a_08727881-0ac8-442c-b843-b26b7be897e9.jpg?v=1438190485'
+      image_path: 'http://cdn.shopify.com/s/files/1/0072/7502/products/8888a_08727881-0ac8-442c-b843-b26b7be897e9.jpg?v=1438190485',
+      sharing: true
       )
     redirect_to '/environments'
   end
@@ -34,7 +35,8 @@ class EnvironmentsController < ApplicationController
     id: params[:id] || @environment.id,
     name: params[:name] || @environment.name,
     status: params[:status] || @environment.status,
-    image_path: params[:image_path] || @environment.image_path
+    image_path: params[:image_path] || @environment.image_path,
+    sharing: params[:sharing] || @environment.sharing
     )
     @environments = Environment.where("status = ? AND user_id = ?", "active", current_user.id)
     render :show
