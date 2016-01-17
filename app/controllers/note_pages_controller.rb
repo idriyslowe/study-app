@@ -5,7 +5,8 @@ class NotePagesController < ApplicationController
   def create
     @note_pages = NotePage.create(
       title: params[:title],
-      environment_id: params[:environment_id]
+      environment_id: params[:environment_id],
+      summary: params[:summary]
       )
     redirect_to "/note_pages/#{@note_pages.id}"
   end
@@ -18,7 +19,7 @@ class NotePagesController < ApplicationController
   end
   def update
     @note_pages = NotePage.find_by(id: params[:id])
-    @note_pages.update(title: params[:title], text: params[:text], id: params[:id])
+    @note_pages.update(title: params[:title], text: params[:text], summary: params[:summary], id: params[:id])
     redirect_to "/note_pages/#{@note_pages.id}"
   end
   def destroy

@@ -1,5 +1,14 @@
 <%= render partial: "navbar" %>
 
+<div class="shows">
+  <div class="row">
+    <div class="col-sm-10">
+      <h1>Note Page: <%= @note_pages.title %></h1>
+      <h4><%= @note_pages.summary %></h4>
+    </div>
+  </div>
+</div>
+
 <!-- PORTFOLIO SINGLE -->
 <div ng-app="app">
   <div ng-controller="notes" ng-init="setup()">

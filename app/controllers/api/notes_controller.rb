@@ -15,7 +15,7 @@ class Api::NotesController < ApplicationController
     end
   end
   def show
-    @note = Note.find_by(id: params[:id])
+    @note = Note.find_by(note_page_id: params[:note_page_id])
   end
   def update
     @note = Note.find_by(id: params[:id])
