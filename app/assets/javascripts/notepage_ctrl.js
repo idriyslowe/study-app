@@ -17,8 +17,8 @@
     $scope.urlId = window.location.pathname.split("/")[2];
 
     $scope.setup = function() {
-      $http.get('/api/notes.json').then(function(response) {
-        $scope.notes = response.data;
+      $http.get('/api/note_pages/' + $scope.urlId + '.json').then(function(response) {
+        $scope.notes = response.data.notes;
       });
     };
 
