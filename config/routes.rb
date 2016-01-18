@@ -45,6 +45,14 @@ Rails.application.routes.draw do
   post '/comments' => 'comments#create'
 
   namespace :api do
+    get '/note_pages' => 'note_pages#index'
+    get '/note_pages/new' => 'note_pages#new'
+    post '/note_pages' => 'note_pages#create'
+    get '/note_pages/:id' => 'note_pages#show'
+    get '/note_pages/:id/edit' => 'note_pages#edit'
+    patch '/note_pages/:id' => 'note_pages#update'
+    delete '/note_pages/:id' => 'note_pages#destroy'
+
     get '/bookmarks' => 'bookmarks#index'
     get '/bookmarks/new' => 'bookmarks#new'
     post '/bookmarks' => 'bookmars#create'
