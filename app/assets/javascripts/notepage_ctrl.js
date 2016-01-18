@@ -10,6 +10,12 @@
 
 (function() {
   angular.module("app").controller("notes", function($scope, $http) {
+    // function parseNotePageId($scope, $location) {
+    //   $scope.id=(/api\/note_pages\/*);
+    // }
+
+    $scope.urlId = window.location.pathname.split("/")[2];
+
     $scope.setup = function() {
       $http.get('/api/notes.json').then(function(response) {
         $scope.notes = response.data;

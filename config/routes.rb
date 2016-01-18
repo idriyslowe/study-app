@@ -41,7 +41,6 @@ Rails.application.routes.draw do
   get '/notes/:id/edit' => 'notes#edit'
   patch '/notes/:id' => 'notes#update'
   delete '/notes/:id' => 'notes#destroy'
-
   post '/comments' => 'comments#create'
 
   namespace :api do
