@@ -4,7 +4,13 @@
   <div class="row">
     <div class="col-sm-10">
       <h1>Note Page: <%= @note_pages.title %></h1>
-      <h4><%= @note_pages.summary %></h4>
+      <h4>
+        <%= @note_pages.summary %> 
+        <%= form_tag "/note_pages/#{@note_pages.id}", method: :patch do %>
+        <%= text_field_tag :summary, "Edit Summary" %>
+        <%= submit_tag "Submit" %>
+        <% end %>
+      </h4>
     </div>
   </div>
 </div>
