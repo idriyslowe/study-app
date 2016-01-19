@@ -23,7 +23,7 @@ class Api::NotesController < ApplicationController
       text: params[:text] || @note.text,
       note_page_id: params[:note_page_id] || @note.note_page_id
       )
-    redirect '/note_pages/#{note_page_id}'
+    redirect_to "/note_pages/#{@note.note_page_id}"
   end
   def destroy
     note = Note.find_by(id: params[:id])

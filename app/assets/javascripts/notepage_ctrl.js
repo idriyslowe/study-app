@@ -42,6 +42,7 @@
     };
 
     $scope.editNote = function(inputText, inputNoteObject) {
+      inputNoteObject.text = inputNoteObject.text + inputText;
       $scope.note = {
         'id': inputNoteObject.id,
         'text': inputNoteObject.text + inputText,
@@ -50,8 +51,7 @@
       $http.patch('/api/notes/' + $scope.note.id + '.json', $scope.note).then(function(response) {
         console.log(response);
         console.log($scope.note);
-        $scope.notes.push($scope.note);
-        
+
       }, function(error) {
         console.log(error);
         $scope.errors = error.data.errors;

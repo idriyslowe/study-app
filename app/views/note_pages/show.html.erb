@@ -35,7 +35,7 @@
                     {{ note.text }}
                       <textarea name="text" id="text" ng-model="noteText"></textarea>
                       <div>
-                        <button class="btn btn-block btn-round btn-dark" ng-click="editNote(noteText, note)">Update Note</button>
+                        <button class="btn btn-block btn-round btn-dark" ng-click="editNote(noteText, note); noteText = null;">Update Note</button>
                       </div>
                     </div>
                   </div>
