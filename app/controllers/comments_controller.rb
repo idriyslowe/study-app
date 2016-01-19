@@ -10,4 +10,9 @@ class CommentsController < ApplicationController
       )
     redirect_to "/note_pages/#{@comment.note_page_id}"    
   end
+  def destroy
+    comment = Comment.find_by(id: params[:id])
+    comment.destroy
+    redirect_to "/note_pages/#{comment.note_page_id}"
+  end
 end
