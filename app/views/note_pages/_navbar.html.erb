@@ -41,6 +41,7 @@
                 <% @environments.each do |environment| %>
                   <li><%= link_to environment.name, "/environments/#{environment.id}" %></li>
                 <% end %>
+                <li><%= link_to "Archive", "/environments/archived" %></li>
               </ul>
           </li>
     

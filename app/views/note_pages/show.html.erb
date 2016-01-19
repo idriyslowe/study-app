@@ -83,7 +83,7 @@
   <div class="row">
   <div class="col-sm-10">
     <% @note_pages.comments.each do |comment| %>
-      <p><%= comment.commenter %><%= comment.readable_created_at %><%= link_to 'Delete', "/comments/#{comment.id}", method: :delete %></p>
+      <p><%= comment.user.handle %>   <%= comment.readable_created_at %>   <%= link_to 'Delete', "/comments/#{comment.id}", method: :delete %></p>
       <p><%= comment.text %></p>
       <hr>
     <% end %>
