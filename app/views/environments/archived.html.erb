@@ -9,8 +9,8 @@
       <!-- HERO TEXT -->
       <div class="hero-caption">
         <div class="hero-text">
-          <h6 class="m-b-30"><%= current_user.email %></h6>
-          <h1 class="m-b-30">ENVIRONMENTS</h1>
+          <h6 class="m-b-30">Hi, <%= current_user.handle %>!</h6>
+          <h1 class="m-b-30">ARCHIVED ENVIRONMENTS</h1>
           <h6 class="m-b-60"></h6>
             
           <!-- FORM -->
@@ -49,12 +49,12 @@
 
           <div id="works-grid" class="works-grid works-grid-gutter">
 
-            <% @environments.each do |environment| %>
+            <% @archenvironments.each do |environment| %>
               <!-- PORTFOLIO ITEM/COLUMN -->
               <article class="work-item">
                 <div class="work-wrapper">
                   <div class="work-thumbnail">
-                    <%= image_tag "http://magickcanoe.com/CC-boyscout-forest-large.jpg" %>
+                    <%= image_tag environment.image_path %>
                   </div>
                   <div class="work-caption">
                     <h3 class="work-title font-alt"><%= link_to environment.name, "/environments/#{environment.id}" %></h3>
@@ -63,19 +63,6 @@
               </article>
               <!-- /PORTFOLIO ITEM -->
             <% end %>
-
-              <!-- PORTFOLIO ITEM/COLUMN -->
-              <article class="work-item">
-                <div class="work-wrapper">
-                  <div class="work-thumbnail">
-                    <%= image_tag "http://magickcanoe.com/CC-boyscout-forest-large.jpg" %>
-                  </div>
-                  <div class="work-caption">
-                    <h3 class="work-title font-alt"><%= link_to "Archive", "/environments" %></h3>
-                  </div>
-                </div>
-              </article>
-              <!-- /PORTFOLIO ITEM -->
 
           </div>
 

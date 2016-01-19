@@ -23,7 +23,8 @@ class EnvironmentsController < ApplicationController
     @environments = Environment.where("status = ? AND user_id = ?", "active", current_user.id)
   end
   def archived
-    @environments = Environment.where("status = ? AND user_id = ?", "archive", current_user.id)
+    @environments = Environment.where("status = ? AND user_id = ?", "active", current_user.id)
+    @archenvironments = Environment.where("status = ? AND user_id = ?", "archive", current_user.id)
   end
   def edit
     @environment = Environment.find_by(id: params[:id])
