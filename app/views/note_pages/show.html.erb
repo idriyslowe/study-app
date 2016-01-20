@@ -78,6 +78,12 @@
 </div> 
   <!-- /TAGS -->
 
+<div class="col-sm-2 tags font-serif"> 
+  <% current_user.bookmarks.each do |bookmark| %>
+    <%= link_to 'Unassigned Bookmarks', bookmark.path %>
+  <% end %>
+</div> 
+
 <!-- COMMENTS SECTION -->
 <div class="shows">
   <div class="row">
