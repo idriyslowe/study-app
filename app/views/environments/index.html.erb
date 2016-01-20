@@ -54,7 +54,7 @@
               <article class="work-item">
                 <div class="work-wrapper">
                   <div class="work-thumbnail">
-                    <%= image_tag environment.image_path %>
+                    <%= image_tag environment.image_path, :class => "thumbnail" %>
                   </div>
                   <div class="work-caption">
                     <h3 class="work-title font-alt"><%= link_to environment.name, "/environments/#{environment.id}" %></h3>
