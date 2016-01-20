@@ -28,7 +28,7 @@ Rails.application.routes.draw do
 
   get '/bookmarks' => 'bookmarks#index'
   get '/bookmarks/new' => 'bookmarks#new'
-  post '/bookmarks' => 'bookmars#create'
+  post '/bookmarks' => 'bookmarks#create'
   get '/bookmarks/:id' => 'bookmarks#show'
   get '/bookmarks/:id/edit' => 'bookmarks#edit'
   patch '/bookmarks/:id' => 'bookmarks#update'
@@ -56,7 +56,7 @@ Rails.application.routes.draw do
 
     get '/bookmarks' => 'bookmarks#index'
     get '/bookmarks/new' => 'bookmarks#new'
-    post '/bookmarks' => 'bookmars#create'
+    post '/bookmarks' => 'bookmarks#create'
     get '/bookmarks/:id' => 'bookmarks#show'
     get '/bookmarks/:id/edit' => 'bookmarks#edit'
     patch '/bookmarks/:id' => 'bookmarks#update'
