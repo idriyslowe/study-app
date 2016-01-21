@@ -26,7 +26,7 @@ Rails.application.routes.draw do
   patch '/note_pages/:id' => 'note_pages#update'
   delete '/note_pages/:id' => 'note_pages#destroy'
 
-  # get '/bookmarks' => 'bookmarks#index'
+  get '/bookmarks' => 'bookmarks#index'
   # get '/bookmarks/new' => 'bookmarks#new'
   # post '/bookmarks' => 'bookmarks#create'
   # get '/bookmarks/:id' => 'bookmarks#show'
@@ -36,11 +36,11 @@ Rails.application.routes.draw do
 
   # get '/notes' => 'notes#index'
   # get '/notes/new' => 'notes#new'
-  # post '/notes' => 'notes#create'
+  post '/notes' => 'notes#create'
   # get '/notes/:id' => 'notes#show'
   # get '/notes/:id/edit' => 'notes#edit'
-  # patch '/notes/:id' => 'notes#update'
-  # delete '/notes/:id' => 'notes#destroy'
+  patch '/notes/:id' => 'notes#update'
+  delete '/notes/:id' => 'notes#destroy'
 
   post '/comments' => 'comments#create'
   delete '/comments/:id' => 'comments#destroy'

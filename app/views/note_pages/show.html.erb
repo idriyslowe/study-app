@@ -78,14 +78,15 @@
 </div> 
   <!-- /TAGS -->
 
-<div class="col-sm-2 tags font-serif"> 
-  <% current_user.bookmarks.each do |bookmark| %>
-    <%= link_to 'Unassigned Bookmarks', bookmark.path %>
-  <% end %>
-</div> 
-
 <!-- COMMENTS SECTION -->
 <div class="shows">
+
+  <div class="col-sm-2 tags font-serif"> 
+    <% current_user.bookmarks.each do |bookmark| %>
+      <%= link_to bookmark.name, bookmark.path, target: "_blank" %>
+    <% end %>
+  </div> 
+
   <div class="row">
   <div class="col-sm-10">
     <% @note_pages.comments.each do |comment| %>

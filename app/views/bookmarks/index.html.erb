@@ -1,0 +1,7 @@
+<h1>ALL OF YOUR BOOKMARKS</h1>
+<% @bookmarks.each do |bookmark| %>
+  <p><%= bookmark.name %></p>
+  <p><%= bookmark.path %></p>
+  <p><%= bookmark.note_id %></p>
+  <p><%= bookmark.user_id %></p>
+<% end %>
