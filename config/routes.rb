@@ -26,10 +26,10 @@ Rails.application.routes.draw do
   patch '/note_pages/:id' => 'note_pages#update'
   delete '/note_pages/:id' => 'note_pages#destroy'
 
-  get '/bookmarks' => 'bookmarks#index'
+  # get '/bookmarks' => 'bookmarks#index'
   # get '/bookmarks/new' => 'bookmarks#new'
   # post '/bookmarks' => 'bookmarks#create'
-  # get '/bookmarks/:id' => 'bookmarks#show'
+  get '/bookmarks/:id' => 'bookmarks#show'
   # get '/bookmarks/:id/edit' => 'bookmarks#edit'
   # patch '/bookmarks/:id' => 'bookmarks#update'
   # delete '/bookmarks/:id' => 'bookmarks#destroy'

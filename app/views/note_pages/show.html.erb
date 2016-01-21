@@ -51,7 +51,6 @@
             </div>
             <!-- /COLUMN 8 DIV -->
             <div class="col-md-2">
-              <%= link_to 'New Bookmark', "https://www.google.com/", target: "_blank" %><br>
               <a ng-click="deleteNote(note)" href="#">Delete</a>
             </div>
           </div>      
@@ -83,7 +82,7 @@
 
   <div class="col-sm-2 tags font-serif"> 
     <% current_user.bookmarks.each do |bookmark| %>
-      <%= link_to bookmark.name, bookmark.path, target: "_blank" %>
+      <%= link_to bookmark.name, "/bookmarks/#{bookmark.id}", target: "_blank" %>
     <% end %>
   </div> 
 

@@ -1,0 +1,4 @@
+<h1>SCREENSHOT</h1>
+<h1><%= @bookmark.name %></h1>
+<h4><%= link_to "#{@bookmark.path}", @bookmark.path %></h4>
+<img src="<%= asset_path(@bookmark.screenshot_data) %>" />
