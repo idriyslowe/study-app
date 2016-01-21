@@ -58,11 +58,20 @@
       });
     };
 
-    $scope.deleteNote = function(inputText) {
-      var index = $scope.people.indexOf(inputText);
-      $scope.people.splice(index, 1);
-    };
+    $scope.deleteNote = function(inputNoteObject) {
+      $scope.note = {
+        'id': inputNoteObject.id
+      };
+      $http.delete('/api/notes/' + $scope.note.id + '.json', $scope.note).then(function(response) {
+        console.log(response);
+        var index = $scope.notes.indexOf(inputNoteObject);
+        $scope.notes.splice(index, 1);
 
+      }, function(error) {
+        console.log(error);
+        $scope.errors = error.data.errors;
+      });
+    };
     window.$scope = $scope;
   });
 })();

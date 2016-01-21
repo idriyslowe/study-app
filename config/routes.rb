@@ -15,8 +15,9 @@ Rails.application.routes.draw do
   get '/environments/:id' => 'environments#show'
   get '/environments/:id/edit' => 'environments#edit'
   patch '/environments/:id' => 'environments#update'
-  delete '/environments/:id' => 'environments#destroy'
+  delete '/environments/:id/archive' => 'environments#archive'
   patch '/environments/:id/reactivate' => 'environments#reactivate'
+  delete '/environments/:id' => 'environments#destroy'
 
   get '/note_pages' => 'note_pages#new'
   get '/note_pages/new' => 'note_pages#new'

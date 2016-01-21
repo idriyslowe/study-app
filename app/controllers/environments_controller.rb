@@ -42,14 +42,19 @@ class EnvironmentsController < ApplicationController
     @environments = Environment.where("status = ? AND user_id = ?", "active", current_user.id)
     render :show
   end
-  def destroy
+  def archive
     environment = Environment.find_by(id: params[:id])
     environment.update(status: "archive")
-    redirect_to '/environments'
+    redirect_to '/environments/archived'
   end
   def reactivate
     environment = Environment.find_by(id: params[:id])
     environment.update(status: "active")
+    redirect_to '/environments'
+  end
+  def destroy
+    environment = Environment.find_by(id: params[:id])
+    environment.destroy
     redirect_to '/environments'
   end
 end
