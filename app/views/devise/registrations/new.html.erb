@@ -6,11 +6,11 @@
     <div class="hero-caption">
       <div class="hero-text">
         <h1 class="m-b-30">STUDERE</h1>
-        <h1 class="m-b-30"></h1>
-        <h1 class="m-b-60"></h1>
+        <p class="m-b-30"></p>
+        <p class="m-b-60"></p>
           <div class="wrapper-devise-login">
           
-            <h2>Sign up</h2>
+            <h4>Sign up</h4>
             
             <%= form_for(resource, as: resource_name, url: registration_path(resource_name)) do |f| %>
               <%= devise_error_messages! %>
@@ -31,7 +31,7 @@
               </div>
             <% end %>
 
-            <h2>Log in</h2>
+            <h4>Log in</h4>
 
             <%= form_for(resource, as: resource_name, url: session_path(resource_name)) do |f| %>
               <div class="field">
