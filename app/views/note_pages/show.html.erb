@@ -21,15 +21,17 @@
     <section class="module-accordion">
       <div class="container-fluid container-custom" ng-repeat="note in notes">
         <div class="col-sm-12 tags font-serif"> 
+
+        </div> 
           <div class="col-sm-2 tags font-serif" ng-repeat="bookmark in note.bookmarks">
-            <a target="_blank" href="{{bookmark.path}}">{{ bookmark.name }}</a>
-          </div>
-        </div>      
-          <div class="row">                     
+            <a target="_blank" href="{{bookmark.path}}">{{ note.id }}</a>
+          </div> 
+
+          <div class="row">                           
             <!-- COLUMN 8 DIV -->
-            <div class="col-md-10">           
+            <div class="col-md-10">                    
             <!-- ACCORDIONS -->
-              <div id="accordion" class="panel-group">
+              <div id="accordion" class="panel-group">               
                 <div class="panel panel-default">
                   <div class="panel-heading">
                     <h4 class="panel-title"><a data-toggle="collapse" data-parent="#accordion" href="#support{{note.id}}">
