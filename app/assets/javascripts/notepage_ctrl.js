@@ -9,7 +9,7 @@
     // },5000);
 
 (function() {
-  angular.module("app").controller("notes", function($scope, $http, $timeout) {
+  angular.module("app").controller("notes", function($scope, $http) {
 
     $scope.urlId = window.location.pathname.split("/")[2];
 

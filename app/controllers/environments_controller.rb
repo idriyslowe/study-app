@@ -9,8 +9,7 @@ class EnvironmentsController < ApplicationController
   def create
     @environments = Environment.create(
       name: params[:name], 
-      status: "active", 
-      last_used: 1, 
+      status: "active",  
       visit_count: 1, 
       user_id: current_user.id,
       image_path: 'http://cdn.shopify.com/s/files/1/0072/7502/products/8888a_08727881-0ac8-442c-b843-b26b7be897e9.jpg?v=1438190485',
