@@ -17,6 +17,11 @@ class BookmarksController < ApplicationController
   def edit
   end
   def update
+    @bookmark = Bookmark.find_by(id: params[:id])
+    @bookmark.update(
+      name: params[:name],
+      note_id: params[:note_id]
+      )
   end
   def destroy
   end

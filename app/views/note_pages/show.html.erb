@@ -24,7 +24,7 @@
 
         </div> 
           <div class="col-sm-2 tags font-serif" ng-repeat="bookmark in note.bookmarks">
-            <a target="_blank" href="{{bookmark.path}}">{{ note.id }}</a>
+            <a target="_blank" href="{{bookmark.path}}">{{ bookmark.path }}  {{ bookmark.name}}</a>
           </div> 
 
           <div class="row">                           
@@ -35,13 +35,13 @@
                 <div class="panel panel-default">
                   <div class="panel-heading">
                     <h4 class="panel-title"><a data-toggle="collapse" data-parent="#accordion" href="#support{{note.id}}">
-                    {{ note.id }}                         
+                    {{ note.id }}  {{ note.text}}                         
                     </a></h4>
                   </div>
                   <div id="support{{note.id}}" class="panel-collapse collapse">
                     <div class="panel-body">
-                    {{ note.text }}
-                      <textarea name="text" id="text" ng-model="noteText"></textarea>
+                    
+                      <textarea name="text" id="text" ng-model="noteText "></textarea>
                       <div>
                         <button class="btn btn-block btn-round btn-dark" ng-click="editNote(noteText, note); noteText = null;">Update Note</button>
                       </div>

@@ -9,7 +9,7 @@
     // },5000);
 
 (function() {
-  angular.module("app").controller("notes", function($scope, $http) {
+  angular.module("app").controller("notes", function($scope, $http, $timeout) {
 
     $scope.urlId = window.location.pathname.split("/")[2];
 
@@ -39,7 +39,8 @@
       });
     };
 
-    // var timeout = null;    
+    $scope.myModel = {};
+    var timeout = null;   
 
     $scope.editNote = function(inputText, inputNoteObject) {
       inputNoteObject.text = inputNoteObject.text + inputText;
@@ -48,6 +49,16 @@
         'text': inputNoteObject.text + inputText,
         'note_page_id': inputNoteObject.note_page_id
       };
+
+      var debounceSaveUpdates = function(newVal, oldVal) {
+        if (newVal !== oldVal) {
+          if (timeout) {
+            $timeout.cancel(timeout);
+          }
+          timeout = $timeout($scope.editNote, 1000);
+        }
+      };
+      $scope.$watch('noteText', debounceSaveUpdates);
 
       $http.patch('/api/notes/' + $scope.note.id + '.json', $scope.note).then(function(response) {
         console.log(response);
