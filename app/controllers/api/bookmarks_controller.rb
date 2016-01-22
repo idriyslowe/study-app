@@ -13,7 +13,7 @@ class Api::BookmarksController < ApplicationController
       f.write(Base64.decode64(data['data:image/png;base64,'.length .. -1]))
     end
     @bookmark = Bookmark.new(
-      name: "From Extension",
+      name: Time.now.strftime("%A, %d %b %Y %l:%M %p"),
       path: params[:path],
       note_id: params[:note_id],
       user_id: current_user.id,

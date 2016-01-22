@@ -7,7 +7,7 @@ class Api::NotesController < ApplicationController
   end
   def create
     @note = Note.new(
-      text: ".",
+      text: nil,
       note_page_id: params[:note_page_id],
       )
     if @note.save

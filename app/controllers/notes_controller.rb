@@ -8,7 +8,7 @@ class NotesController < ApplicationController
   end
   def create
     @note = Note.create(
-      text: nil,
+      text: '',
       note_page_id: params[:note_page_id],
       )
     redirect_to "/note_pages/#{@note.note_page_id}"

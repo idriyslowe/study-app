@@ -30,7 +30,7 @@
 
     $scope.newNote = function(inputNotePageId) {
       var note = {
-        'text': null,
+        'text': '',
         'note_page_id': inputNotePageId
       };
       $http.post('/api/notes.json', note).then(function(response) {
@@ -47,6 +47,7 @@
     // var timeout = null;   
 
     $scope.editNote = function(inputText, inputNoteObject) {
+      console.log(inputText, inputNoteObject);
       inputNoteObject.text = inputNoteObject.text + inputText;
       $scope.note = {
         'id': inputNoteObject.id,

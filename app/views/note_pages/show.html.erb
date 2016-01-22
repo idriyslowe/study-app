@@ -4,13 +4,6 @@
   <div class="row">
     <div class="col-sm-10">
       <h1>Note Page: <%= @note_pages.title %></h1>
-      <h4>
-        <%= @note_pages.summary %> 
-        <%= form_tag "/note_pages/#{@note_pages.id}", method: :patch do %>
-        <%= text_field_tag :summary, "Edit Summary" %>
-        <%= submit_tag "Submit" %>
-        <% end %>
-      </h4>
     </div>
   </div>
 </div>
@@ -21,11 +14,6 @@
     <section class="module-accordion">
       <div class="container-fluid container-custom" ng-repeat="note in notes">
         <div class="col-sm-12 tags font-serif"> 
-
-        </div> 
-          <div class="col-sm-2 tags font-serif" ng-repeat="bookmark in bookmarks">
-            <a target="_blank" href="{{bookmark.path}}">{{ bookmark.path }}  {{ bookmark.name}}</a>
-          </div> 
 
           <div class="row">                           
             <!-- COLUMN 8 DIV -->
@@ -43,7 +31,7 @@
                     
                       <textarea name="text" id="text" ng-model="noteText "></textarea>
                       <div>
-                        <button class="btn btn-block btn-round btn-dark" ng-click="editNote(noteText, note); noteText = null;">Update Note</button>
+                        <button class="btn btn-block btn-round btn-dark" ng-click="editNote(noteText, note)">Update Note</button>
                       </div>
                     </div>
                   </div>
@@ -82,9 +70,9 @@
 <!-- COMMENTS SECTION -->
 <div class="shows">
 
-  <div class="col-sm-2 tags font-serif"> 
+  <div class="col-sm-10 tags font-serif"> 
     <% current_user.bookmarks.each do |bookmark| %>
-      <%= link_to bookmark.name, "/bookmarks/#{bookmark.id}", target: "_blank" %>
+      <%= link_to "#{bookmark.id} #{bookmark.name}", "/bookmarks/#{bookmark.id}", target: "_blank" %>
     <% end %>
   </div> 
 
