@@ -16,9 +16,13 @@
     $scope.setup = function() {
       $http.get('/api/note_pages/' + $scope.urlId + '.json').then(function(response) {
         $scope.notes = response.data.notes;
-        // $scope.bookmarks = $scope.notes.bookmarks;
+
       });
     };
+      // $http.get('/api/bookmarks.json').then(function(response) {
+      //   $scope.bookmarks = response.data;
+      // });
+    // };
 
     $scope.clickedTextArea = function(textArea) {
       console.log(textArea);
@@ -39,8 +43,8 @@
       });
     };
 
-    $scope.myModel = {};
-    var timeout = null;   
+    // $scope.myModel = {};
+    // var timeout = null;   
 
     $scope.editNote = function(inputText, inputNoteObject) {
       inputNoteObject.text = inputNoteObject.text + inputText;
@@ -50,15 +54,15 @@
         'note_page_id': inputNoteObject.note_page_id
       };
 
-      var debounceSaveUpdates = function(newVal, oldVal) {
-        if (newVal !== oldVal) {
-          if (timeout) {
-            $timeout.cancel(timeout);
-          }
-          timeout = $timeout($scope.editNote, 1000);
-        }
-      };
-      $scope.$watch('noteText', debounceSaveUpdates);
+      // var debounceSaveUpdates = function(newVal, oldVal) {
+      //   if (newVal !== oldVal) {
+      //     if (timeout) {
+      //       $timeout.cancel(timeout);
+      //     }
+      //     timeout = $timeout($scope.editNote, 1000);
+      //   }
+      // };
+      // $scope.$watch('noteText', debounceSaveUpdates);
 
       $http.patch('/api/notes/' + $scope.note.id + '.json', $scope.note).then(function(response) {
         console.log(response);
