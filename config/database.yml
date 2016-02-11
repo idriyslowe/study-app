@@ -11,7 +11,7 @@
 #
 
 production:
-  database: yourappname-production
+  database: bookmark-app_production
   adapter: postgresql
   encoding: unicode
   pool: 5
