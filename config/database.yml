@@ -58,5 +58,4 @@ test:
 production:
   <<: *default
   database: bookmark-app_production
-  username: bookmark-app
-  password: <%= ENV['BOOKMARK-APP_DATABASE_PASSWORD'] %>
+  # password: <%= ENV['BOOKMARK-APP_DATABASE_PASSWORD'] %>
