@@ -29,14 +29,15 @@ Rails.application.routes.draw do
 
   get '/bookmarks/:id' => 'bookmarks#show'
 
-  post '/notes' => 'notes#create'
-  patch '/notes/:id' => 'notes#update'
-  delete '/notes/:id' => 'notes#destroy'
-
   post '/comments' => 'comments#create'
   delete '/comments/:id' => 'comments#destroy'
 
   namespace :api do
+    post'/notes' => 'notes#create'
+    get '/notes' => 'notes#index'
+    patch '/notes/:id' => 'notes#update'
+    delete '/notes/:id' => 'notes#destroy'
+
     get '/note_pages' => 'note_pages#index'
     get '/note_pages/new' => 'note_pages#new'
     post '/note_pages' => 'note_pages#create'

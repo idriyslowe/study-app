@@ -14,9 +14,12 @@
     $scope.urlId = window.location.pathname.split("/")[2];
 
     $scope.setup = function() {
-      $http.get('/api/note_pages/' + $scope.urlId + '.json').then(function(response) {
-        $scope.notes = response.data.notes;
-
+      $http.get('/api/note_pages/' + $scope.urlId + '.rabl').then(function(response) {
+        $scope.inputData = response.data.note_page.notes;
+        $scope.notes = [];
+        for ( i = 0; i < $scope.inputData.length; i++) {
+          $scope.notes.push($scope.inputData[i].note);
+        }
       });
     };
       // $http.get('/api/bookmarks.json').then(function(response) {
@@ -33,7 +36,7 @@
         'text': '',
         'note_page_id': inputNotePageId
       };
-      $http.post('/api/notes.json', note).then(function(response) {
+      $http.post('/api/notes.rabl', note).then(function(response) {
         console.log(response);
         $scope.note.push(note);
         
