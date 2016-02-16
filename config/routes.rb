@@ -9,7 +9,6 @@ Rails.application.routes.draw do
     end
   end
   get '/environments' => 'environments#index'
-  get '/environments/new' => 'environments#new'
   post '/environments' => 'environments#create'
   get '/environments/archived' => 'environments#archived'
   get '/environments/:id' => 'environments#show'
