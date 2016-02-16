@@ -2,10 +2,6 @@ class EnvironmentsController < ApplicationController
   def index
     @environments = Environment.where("status = ? AND user_id = ?", "active", current_user.id)
   end
-  def new
-    @environment = Environment.new
-    @environments = Environment.where("status = ? AND user_id = ?", "active", current_user.id)
-  end
   def create
     @environments = Environment.create(
       name: params[:name], 

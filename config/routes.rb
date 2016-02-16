@@ -19,7 +19,6 @@ Rails.application.routes.draw do
 
   post '/note_pages' => 'note_pages#create'
   get '/note_pages/:id' => 'note_pages#show'
-  get '/note_pages/:id/edit' => 'note_pages#edit'
   patch '/note_pages/:id' => 'note_pages#update'
   delete '/note_pages/:id' => 'note_pages#destroy'
 
@@ -29,16 +28,17 @@ Rails.application.routes.draw do
   delete '/comments/:id' => 'comments#destroy'
 
   namespace :api do
-    post'/notes' => 'notes#create'
-    get '/notes' => 'notes#index'
+    post '/notes' => 'notes#create'
     patch '/notes/:id' => 'notes#update'
     delete '/notes/:id' => 'notes#destroy'
 
+    post '/bookmarks' => 'bookmarks#create'
+    patch '/bookmarks' => 'bookmarks#update'
+    delete '/bookmarks' => 'bookmarks#destroy'
+
     get '/note_pages' => 'note_pages#index'
-    get '/note_pages/new' => 'note_pages#new'
     post '/note_pages' => 'note_pages#create'
     get '/note_pages/:id' => 'note_pages#show'
-    get '/note_pages/:id/edit' => 'note_pages#edit'
     patch '/note_pages/:id' => 'note_pages#update'
     delete '/note_pages/:id' => 'note_pages#destroy'
   end

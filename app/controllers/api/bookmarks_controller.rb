@@ -1,11 +1,5 @@
 class Api::BookmarksController < ApplicationController
-  def index
-    @bookmarks = Bookmark.all
-  end
 
-  def new
-  end
-  
   def create
     data = params[:screenshot_data]
     filename = "#{SecureRandom.urlsafe_base64}.png" 
@@ -24,13 +18,6 @@ class Api::BookmarksController < ApplicationController
     else
       render json: { errors: @bookmark.full_messages }, status: 422
     end
-  end
-  
-  def show
-    @bookmark = Bookmark.find_by(id: params[:id])
-  end
-  
-  def edit
   end
   
   def update

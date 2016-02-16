@@ -2,9 +2,6 @@ class Api::NotePagesController < ApplicationController
   def index
     @note_pages = NotePage.all
   end
-  def new
-    @note_pages = NotePage.new
-  end
   def create
     @note_pages = NotePage.create(
       title: params[:title],
@@ -16,9 +13,6 @@ class Api::NotePagesController < ApplicationController
   def show
     @note_pages = NotePage.find_by(id: params[:id])
     @environments = Environment.where("status = ? AND user_id = ?", "active", current_user.id)
-  end
-  def edit
-    @note_pages = NotePage.find_by(id: params[:id])
   end
   def update
     @note_pages = NotePage.find_by(id: params[:id])
