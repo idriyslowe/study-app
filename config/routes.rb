@@ -12,7 +12,6 @@ Rails.application.routes.draw do
   post '/environments' => 'environments#create'
   get '/environments/archived' => 'environments#archived'
   get '/environments/:id' => 'environments#show'
-  get '/environments/:id/edit' => 'environments#edit'
   patch '/environments/:id' => 'environments#update'
   delete '/environments/:id/archive' => 'environments#archive'
   patch '/environments/:id/reactivate' => 'environments#reactivate'
