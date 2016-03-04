@@ -12,7 +12,7 @@
             <div class="col-md-10">                    
             <!-- ACCORDIONS -->
               <div ng-repeat="marks in note.bookmarks"> 
-                <a href="/bookmarks/{{marks.bookmark.id}}" target="_blank">{{marks.bookmark.name}}</a>
+                <a href="/bookmarks/{{marks.bookmark.id}}" target="_blank">{{marks.bookmark.id}}{{marks.bookmark.name}}</a>
               </div> 
 
               <div id="accordion" class="panel-group">               
@@ -73,8 +73,9 @@
 <div class="shows">
 
 <!-- UNASSIGNED BOOKMARKS -->
-  <div class="col-sm-10 tags font-serif"> 
-    <% current_user.bookmarks.each do |bookmark| %>
+  <div class="col-sm-10 tags font-serif">
+    <h3>Unassigned Bookmarks</h3>
+    <% current_user.unassigned_bookmarks.each do |bookmark| %>
       <%= link_to "#{bookmark.id} #{bookmark.name}", "/bookmarks/#{bookmark.id}", target: "_blank" %>
     <% end %>
   </div> 
