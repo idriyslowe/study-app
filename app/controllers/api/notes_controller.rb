@@ -1,10 +1,12 @@
 class Api::NotesController < ApplicationController
   def create
     @note = Note.new(
-      text: nil,
+      text: "",
       note_page_id: params[:note_page_id],
       )
     if @note.save
+      redirect_to "/note_pages/#{@note.note_page_id}"
+    else
       render json: { errors: @note.errors.full_messages }, status: 422
     end
   end

@@ -33,7 +33,7 @@
 
     $scope.newNote = function(inputNotePageId) {
       var note = {
-        'text': '',
+        'text': null,
         'note_page_id': inputNotePageId
       };
       $http.post('/api/notes.rabl', note).then(function(response) {
@@ -47,7 +47,7 @@
     };
 
     // $scope.myModel = {};
-    // var timeout = null;   
+    // var timeout = null;
 
     $scope.editNote = function(inputText, inputNoteObject) {
       console.log(inputText, inputNoteObject);
@@ -68,7 +68,7 @@
       // };
       // $scope.$watch('noteText', debounceSaveUpdates);
 
-      $http.patch('/api/notes/' + $scope.note.id + '.json', $scope.note).then(function(response) {
+      $http.patch('/api/notes/' + $scope.note.id + '.rabl', $scope.note).then(function(response) {
         console.log(response);
         console.log($scope.note);
 
@@ -82,7 +82,7 @@
       $scope.note = {
         'id': inputNoteObject.id
       };
-      $http.delete('/api/notes/' + $scope.note.id + '.json', $scope.note).then(function(response) {
+      $http.delete('/api/notes/' + $scope.note.id + '.rabl', $scope.note).then(function(response) {
         console.log(response);
         var index = $scope.notes.indexOf(inputNoteObject);
         $scope.notes.splice(index, 1);
