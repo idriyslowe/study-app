@@ -5,4 +5,5 @@ class NotePage < ActiveRecord::Base
   has_many :notes
   has_many :comments
 
+  validates :title, :environment_id, presence: true
 end

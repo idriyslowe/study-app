@@ -9,4 +9,5 @@ class User < ActiveRecord::Base
   def unassigned_bookmarks
     bookmarks.where(note_id: nil)
   end
+
 end

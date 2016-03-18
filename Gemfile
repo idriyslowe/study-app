@@ -39,10 +39,19 @@ gem 'thematic'
 
 # Use Capistrano for deployment
 # gem 'capistrano-rails', group: :development
+group :test do
+  gem 'faker', '~> 1.6.3'
+  gem 'capybara', '~> 2.6.2'
+  gem 'database_cleaner', '~> 1.5.1'
+  gem 'launchy', '~> 2.4.3'
+  gem 'selenium-webdriver', '~> 2.53.0'
+end
 
 group :development, :test do
   # Call 'byebug' anywhere in the code to stop execution and get a debugger console
   gem 'byebug'
+  gem 'factory_girl_rails'
+  gem 'rspec-rails', '~> 3.0'
 end
 
 group :development do

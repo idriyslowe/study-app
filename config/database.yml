@@ -10,14 +10,6 @@
 #   http://dev.mysql.com/doc/refman/5.0/en/old-client.html
 #
 
-# production:
-#   database: bookmark-app_production
-#   adapter: postgresql
-#   encoding: unicode
-#   pool: 5
-#   username: idriys
-#   password: password
-
 default: &default
   adapter: postgresql
   encoding: unicode
