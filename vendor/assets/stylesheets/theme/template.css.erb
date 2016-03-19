@@ -1542,6 +1542,7 @@ blockquote cite{
 
 .work-grid-3 .work-item{
 	width:33.3333%;
+	border-radius: 50%;
 }
 
 .works-grid-gutter .work-item{
@@ -1572,8 +1573,6 @@ blockquote cite{
 }
 
 .work-item img{
-/*	height:auto;*/
-/*	width:100%;*/
   height:390px;
   overflow: hidden;
 }
@@ -1585,7 +1584,7 @@ blockquote cite{
 	padding:0 20px;
 	text-align:center;
 	z-index:1;
-	opacity:0;
+	opacity:0.8;
 	-webkit-transform:translateY(-50%);
 	-moz-transform:translateY(-50%);
 	-o-transform:translateY(-50%);
@@ -1603,8 +1602,8 @@ blockquote cite{
 .work-title{
 	letter-spacing:4px;
 	font-weight:700;
-	font-size:13px;
-	opacity:0;
+	font-size:55px;
+	opacity:0.8;
 	margin:0 0 15px;
 	-webkit-transform:translateY(10px);
 	-moz-transform:translateY(10px);
@@ -1614,6 +1613,9 @@ blockquote cite{
 	-moz-transition:.3s cubic-bezier(.215, .61, .355, 1) 0s;
 	-o-transition:.3s cubic-bezier(.215, .61, .355, 1) 0s;
 	transition:.3s cubic-bezier(.215, .61, .355, 1) 0s;
+	-ms-transform: scale(0.6,0.6);
+	-webkit-transform: scale(0.6,0.6);
+	transform: scale(0.6,0.6);
 }
 
 .work-item:hover .work-title{
