@@ -1,20 +1,21 @@
 <%= render partial: "navbar" %>
 
 <div class="wrapper">
-  <!-- PORTFOLIO SINGLE -->
+<!-- ANGULAR AND BOOTSTRAP SETUP -->
   <div ng-app="app">
     <div ng-controller="notes" ng-init="setup()">
       <section class="module-accordion">
         <div class="container-fluid container-custom" ng-repeat="note in notes">
           <div class="col-sm-12 tags font-serif"> 
-            <div class="row">                           
-              <!-- COLUMN 8 DIV -->
-              <div class="col-md-10">                    
-              <!-- ACCORDIONS -->
-                <div ng-repeat="marks in note.bookmarks"> 
-                  <a href="/bookmarks/{{marks.bookmark.id}}" target="_blank">{{marks.bookmark.id}}{{marks.bookmark.name}}</a>
-                </div> 
-
+            <div class="row">
+            <!-- END SETUP -->
+            <!-- BOOKMARKS -->
+            <div class="col-md-12">
+              <a href="/bookmarks/{{marks.bookmark.id}}" target="_blank" ng-repeat="marks in note.bookmarks">{{marks.bookmark.id}}{{marks.bookmark.name}}</a>
+            </div>
+            <!-- BOOKMARKS -->
+              <div class="col-md-10">
+                <!-- NOTE ACCORDIONS -->
                 <div id="accordion" class="panel-group">               
                   <div class="panel panel-default">
                     <div class="panel-heading">
@@ -33,15 +34,16 @@
                     </div>
                   </div>
                 </div>
-              <!-- /ACCORDIONS --> 
+              <!-- END ACCORDIONS --> 
               </div>
-              <!-- /COLUMN 8 DIV -->
+              <!-- DELETE BUTTONS -->
               <div class="col-md-2">
                 <a ng-click="deleteNote(note)" href="#">Delete</a>
               </div>
               <div class="col-md-2">
                 <a href="javascript:alert('Hi');">Click Me!</a>
               </div>
+              <!-- END BUTTONS -->
             </div>      
         </div>
       </div>
