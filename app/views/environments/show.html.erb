@@ -1,97 +1,94 @@
 <%= render partial: "navbar" %>
 
   <!-- WRAPPER -->
-  <div class="wrapper">
+<div class="wrapper">
+  <!-- HERO -->
+  <section id="hero" class="module-hero bg-dark-30 js-halfheight" data-background="<%= @environment.image_path %>">
+    <!-- HERO TEXT -->
+    <div class="hero-caption">
+      <div class="hero-text">
 
-    <!-- HERO -->
-    <section id="hero" class="module-hero bg-dark-30 js-fullheight" data-background="<%= @environment.image_path %>">
-
-      <!-- HERO TEXT -->
-      <div class="hero-caption">
-        <div class="hero-text">
-          <h6 class="m-b-30">Hi, <%= current_user.handle %>!</h6>
-          <h3 class="m-b-30">ENVIRONMENT:</h3>
-          <h1 class="m-b-60"><%= @environment.name %></h1>
-
-          <div class="row">
-          <div class="col-sm-4"></div>
-          <div class="col-sm-4">
-          <%= form_tag "/environments/#{@environment.id}", method: :patch do %>
-            <label class="sr-only" for="image_path">Name</label>
-            <input type="text" id="name" class="form-control" name="image_path" placeholder="Image 2000px x 2000px"><br>
-            <div class="text-center">
-              <button type="submit" class="btn btn-block btn-round btn-dark">Change</button>
-            </div>            
-          <% end %>
+        <div class="row">
+          <div class="col-sm-2">
+            <h3 class="m-b-30">ENVIRONMENT:</h3>
+            <h3 class="m-b-30"><%= @environment.name %></h3>
           </div>
+          <!-- END HEADER COLUMN -->
           <div class="col-sm-4"></div>
-          </div><br>
-
-            
-          <!-- NEW FORM -->
-          <div class="row">
-          <div class="col-sm-4"></div>
-          <div class="col-sm-4">
-          <%= form_tag '/note_pages', method: :post do %> 
-            <form id="contact-form" role="form" novalidate>
-              <div class="form-group">
-                <label class="sr-only" for="title">Name</label>
-                <input type="text" id="name" class="form-control" name="title" placeholder="New NotePage Name">
-                <p class="help-block text-danger"></p>
-              </div>
+          <!-- NEW ENV IMG CHANGE FORM -->
+          <div class="col-sm-6">
+            <%= form_tag "/environments/#{@environment.id}", method: :patch do %>
+              <label class="sr-only" for="image_path">Name</label>
+              <input type="text" id="name" class="form-control" name="image_path" placeholder="Image 2000px x 2000px"><br>
               <div class="text-center">
-                <button type="submit" class="btn btn-block btn-round btn-dark">Create</button>
-              </div>
-              <div>
-                <%= hidden_field_tag :environment_id, @environment.id %>
-              </div>
-            </form>
-          <% end %>
-          <div class="col-sm-4"></div>
-          <!-- FORM END -->
-        <% if @environment.status == 'active' %>
-          <div class="col-sm-4">
-            <%= link_to 'Archive Environment', "/environments/#{@environment.id}/archive", method: :delete %>
-          <div class="col-sm-4">
-          <%= link_to 'Edit Environment', "/environments/#{@environment.id}/edit" %>
-          </div>      
-          </div>
-        <% else %>
-          <div class="col-sm-4">
-            <%= link_to 'Reactivate Environment', "/environments/#{@environment.id}/reactivate", method: :patch %>
-            <%= link_to 'Delete Environment', "/environments/#{@environment.id}", method: :delete %>            
-          </div>          
-        <% end %>
-          </div>
-          </div>
-
-        </div>
-      </div>
-      <!-- /HERO TEXT -->
-
-    </section>
-    <!-- /HERO -->
-  </div>
-
-    <section class="module-accordion">
-    <h1>All Notepages</h1>
-      <div class="container-fluid container-custom">
-          <% @environment.note_pages.each do |page| %>
-            <!-- ACCORDIONS -->
-            <div id="accordion" class="panel-group">
-              <div class="panel panel-default">
-                <div class="panel-heading">
-                  <h4 class="panel-title"><a data-toggle="collapse" data-parent="#accordion" href="#support<%=page.id%>"><%= page.title %></a></h4>
+                <button type="submit" class="btn btn-block btn-round btn-dark">Change</button>
+              </div>            
+            <% end %>
+          <!-- END FORM -->
+          <br>         
+          <!-- NEW NOTEPAGE FORM -->
+            <%= form_tag '/note_pages', method: :post do %> 
+              <form id="contact-form" role="form" novalidate>
+                <div class="form-group">
+                  <label class="sr-only" for="title">Name</label>
+                  <input type="text" id="name" class="form-control" name="title" placeholder="New NotePage Name">
+                  <p class="help-block text-danger"></p>
                 </div>
-                <div id="support<%=page.id%>" class="panel-collapse collapse in">
-                  <div class="panel-body">
-                    <%= link_to "Open #{page.summary}", "/note_pages/#{page.id}"%>
-                  </div>
+                <div class="text-center">
+                  <button type="submit" class="btn btn-block btn-round btn-dark">Create</button>
+                </div>
+                <div>
+                  <%= hidden_field_tag :environment_id, @environment.id %>
+                </div>
+              </form>
+            <% end %>
+          <!-- FORM END -->
+          <!-- ENV EDIT LINKS -->
+          <% if @environment.status == 'active' %>
+            <div class="col-sm-4">
+              <%= link_to 'Archive Environment', "/environments/#{@environment.id}/archive", method: :delete %>
+            <div class="col-sm-4">
+            <%= link_to 'Edit Environment', "/environments/#{@environment.id}/edit" %>
+            </div>      
+            </div>
+          <% else %>
+            <div class="col-sm-4">
+              <%= link_to 'Reactivate Environment', "/environments/#{@environment.id}/reactivate", method: :patch %>
+              <%= link_to 'Delete Environment', "/environments/#{@environment.id}", method: :delete %>            
+            </div>          
+          <% end %>
+        </div>
+        <!-- END FORMS COLUMN -->
+      </div>
+      <!-- END ROW -->
+      </div>
+      <!-- END HERO TEXT -->
+    </div>
+    <!-- END HERO CAPTION -->
+  </section>
+  <!-- END HERO -->
+</div>
+
+<!-- <div class="col-sm-2"></div> -->
+  <section class="module-accordion">
+    <div class="container-fluid container-custom">
+      <h1>All Notepages</h1>
+        <% @environment.note_pages.each do |page| %>
+          <!-- ACCORDIONS -->
+          <div id="accordion" class="panel-group">
+            <div class="panel panel-default">
+              <div class="panel-heading">
+                <h4 class="panel-title"><a data-toggle="collapse" data-parent="#accordion" href="#support<%=page.id%>"><%= page.title %><%= page.summary %></a></h4>
+              </div>
+              <div id="support<%=page.id%>" class="panel-collapse collapse in">
+                <div class="panel-body">
+                  <%= link_to "Open #{page.summary}", "/note_pages/#{page.id}"%>
                 </div>
               </div>
             </div>
-          <% end %>
-            <!-- /ACCORDIONS -->
-      </div>
-    </section>
-  </div>
+          </div>
+        <% end %>
+          <!-- /ACCORDIONS -->
+    </div>
+  </section>
+</div>

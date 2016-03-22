@@ -40,6 +40,20 @@
 		}).resize();
 
 		/* ---------------------------------------------- /*
+		 * Half height module
+		/* ---------------------------------------------- */
+
+		$(window).resize(function() {
+			if (moduleHero.length > 0) {
+				if (moduleHero.hasClass('js-halfheight')) {
+					moduleHero.height($(window).height() * .5);
+				} else {
+					moduleHero.height($(window).height() * .7 );
+				}
+			}
+		}).resize();
+
+		/* ---------------------------------------------- /*
 		 * Intro slider setup
 		/* ---------------------------------------------- */
 
