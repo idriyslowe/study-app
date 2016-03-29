@@ -1,49 +1,42 @@
 <!DOCTYPE html>
 <html>
-<head>
-  <title>Study App!</title>
-  <%= stylesheet_link_tag    'application', media: 'all', 'data-turbolinks-track' => true %>
-  <%= javascript_include_tag 'application', 'data-turbolinks-track' => true %>
-  <%= csrf_meta_tags %>
-</head>
-<body>
-
-	<!-- PRELOADER -->
-	<div class="page-loader">
-		<div class="loader">Loading...</div>
-	</div>
-	<!-- /PRELOADER -->
-	
-		</section>
-		<!-- /PORTFOLIO -->
-		<hr class="divider">
-	
-		<div class="content-yield">
-			<%= yield %>
-		</div>
-
-		<!-- FOOTER -->
-
-		<footer class="footer module-overlay-dark-3">
-			<div class="container-fluid container-custom">
-		
-				<div class="row">
-					<div class="col-sm-12">
-						<ul class="contact-info font-alt">
-							<li>idriyswins@gmail.com</li>
-							<li>CHICAGO, IL, USA</li>
-						</ul>
-					</div>
-				</div>
-		
+	<head>
+	  <title>Study App!</title>
+	  <%= stylesheet_link_tag    'application', media: 'all', 'data-turbolinks-track' => true %>
+	  <%= javascript_include_tag 'application', 'data-turbolinks-track' => true %>
+	  <%= csrf_meta_tags %>
+	</head>
+	<body>
+			<!-- PRELOADER -->
+			<div class="page-loader">
+				<div class="loader">Loading...</div>
 			</div>
-		</footer>
-
-		<!-- /FOOTER -->
-
-	</div>
+			<!-- /PRELOADER -->
+		
+			</section>
+			<!-- /PORTFOLIO -->
+			<hr class="divider">
+		
+			<div class="content-yield">
+				<%= yield %>
+			</div>
+			<!-- FOOTER -->
+			<footer class="footer">
+			<!-- <footer class="footer module-overlay-dark-3"> -->
+				<div class="container-fluid container-custom">
+			
+					<div class="row">
+						<div class="col-sm-12">
+							<ul class="contact-info font-alt">
+								<li>idriyswins@gmail.com</li>
+								<li>CHICAGO, IL, USA</li>
+							</ul>
+						</div>
+					</div>
+			
+				</div>
+			</footer>
+			<!-- /FOOTER -->
 	<!-- /WRAPPER -->
-
-
-</body>
+	</body>
 </html>

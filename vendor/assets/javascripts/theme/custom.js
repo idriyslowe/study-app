@@ -31,10 +31,12 @@
 
 		$(window).resize(function() {
 			if (moduleHero.length > 0) {
+				var poop = $(window).height();
+				console.log(poop);
 				if (moduleHero.hasClass('js-fullheight')) {
-					moduleHero.height($(window).height());
+					moduleHero.height(poop);
 				} else {
-					moduleHero.height($(window).height() * 0.65);
+					moduleHero.height(poop * 0.65);
 				}
 			}
 		}).resize();

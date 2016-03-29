@@ -22,6 +22,17 @@
  *= require_tree .
  *= require_self
  */
+ html, body {
+  margin: 0%;
+  padding: 0%;
+  height: 100%;
+ }
+ body {
+  min-height: 100%;
+ }
+ .content-yield {
+  height: 900px;
+ }
  .devise-field {
   padding-top: 7px;
   padding-bottom: 7px;
