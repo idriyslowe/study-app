@@ -1,18 +1,28 @@
 <%= render partial: "navbar" %>
 
   <!-- WRAPPER -->
-<div class="wrapper">
   <!-- HERO -->
   <section id="hero" class="module-hero bg-dark-30 js-halfheight" data-background="<%= @environment.image_path %>">
     <!-- HERO TEXT -->
     <div class="hero-caption">
       <div class="hero-text">
-
-        <div class="row">
+        <div class="row env-show-hero-row">
           <div class="col-sm-2">
             <h3 class="m-b-30">ENVIRONMENT:</h3>
             <h3 class="m-b-30"><%= @environment.name %></h3>
-          </div>
+          
+          <!-- ENV EDIT LINKS -->
+          <% if @environment.status == 'active' %>
+            <div class="col-sm-6">
+              <%= link_to 'Archive Environment', "/environments/#{@environment.id}/archive", method: :delete %>
+            </div>
+          <% else %>
+            <div class="col-sm-6">
+              <%= link_to 'Reactivate Environment', "/environments/#{@environment.id}/reactivate", method: :patch %>
+              <%= link_to 'Delete Environment', "/environments/#{@environment.id}", method: :delete %>            
+            </div>          
+          <% end %>
+        </div>
           <!-- END HEADER COLUMN -->
           <div class="col-sm-4"></div>
           <!-- NEW ENV IMG CHANGE FORM -->
@@ -43,20 +53,6 @@
               </form>
             <% end %>
           <!-- FORM END -->
-          <!-- ENV EDIT LINKS -->
-          <% if @environment.status == 'active' %>
-            <div class="col-sm-4">
-              <%= link_to 'Archive Environment', "/environments/#{@environment.id}/archive", method: :delete %>
-            <div class="col-sm-4">
-            <%= link_to 'Edit Environment', "/environments/#{@environment.id}/edit" %>
-            </div>      
-            </div>
-          <% else %>
-            <div class="col-sm-4">
-              <%= link_to 'Reactivate Environment', "/environments/#{@environment.id}/reactivate", method: :patch %>
-              <%= link_to 'Delete Environment', "/environments/#{@environment.id}", method: :delete %>            
-            </div>          
-          <% end %>
         </div>
         <!-- END FORMS COLUMN -->
       </div>
@@ -67,7 +63,6 @@
     <!-- END HERO CAPTION -->
   </section>
   <!-- END HERO -->
-</div>
 
 <!-- <div class="col-sm-2"></div> -->
   <section class="module-accordion">
