@@ -10,8 +10,9 @@
             <div class="row">
             <!-- END SETUP -->
             <!-- BOOKMARKS -->
-            <div class="col-md-12">
+            <div class="col-md-12" ondrop="drop(event)" ondragover="allowDrop(event)">
               <a href="/bookmarks/{{marks.bookmark.id}}" target="_blank" ng-repeat="marks in note.bookmarks">{{marks.bookmark.id}}{{marks.bookmark.name}}</a>
+              <a ></a>
             </div>
             <!-- BOOKMARKS -->
               <div class="col-md-10">
@@ -74,7 +75,10 @@
       <div class="col-sm-10 tags font-serif">
         <h3>Unassigned Bookmarks</h3>
         <% current_user.unassigned_bookmarks.each do |bookmark| %>
-          <%= link_to "#{bookmark.id} #{bookmark.name}", "/bookmarks/#{bookmark.id}", target: "_blank" %>
+
+          <a href="/bookmarks/<%=bookmark.id%>" target="_blank" draggable="true" ondragstart="drag(event)"
+          id="bmlink"><%= bookmark.id %><%= bookmark.name %></a>
+
         <% end %>
       </div> 
     <!-- END /UNASSIGNED BOOKMARKS -->
