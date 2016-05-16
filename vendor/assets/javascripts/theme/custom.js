@@ -14,6 +14,8 @@
 
 		var moduleHero = $('.module-hero, .module-map'),
 			mobileTest;
+		var halfModuleHero = $('.half-module-hero'),
+			mobileTest;
 
 		/* ---------------------------------------------- /*
 		 * Mobile detect
@@ -31,12 +33,10 @@
 
 		$(window).resize(function() {
 			if (moduleHero.length > 0) {
-				var poop = $(window).height();
-				console.log(poop);
 				if (moduleHero.hasClass('js-fullheight')) {
-					moduleHero.height(poop);
+					moduleHero.height($(window).height());
 				} else {
-					moduleHero.height(poop * 0.65);
+					moduleHero.height($(window).height() * 0.65);
 				}
 			}
 		}).resize();
@@ -46,11 +46,11 @@
 		/* ---------------------------------------------- */
 
 		$(window).resize(function() {
-			if (moduleHero.length > 0) {
-				if (moduleHero.hasClass('js-halfheight')) {
-					moduleHero.height($(window).height() * .5);
+			if (halfModuleHero.length > 0) {
+				if (halfModuleHero.hasClass('js-halfheight')) {
+					halfModuleHero.height($(window).height() * .5);
 				} else {
-					moduleHero.height($(window).height() * .7 );
+					halfModuleHero.height($(window).height() * .7 );
 				}
 			}
 		}).resize();

@@ -9,7 +9,7 @@
       $http.get('/api/note_pages/' + $scope.urlId + '.rabl').then(function(response) {
         $scope.inputData = response.data.note_page.notes;
         $scope.notes = [];
-        for (i = 0; i < $scope.inputData.length; i++) {
+        for (var i = 0; i < $scope.inputData.length; i++) {
           $scope.notes.push($scope.inputData[i].note);
         }
       });

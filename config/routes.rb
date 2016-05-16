@@ -21,6 +21,7 @@ Rails.application.routes.draw do
   get '/note_pages/:id' => 'note_pages#show'
   patch '/note_pages/:id' => 'note_pages#update'
   delete '/note_pages/:id' => 'note_pages#destroy'
+  get '/note_pages/working/:id' => 'note_pages#show_working'
 
   get '/bookmarks/:id' => 'bookmarks#show'
 

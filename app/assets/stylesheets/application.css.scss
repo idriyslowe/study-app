@@ -27,9 +27,19 @@
   padding: 0%;
   height: 100%;
  }
+
  body {
+  font-family: "Helvetica Neue", Helvetica, Arial, sans-serif;
+  font-size: 14px;
+  line-height: 1.42857143;
+  color: #333333;
+  background-image: url(app/assets/images/studere-background.jpg);
+  background-size: 100%;
+  background-repeat: repeat-y;
+  height: 100%;
+  position:relative;
   min-height: 100%;
- }
+}
  .content-yield {
   height: 900px;
  }
@@ -68,3 +78,106 @@
  .env-show-hero-row {
   padding-top: 70px;
  }
+
+
+
+ .button-divider {
+  margin: 0;
+}
+
+.bookmarks {
+  margin-bottom: 2%;
+}
+.comment-section{
+  padding-left: 5%;
+  padding-right: 20%;
+}
+.delete-icon {
+  height: 20px;
+  margin-right: 20px;
+}
+.new-bookmark {
+  margin-top: 10px;
+  background-color: black;
+}
+.new-bookmark-icon {
+  height: 20px;
+  margin-top: 0;
+  margin-right: 20px;
+  -ms-transform: rotate(45deg); /* IE 9 */
+  -webkit-transform: rotate(45deg); /* Chrome, Safari, Opera */
+  transform: rotate(45deg);
+}
+.note-button {
+  background-color: rgba(0, 0, 0, 0.41);
+  background: -webkit-radial-gradient(rgba(0, 0, 0, 0.41), transparent); /* Safari 5.1 to 6.0 */
+  background: -o-radial-gradient(rgba(0, 0, 0, 0.41), transparent); /* For Opera 11.6 to 12.0 */
+  background: -moz-radial-gradient(rgba(0, 0, 0, 0.41), transparent); /* For Firefox 3.6 to 15 */
+  background: radial-gradient(rgba(0, 0, 0, 0.41), transparent); /* Standard syntax */
+}
+.note-buttons {
+  display: inline;
+  color: rgba(255, 255, 255, 0.74);
+}
+.notepage-title {
+  margin-top: 0;
+  font-size: 40px;
+
+}
+.notepage-summary {
+  font-size: 25px;
+}
+.notepage-intro {
+  margin-bottom: 50px;
+  padding-left: 4%;
+  color: white;
+}
+.notes-section {
+  font-size: 30px;
+  color: white;
+}
+.bottom-section {
+  font-size: 30px;
+  color: white;
+  margin-left: 4%;
+}
+.autosave-text {
+  background: transparent;
+  background-color: rgba(255, 255, 255, 0.2);
+  margin-left: 10%;
+  border-width: 0;
+  height: auto;
+  color: white;
+  font-size: 18px;
+  width: 90%;
+  rows: 10;
+  cols: 80;
+}
+.logo {
+  margin-top: 20px;
+  padding-top: 10px;
+  padding-left: 30px;
+}
+.logo img {
+  height: 40px;
+}
+.submit-button {
+  height: 50px;
+  width: 50%;
+  margin-left: 20%;
+  border: none; 
+  -moz-border-radius: 0 0 50% 50%;
+  -webkit-border-radius: 0 0 50% 50%;
+  background-color: rgba(0, 0, 0, 0.35);
+  font-size: 30px;
+  color: white;
+}
+.submit-comment {
+  margin-left: 10%;
+}
+.unassigned-bookmarks {
+  margin-top: 2%;
+  margin-left: 4%;
+  margin-bottom: 5%;
+}
+
