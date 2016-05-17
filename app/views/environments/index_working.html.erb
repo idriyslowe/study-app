@@ -1,0 +1,27 @@
+<div class="env-index-title">
+  <div class="logo col-sm-2"><img src="../../studere-icon.gif" alt=""></div>
+  <div class="col-sm-6 notepage-intro">
+      <p class="notepage-title">ENVIRONMENTS for</p>
+      <p class="notepage-summary"><%= current_user.handle %></p>
+  </div>
+  <div class="col-sm-2">
+      <p class="notepage-intro">Hamburger on the right</p>
+  </div>
+</div>
+  <div class="wrapper">
+
+  <!-- ADD NOTEPAGE WELLS HERE -->
+  <!-- PORTFOLIO -->
+  <section>
+      <div>
+        <% @environments.each do |environment| %>
+            <div class="env-np-well">
+              <h3><%= link_to environment.name, "/environments/#{environment.id}" %></h3>
+            </div>
+        <% end %>
+        <div class="env-np-well">
+          <h3><%= link_to "ARCHIVE", "/environments/archived" %></h3>
+        </div>
+      </div>
+  </section>          
+</div> 

@@ -10,15 +10,7 @@
  * defined in the other CSS/SCSS files in this directory. It is generally better to create a new
  * file per style scope.
  *
- *= require theme/bootstrap-theme
  *= require theme/bootstrap
- *= require theme/et-line-font
- *= require theme/font-awesome
- *= require theme/magnific-popup
- *= require theme/owl.carousel
- *= require theme/superslides
- *= require theme/template
- *= require theme/vertical
  *= require_tree .
  *= require_self
  */
@@ -33,16 +25,13 @@
   font-size: 14px;
   line-height: 1.42857143;
   color: #333333;
-  background-image: url(app/assets/images/studere-background.jpg);
+  background-image: url(studere-background.jpg);
   background-size: 100%;
   background-repeat: repeat-y;
   height: 100%;
   position:relative;
   min-height: 100%;
 }
- .content-yield {
-  height: 900px;
- }
  .devise-field {
   padding-top: 7px;
   padding-bottom: 7px;
@@ -78,9 +67,6 @@
  .env-show-hero-row {
   padding-top: 70px;
  }
-
-
-
  .button-divider {
   margin: 0;
 }
@@ -95,6 +81,20 @@
 .delete-icon {
   height: 20px;
   margin-right: 20px;
+}
+.env-np-well {
+  width: 30%;
+  min-height: 90px;
+  display: inline-block;
+  border-color: white;
+  border-style:solid;
+  border-width:6px;
+  margin-top: 2%;
+  margin-left: 2%;
+}
+.env-np-well a {
+  color: white;
+  padding-left: 30px;
 }
 .new-bookmark {
   margin-top: 10px;
@@ -179,5 +179,8 @@
   margin-top: 2%;
   margin-left: 4%;
   margin-bottom: 5%;
+}
+.env-index-title {
+  height: 200px;
 }
 

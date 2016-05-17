@@ -1,15 +1,15 @@
         
 <div ng-app='app' ng-controller='notes' ng-init="setup()">
-  <div class="logo col-sm-2"><img src="studere-icon.gif" alt=""></div>
-  <div class="col-sm-8 notepage-intro">
-      <p class="notepage-title">NOTEPAGE: {{ notepage.title }}</p>
-      <p class="notepage-summary">{{ notepage.summary }}</p>
+  <div class="logo col-sm-2"><img src="../../studere-icon.gif" alt=""></div>
+  <div class="col-sm-6 notepage-intro">
+      <p class="notepage-title">NOTEPAGE: notepage.title</p>
+      <p class="notepage-summary">notepage.summary</p>
   </div>
-  <div class="col-sm-8 notepage-intro">Back to Environment</div>
+  <div class="col-sm-2 notepage-intro">Hamburger Icon on the right</div>
+  
   <div class="wrapper">
   <!-- ANGULAR AND BOOTSTRAP SETUP -->
     <div>
-      <div>
         <section>
           <div class="container-fluid container-custom">
             <div class="col-sm-12 tags font-serif"> 
@@ -20,7 +20,7 @@
               <div class="col-md-10">
               <!-- BOOKMARKS -->
                   <div class="bookmarks">
-                      <a href="https://www.buzzfeed.com/" target="_blank" class="bookmark">{{ bookmark.name }}</a>
+                      <a href="https://www.buzzfeed.com/" target="_blank" class="bookmark">Friday, 04 Mar 2016 3:27 PM</a>
                   </div>
                   <!-- NOTE ACCORDIONS -->
                   <div class="autosave-text">
@@ -31,129 +31,20 @@
                 <!-- DELETE BUTTONS -->
               <div class="col-md-2">
                   <div class="note-button">
-                      <a href="#"><img src="delete-icon.gif" alt="" class="new-bookmark new-bookmark-icon"></a><p class="note-buttons">New Bookmark</p>
+                      <a href="#"><img src="../../delete-icon.gif" alt="" class="new-bookmark new-bookmark-icon"></a><p class="note-buttons">New Bookmark</p>
                   </div>
                   <hr>
                   <div class="note-button">
-                      <a href="#"><img class="delete-icon" src="delete-icon.gif" alt=""></a><p class="note-buttons">Delete Note</p>
+                      <a href="#"><img class="delete-icon" src="../../delete-icon.gif" alt=""></a><p class="note-buttons">Delete Note</p>
                   </div>
               </div>
                 <!-- END BUTTONS -->
-          </div>
         </div>
         </section>
       </div>
     </div>
     <hr>
-  <!-- ANGULAR AND BOOTSTRAP SETUP -->
-    <div>
-      <div>
-        <section>
-          <div class="container-fluid container-custom">
-            <div class="col-sm-12 tags font-serif"> 
-              <!-- END SETUP -->
-              <!-- BOOKMARKS -->
-              <!-- <div class="col-md-12" ondrop="drop(event)" ondragover="allowDrop(event)"> -->
-              <div class="col-md-10">
-              <!-- BOOKMARKS -->
-                  <div class="bookmarks">
-                      <a href="https://www.buzzfeed.com/" target="_blank">{{ bookmark.name }}</a>
-                  </div>
-                  <!-- NOTE ACCORDIONS -->
-                  <div class="autosave-text">
-                      <p contenteditable="true">{{ note.text }}</p>
-                  </div>
-              </div>
-                <!-- END ACCORDIONS --> 
-                <!-- DELETE BUTTONS -->
-              <div class="col-md-2">
-                  <div class="note-button">
-                      <a href="#"><img class="delete-icon" src="delete-icon.gif" alt=""></a><p class="note-buttons">Delete Note</p>
-                  </div>
-                  <hr>
-                  <div class="note-button">
-                      <a href="#"><img src="delete-icon.gif" alt="" class="new-bookmark new-bookmark-icon"></a><p class="note-buttons">New Bookmark</p>
-                  </div>
-              </div>
-                <!-- END BUTTONS -->
-          </div>
-        </div>
-        </section>
-      </div>
-    </div>
-    <hr>
-    <div>
-      <div>
-        <section>
-          <div class="container-fluid container-custom">
-            <div class="col-sm-12 tags font-serif"> 
-              <!-- END SETUP -->
-              <!-- BOOKMARKS -->
-              <!-- <div class="col-md-12" ondrop="drop(event)" ondragover="allowDrop(event)"> -->
-              <div class="col-md-10">
-              <!-- BOOKMARKS -->
-                  <div class="bookmarks">
-                      <a href="https://www.buzzfeed.com/" target="_blank">{{ bookmark.name }}</a>
-                  </div>
-                  <!-- NOTE ACCORDIONS -->
-                  <div class="autosave-text">
-                      <p contenteditable="true">{{ note.text }}</p>
-                  </div>
-              </div>
-                <!-- END ACCORDIONS --> 
-                <!-- DELETE BUTTONS -->
-              <div class="col-md-2">
-                  <div class="note-button">
-                      <a href="#"><img class="delete-icon" src="delete-icon.gif" alt=""></a><p class="note-buttons">Delete Note</p>
-                  </div>
-                  <hr>
-                  <div class="note-button">
-                      <a href="#"><img src="delete-icon.gif" alt="" class="new-bookmark new-bookmark-icon"></a><p class="note-buttons">New Bookmark</p>
-                  </div>
-              </div>
-                <!-- END BUTTONS -->
-          </div>
-        </div>
-        </section>
-      </div>
-    </div>
-    <hr>
-    <div>
-      <div>
-        <section>
-          <div class="container-fluid container-custom">
-            <div class="col-sm-12 tags font-serif"> 
-              <!-- END SETUP -->
-              <!-- BOOKMARKS -->
-              <!-- <div class="col-md-12" ondrop="drop(event)" ondragover="allowDrop(event)"> -->
-              <div class="col-md-10">
-              <!-- BOOKMARKS -->
-                  <div class="bookmarks">
-                      <a href="https://www.buzzfeed.com/" target="_blank">{{ bookmark.name }}</a>
-                  </div>
-                  <!-- NOTE ACCORDIONS -->
-                  <div class="autosave-text">
-                      <p contenteditable="true">{{ note.text }}</p>
-                  </div>
-              </div>
-                <!-- END ACCORDIONS --> 
-                <!-- DELETE BUTTONS -->
-              <div class="col-md-2">
-                  <div class="note-button">
-                      <a href="#"><img class="app/assets/images/delete-icon" src="delete-icon.gif" alt=""></a><p class="note-buttons">Delete Note</p>
-                  </div>
-                  <hr>
-                  <div class="note-button">
-                      <a href="#"><img src="app/assets/images/delete-icon.gif" alt="" class="new-bookmark new-bookmark-icon"></a><p class="note-buttons">New Bookmark</p>
-                  </div>
-              </div>
-                <!-- END BUTTONS -->
-          </div>
-        </div>
-        </section>
-      </div>
-    </div>
-    <hr>                    
+  <!-- ANGULAR AND BOOTSTRAP SETUP -->                   
     <hr class="button-divider">
     <div>
       <!-- NEW NOTE BUTTON -->
@@ -170,7 +61,7 @@
         <p class="bottom-section">UNASSIGNED BOOKMARKS</p>
         <div class="col-sm-10 tags font-serif">
           <div class="unassigned-bookmarks">
-            <a href="https://www.buzzfeed.com/" class="bookmark">{{ bookmark.name }}</a>
+            <a href="https://www.buzzfeed.com/" class="bookmark">Friday, 04 Mar 2016 3:27 PM</a>
           </div>                  
 
         </div> 

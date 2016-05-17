@@ -1,8 +1,6 @@
-  <%= render partial: "navbar" %>
-
   <!-- WRAPPER -->
     <!-- HERO -->
-    <section id="hero" class="module-hero bg-dark-30 js-halfheight" data-background="http://cdn.shopify.com/s/files/1/0072/7502/products/8888a_08727881-0ac8-442c-b843-b26b7be897e9.jpg?v=1438190485">
+    <section>
 
       <!-- HERO TEXT -->
       <div class="hero-caption">
@@ -52,7 +50,7 @@
               <article class="work-item">
                 <div class="work-wrapper">
                   <div class="work-thumbnail">
-                    <%= image_tag environment.image_path %>
+                    <p>Image or no image</p>
                   </div>
                   <div class="work-caption">
                     <h3 class="work-title font-alt"><%= link_to environment.name, "/environments/#{environment.id}" %></h3>
@@ -66,7 +64,7 @@
               <article class="work-item">
                 <div class="work-wrapper">
                   <div class="work-thumbnail">
-                    <%= image_tag "https://thelifeofseb.files.wordpress.com/2012/03/awi-core-archive_hg.jpg" %>
+                    <p>Image or no image?</p>
                   </div>
                   <div class="work-caption">
                     <h3 class="work-title font-alt"><%= link_to "Archive", "/environments/archived" %></h3>
