@@ -82,6 +82,9 @@
   height: 20px;
   margin-right: 20px;
 }
+.devise-title {
+  height: 150px;
+}
 .env-np-well {
   width: 30%;
   min-height: 90px;
@@ -92,9 +95,14 @@
   margin-top: 2%;
   margin-left: 2%;
 }
-.env-np-well a {
+.env-np-well a, h3 {
   color: white;
   padding-left: 30px;
+}
+.environments-section {
+  font-size: 40px;
+  color: white;
+  margin-left: 2%;
 }
 .new-bookmark {
   margin-top: 10px;
@@ -133,11 +141,11 @@
   color: white;
 }
 .notes-section {
-  font-size: 30px;
+  font-size: 40px;
   color: white;
 }
 .bottom-section {
-  font-size: 30px;
+  font-size: 40px;
   color: white;
   margin-left: 4%;
 }
@@ -173,7 +181,7 @@
   color: white;
 }
 .submit-comment {
-  margin-left: 10%;
+  /*margin-left: 10%;*/
 }
 .unassigned-bookmarks {
   margin-top: 2%;

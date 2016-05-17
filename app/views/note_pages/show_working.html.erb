@@ -1,12 +1,14 @@
 
 
 <div ng-app='app' ng-controller='notes' ng-init="setup()">
-  <div class="logo col-sm-2"><img src="../../studere-icon.gif" alt=""></div>
-  <div class="col-sm-6 notepage-intro">
+  <div class="logo col-sm-2">
+    <a href="/environments"><img src="../../studere-icon.gif" alt=""></a>
+  </div>
+  <div class="col-sm-8 notepage-intro">
       <p class="notepage-title">NOTEPAGE: notepage.title </p>
       <p class="notepage-summary">notepage.summary</p>
   </div>
-  <div class="col-sm-2 notepage-intro">Hamburger Icon on the right</div>
+  <div class="col-sm-2 notepage-intro">Hamburger on the right</div>
 
   <div class="wrapper">
   <!-- ANGULAR AND BOOTSTRAP SETUP -->
@@ -50,10 +52,8 @@
     <div>
       <!-- NEW NOTE BUTTON -->
       <div class="row">
-        <div>
-              <div class="text-center">
-                <button class="submit-button" type="submit">NEW NOTE</button>
-              </div>
+        <div class="text-center">
+          <button class="submit-button" type="submit">NEW NOTE</button>
         </div>
         <!-- BUTTON END -->
       </div>    
@@ -72,22 +72,22 @@
       <p class="bottom-section">COMMENTS</p>
         <div class="row">
           <div class="comment-section">
-              <div class="autosave-text">
-                  <p>{{ comment.posted_by }}</p>
-                  <p>Past comment. Can't edit.</p>
-              </div>
-              <div class="autosave-text">
-                  <p>{{ comment.posted_by }}</p>
-                  <p>Past comment. Can't edit.</p>
-              </div>
-              <div class="autosave-text">
-                  <p>{{ comment.posted_by }}</p>
-                  <p contenteditable="true">{{ comment.text }}</p>
-              </div>
-              <hr class="button-divider">                                   
-               <div class="text-center">
-                 <button class="submit-button submit-comment" type="submit">NEW COMMENT</button>
-               </div>
+            <div class="autosave-text">
+                <p>{{ comment.posted_by }}</p>
+                <p>Past comment. Can't edit.</p>
+            </div>
+            <div class="autosave-text">
+                <p>{{ comment.posted_by }}</p>
+                <p>Past comment. Can't edit.</p>
+            </div>
+            <div class="autosave-text">
+                <p>{{ comment.posted_by }}</p>
+                <p contenteditable="true">{{ comment.text }}</p>
+            </div>
+            <hr class="button-divider">                                   
+            <div class="text-center">
+              <button class="submit-button submit-comment" type="submit">NEW COMMENT</button>
+            </div>
           </div>    
         </div>
 

@@ -1,18 +1,31 @@
-  <!-- WRAPPER -->
-    <!-- HERO -->
-    <section>
+<div class="env-index-title">
+  <div class="logo col-sm-2">
+    <a href="/environments"><img src="../../studere-icon.gif" alt=""></a>
+  </div>
+  <div class="col-sm-8 notepage-intro">
+      
+  </div>
+  <div class="col-sm-2">
+      <p class="notepage-intro">Hamburger on the right</p>
+  </div>
+</div>
+  <div class="wrapper">
 
-      <!-- HERO TEXT -->
-      <div class="hero-caption">
-        <div class="hero-text">
-          <h6 class="m-b-30"></h6>
-          <h1 class="m-b-30">ENVIRONMENTS</h1>
-          <h6 class="m-b-60"></h6>
-            
-          <!-- FORM -->
-          <div class="row">
-          <div class="col-sm-4"></div>
-          <div class="col-sm-4">
+  <!-- ADD NOTEPAGE WELLS HERE -->
+  <!-- PORTFOLIO -->
+  <section>
+    <p class="environments-section">ACTIVE ENVIRONMENTS</p>
+    <div>
+      <% @environments.each do |environment| %>
+          <div class="env-np-well">
+            <h3><%= link_to environment.name, "/environments/#{environment.id}" %></h3>
+          </div>
+      <% end %>
+      <div class="env-np-well">
+        <h3><%= link_to "ARCHIVE", "/environments/archived" %></h3>
+      </div>
+      <div class="env-np-well">
+        <h3>NEW ENVIRONMENT</h3>
           <%= form_tag '/environments', method: :post do %> 
             <form id="contact-form" role="form" novalidate>
               <div class="form-group">
@@ -25,56 +38,7 @@
               </div>
             </form>
           <% end %>
-          <div class="col-sm-4"></div>
-          <!-- FORM END -->
-          </div>
-          </div>
-
-        </div>
-      </div>
-      <!-- /HERO TEXT -->
-
-    </section>
-    <!-- /HERO -->
-
-    <!-- PORTFOLIO -->
-    <section id="portfolio" class="module-sm">
-      <div class="container-fluid">
-
-        <div class="works-grid-wrapper">
-
-          <div id="works-grid" class="works-grid work-grid-3">
-
-            <% @environments.each do |environment| %>
-              <!-- PORTFOLIO ITEM/COLUMN -->
-              <article class="work-item">
-                <div class="work-wrapper">
-                  <div class="work-thumbnail">
-                    <p>Image or no image</p>
-                  </div>
-                  <div class="work-caption">
-                    <h3 class="work-title font-alt"><%= link_to environment.name, "/environments/#{environment.id}" %></h3>
-                  </div>
-                </div>
-              </article>
-              <!-- /PORTFOLIO ITEM -->
-            <% end %>
-
-              <!-- PORTFOLIO ITEM/COLUMN -->
-              <article class="work-item">
-                <div class="work-wrapper">
-                  <div class="work-thumbnail">
-                    <p>Image or no image?</p>
-                  </div>
-                  <div class="work-caption">
-                    <h3 class="work-title font-alt"><%= link_to "Archive", "/environments/archived" %></h3>
-                  </div>
-                </div>
-              </article>
-              <!-- /PORTFOLIO ITEM -->
-
-          </div>
-
-        </div><!-- works-grid-wrapper -->
-      </div>
-    </section>
+      </div>      
+    </div>
+  </section>          
+</div> 
