@@ -17,6 +17,7 @@ Rails.application.routes.draw do
   patch '/environments/:id/reactivate' => 'environments#reactivate'
   delete '/environments/:id' => 'environments#destroy'
   get '/environments/working/index' => 'environments#index_working'
+  get '/environments/working/:id' => 'environments#show_working'
 
   post '/note_pages' => 'note_pages#create'
   get '/note_pages/:id' => 'note_pages#show'

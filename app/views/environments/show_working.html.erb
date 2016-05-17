@@ -1,0 +1,37 @@
+        <div class="logo col-sm-2"><img src="../../studere-icon.gif" alt=""></div>
+        <div class="col-sm-6 notepage-intro">
+            <p class="notepage-title">ENVIRONMENT: environment.name </p>
+        </div>
+        <div class="col-sm-2>">
+            <p class="notepage-intro">Hamburger on the right</p>
+        </div>
+        <div class="wrapper">
+        <!-- ANGULAR AND BOOTSTRAP SETUP -->
+              <section>
+                <div class="container-fluid container-custom">
+                  <div class="col-sm-12 tags font-serif"> 
+                    <p class="notes-section">NOTEPAGES</p>
+                    <div class="col-md-10">
+                      <% @environment.note_pages.each do |page| %>
+                        <div class="autosave-text">
+                            <p><%= page.title %></p>
+                            <p contenteditable="true"><%= page.summary %></p>
+                        </div>
+                      <% end %>
+                    </div>
+                    <div class="col-md-2"></div>
+                </div>
+              </div>
+              </section>
+          <hr>
+          <hr class="button-divider">
+            <div class="row">
+              <div>
+                    <div class="text-center">
+                      <button class="submit-button" type="submit">NEW NOTE</button>
+                    </div>
+              </div>
+              <!-- BUTTON END -->
+            </div>                  
+          </div>
+        </div>  
