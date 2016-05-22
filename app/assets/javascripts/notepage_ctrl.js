@@ -53,23 +53,63 @@
       });
     };
 
-    $scope.editBookmark = function(inputId, inputBookmarkObject) {
-      console.log(inputId, inputBookmarkObject);
-      inputBookmarkObject.note_id = inputBookmarkObject.text + note_id;
-      $scope.bookmark = {
-        'id': inputBookmarkObject.id,
-        'note_id': inputBookmarkObject.note_id
-      };
+    document.addEventListener('keydown', function(event, inputText, inputNoteObject) {
+      var esc = event.which === 27,
+        nl = event.which === 13,
+        el = event.target,
+        input = el.nodeName !== 'INPUT' && el.nodeName !== 'TEXTAREA',
+        data = {};
 
-      $http.patch('/api/bookmarks/' + $scope.bookmark.id + '.rabl', $scope.bookmark).then(function(response) {
-        console.log(response);
-        console.log($scope.bookmark);
+      if (input) {
+        if (esc) {
+          // restore state
+          document.execCommand('undo');
+          el.blur();
+        } else if (nl) {
+          // save
+          $scope.editNote(inputText, inputNoteObject);
+          data[el.getAttribute('data-name')] = el.innerHTML;
 
-      }, function(error) {
-        console.log(error);
-        $scope.errors = error.data.errors;
-      });
-    };
+          // we could send an ajax request to update the field
+          /*
+          $.ajax({
+            url: window.location.toString(),
+            data: data,
+            type: 'post'
+          });
+          */
+          log(JSON.stringify(data));
+
+          el.blur();
+          event.preventDefault();
+        }
+      }
+    }, true);
+
+    function log(s) {
+      document.getElementById('debug').innerHTML = 'value changed to: ' + s;
+    }
+
+
+
+
+    // $scope.editBookmark = function(inputId, inputBookmarkObject) {
+    //   console.log(inputId, inputBookmarkObject);
+    //   inputBookmarkObject.note_id = inputBookmarkObject.text + note_id;
+    //   $scope.bookmark = {
+    //     'id': inputBookmarkObject.id,
+    //     'note_id': inputBookmarkObject.note_id
+    //   };
+
+    //   $http.patch('/api/bookmarks/' + $scope.bookmark.id + '.rabl', $scope.bookmark).then(function(response) {
+    //     console.log(response);
+    //     console.log($scope.bookmark);
+
+    //   }, function(error) {
+    //     console.log(error);
+    //     $scope.errors = error.data.errors;
+    //   });
+    // };
 
     $scope.deleteNote = function(inputNoteObject) {
       $scope.note = {
@@ -92,18 +132,18 @@
 
 // normal notepage javascript
 
-function allowDrop(ev) {
-  ev.preventDefault();
-}
-function drag(ev) {
-  ev.dataTransfer.setData("text", ev.target.id);
-}
-var selectedAngularBookmark = angular.element(document.querySelector('[ng-controller="notes"]')).scope().bookmark;
+// function allowDrop(ev) {
+//   ev.preventDefault();
+// }
+// function drag(ev) {
+//   ev.dataTransfer.setData("text", ev.target.id);
+// }
+// var selectedAngularBookmark = angular.element(document.querySelector('[ng-controller="notes"]')).scope().bookmark;
 
-// last line accesses the bookmark scope variable from notes ng-controller. also, call editBookmark().
-function drop(ev) {
-  ev.preventDefault();
-  var data = ev.dataTransfer.getData("text");
-  ev.target.appendChild(document.getElementById(data));
-}
+// // last line accesses the bookmark scope variable from notes ng-controller. also, call editBookmark().
+// function drop(ev) {
+//   ev.preventDefault();
+//   var data = ev.dataTransfer.getData("text");
+//   ev.target.appendChild(document.getElementById(data));
+// }
 

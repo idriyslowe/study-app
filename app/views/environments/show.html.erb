@@ -5,17 +5,38 @@
             <p class="notepage-title">ENVIRONMENT: <%= @environment.name %></p>
         </div>
         <div class="col-sm-2">
-            <p class="notepage-intro">Hamburger on the right</p>
-            <% if @environment.status == 'active' %>
-              <div class="col-sm-6">
-                <%= link_to 'Archive Environment', "/environments/#{@environment.id}/archive", method: :delete, class: "notepage-intro" %>
-              </div>
+            <ul class="nav nav-pills">
+              <li role="presentation" class="active"><%= link_to "Home", '/environments' %></li>  
+
+            <% unless current_user %>
+
+              <li role="presentation" class="active"><%= link_to "Sign In", '/users/sign_in' %></li>
+              <li role="presentation" class="active"><%= link_to "Sign Up", '/users/sign_up' %></li>
+              
             <% else %>
-              <div class="col-sm-6">
-                <%= link_to 'Reactivate Environment', "/environments/#{@environment.id}/reactivate", method: :patch, class: "notepage-intro" %>
-                <%= link_to 'Delete Environment', "/environments/#{@environment.id}", method: :delete, class: "notepage-intro" %>            
-              </div>          
+              <li role="presentation" class="active"><%= link_to "Sign Out", "/users/sign_out", method: :delete %></li>
+              <li role="presentation" class="active"><%= link_to "Edit User Info", '/users/edit' %></li>
             <% end %>
+
+              <li role="presentation" class="dropdown active">
+                <a class="dropdown-toggle" data-toggle="dropdown" href="#" role="button" aria-haspopup="true" aria-expanded="false">
+                  Environments <span class="caret"></span>
+                </a>
+                <ul class="dropdown-menu">
+                  <% @environments.each do |environment| %>
+                    <li><%= link_to environment.name, "/environments/#{environment.id}" %></li>
+                  <% end %>
+                  <li><%= link_to "Archive", "/environments/archived" %></li>
+                </ul>
+              </li>   
+
+            <% if @environment.status == 'active' %>
+                <li role="presentation" class="active"><%= link_to 'Archive Environment', "/environments/#{@environment.id}/archive", method: :delete, class: "notepage-intro" %></li>
+            <% else %>
+                <li role="presentation" class="active"><%= link_to 'Reactivate Environment', "/environments/#{@environment.id}/reactivate", method: :patch, class: "notepage-intro" %></li>
+                <li role="presentation" class="active"><%= link_to 'Delete Environment', "/environments/#{@environment.id}", method: :delete, class: "notepage-intro" %> </li>
+            <% end %>
+          </ul>  
         </div>
         <div class="wrapper">
         <!-- ANGULAR AND BOOTSTRAP SETUP -->

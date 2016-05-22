@@ -73,6 +73,12 @@
 
 .bookmarks {
   margin-bottom: 2%;
+  display: inline;
+}
+.bookmarks a {
+  text-decoration: none;
+  color: white;
+  margin-right: 1%;
 }
 .comment-section{
   padding-left: 5%;
@@ -104,6 +110,10 @@
   color: white;
   margin-left: 2%;
 }
+hr {
+  margin-top: 5px;
+  margin-bottom: 5px;
+}
 .new-bookmark {
   margin-top: 10px;
   background-color: black;
@@ -129,15 +139,19 @@
 .notepage-title {
   margin-top: 0;
   font-size: 40px;
-
+  background-color: rgba(0, 0, 0, 0.41);;
 }
 .notepage-summary {
   font-size: 25px;
+  background-color: rgba(0, 0, 0, 0.41);;
 }
 .notepage-intro {
   margin-bottom: 50px;
   padding-left: 4%;
   color: white;
+}
+.note-row {
+  margin-bottom: 4%;
 }
 .notepage-well {
   background-color: transparent;
@@ -151,7 +165,7 @@
   border-width:6px;
   margin-top: 2%;
   margin-left: 2%;
-  padding-bottom: 2%;
+  padding-bottom: 1%;
   padding-left: 1%;
   padding-right: 1%;
 }
