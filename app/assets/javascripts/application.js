@@ -30,6 +30,4 @@
 //= require theme/smoothscroll
 //= require theme/submenu-fix
 //= require angular
-//= require app
-//= require notepage_ctrl
 //= require_tree .
