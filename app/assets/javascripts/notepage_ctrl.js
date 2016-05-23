@@ -1,5 +1,6 @@
 /* global angular */
-  var notepageCtrl = angular.module('app').controller('notesCtrl', function notesCtrl($scope, $http) {
+  var hi = angular.module("app");
+  var notepageCtrl = hi.controller('notesCtrl', function notesCtrl($scope, $http) {
 
     $scope.urlId = window.location.pathname.split("/")[2];
 
