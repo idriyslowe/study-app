@@ -1,8 +1,8 @@
 /* global angular */
 
 // LOOK AT INJECT ANNOTATION FOR HEROKU SLASH JERK-ROKU
-(function() {
-  var notesCtrl = angular.module("app").controller("notesCtrl", ['$scope', '$http', function($scope, $http) {
+(function notepageCtrl() {
+  angular.module("app").controller("notesCtrl", ['$scope', '$http', function($scope, $http) {
 
     $scope.urlId = window.location.pathname.split("/")[2];
 
@@ -88,7 +88,7 @@
 
     window.$scope = $scope;
   }]);
-  notesCtrl.$inject = ['$scope', '$http'];
+  notepageCtrl.$inject = ['$scope', '$http'];
 })();
 
 // normal notepage javascript
