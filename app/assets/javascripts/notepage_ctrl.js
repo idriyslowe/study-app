@@ -1,5 +1,6 @@
 /* global angular */
 
+// LOOK AT INJECT ANNOTATION FOR HEROKU SLASH JERK-ROKU
 (function() {
   angular.module("app").controller("notes", ['$scope', '$http', function($scope, $http) {
 
