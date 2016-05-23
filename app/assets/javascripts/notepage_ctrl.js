@@ -1,7 +1,7 @@
 /* global angular */
 
 (function() {
-  angular.module("app").controller("notes", function($scope, $http) {
+  angular.module("app").controller("notes", ['$scope', '$http', function($scope, $http) {
 
     $scope.urlId = window.location.pathname.split("/")[2];
 
@@ -34,8 +34,8 @@
       });
     };
 
+// writing new stuff ovewrites old stuff
     $scope.editNote = function(inputNoteObject, input) {
-      inputNoteObject.text = input;
       $scope.note = {
         'id': inputNoteObject.id,
         'text': input,
@@ -86,7 +86,7 @@
     };
 
     window.$scope = $scope;
-  });
+  }]);
 })();
 
 // normal notepage javascript
