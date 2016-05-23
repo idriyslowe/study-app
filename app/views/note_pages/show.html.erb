@@ -1,102 +1,130 @@
-<%= render partial: "navbar" %>
 
-<div class="wrapper">
-<!-- ANGULAR AND BOOTSTRAP SETUP -->
-  <div ng-app="app">
-    <div ng-controller="notes" ng-init="setup()">
-      <section class="module-accordion">
-        <div class="container-fluid container-custom" ng-repeat="note in notes">
-          <div class="col-sm-12 tags font-serif"> 
-            <div class="row">
-            <!-- END SETUP -->
-            <!-- BOOKMARKS -->
-            <div class="col-md-12">
-              <a href="/bookmarks/{{marks.bookmark.id}}" target="_blank" ng-repeat="marks in note.bookmarks">{{marks.bookmark.id}}{{marks.bookmark.name}}</a>
-            </div>
-            <!-- BOOKMARKS -->
-              <div class="col-md-10">
-                <!-- NOTE ACCORDIONS -->
-                <div id="accordion" class="panel-group">               
-                  <div class="panel panel-default">
-                    <div class="panel-heading">
-                      <h4 class="panel-title"><a data-toggle="collapse" data-parent="#accordion" href="#support{{note.id}}">
-                      {{ note.id }}  {{ note.text}}                         
-                      </a></h4>
-                    </div>
-                    <div id="support{{note.id}}" class="panel-collapse collapse">
-                      <div class="panel-body">
-                      
-                        <textarea name="text" id="text" ng-model="noteText "></textarea>
-                        <div>
-                          <button class="btn btn-block btn-round btn-dark" ng-click="editNote(noteText, note)">Update Note</button>
-                        </div>
-                      </div>
-                    </div>
-                  </div>
-                </div>
-              <!-- END ACCORDIONS --> 
-              </div>
-              <!-- DELETE BUTTONS -->
-              <div class="col-md-2">
-                <a ng-click="deleteNote(note)" href="#">Delete</a>
-              </div>
-              <div class="col-md-2">
-                <a href="javascript:alert('Hi');">Click Me!</a>
-              </div>
-              <!-- END BUTTONS -->
-            </div>      
-        </div>
-      </div>
-      </section>
-    </div>
+
+<div ng-app='app' ng-controller='notes' ng-init="setup()">
+  <div class="logo col-sm-2">
+    <a href="/environments"><img src="../../studere-icon.gif" alt=""></a>
+  </div>
+  <div class="col-sm-8 notepage-intro">
+      <p class="notepage-title">NOTEPAGE: <%= @note_pages.title %></p>
+      <p class="notepage-summary">SUMMARY: <%= @note_pages.summary %></p>
+  </div>
+  <div class="col-sm-2 notepage-intro">
+    <ul class="nav nav-pills">
+      <li role="presentation" class="active"><%= link_to "Home", '/environments' %></li>  
+
+    <% unless current_user %>
+
+      <li role="presentation" class="active"><%= link_to "Sign In", '/users/sign_in' %></li>
+      <li role="presentation" class="active"><%= link_to "Sign Up", '/users/sign_up' %></li>
+      
+    <% else %>
+      <li role="presentation" class="active"><%= link_to "Sign Out", "/users/sign_out", method: :delete %></li>
+      <li role="presentation" class="active"><%= link_to "Edit User Info", '/users/edit' %></li>
+    <% end %>
+      <li role="presentation" class="active"><%= link_to "Environment.name", '/environments' %></li>
+      <li role="presentation" class="dropdown active">
+        <a class="dropdown-toggle" data-toggle="dropdown" href="#" role="button" aria-haspopup="true" aria-expanded="false">
+          Environments <span class="caret"></span>
+        </a>
+        <ul class="dropdown-menu">
+          <% @environments.each do |environment| %>
+            <li><%= link_to environment.name, "/environments/#{environment.id}" %></li>
+          <% end %>
+          <li><%= link_to "Archive", "/environments/archived" %></li>
+        </ul>
+      </li>   
+  </ul>  
+
   </div>
 
-  <div class="notepage-buttons-and-comments">
-    <!-- NEW NOTE BUTTON -->
-    <div class="row">
-      <div class="col-sm-10">
+  <div class="wrapper">
+  <!-- ANGULAR AND BOOTSTRAP SETUP -->
+    <div>
+        <section>
+          <div class="container-fluid container-custom">
+            <div class="col-sm-12 tags font-serif"> 
+              <!-- END SETUP -->
+              <!-- BOOKMARKS -->
+              <!-- <div class="col-md-12" ondrop="drop(event)" ondragover="allowDrop(event)"> -->
+              <p class="notes-section">NOTES</p>
+              <p>Bookmarks:</p>
+              <div ng-repeat="note in notes">
+              <div class="row note-row">
+                <div class="col-md-10">
+                <!-- BOOKMARKS -->
+                    <div class="bookmarks" ng-repeat="marks in note.bookmarks">
+                        <a href="/bookmarks/{{marks.bookmark.id}}" target="_blank">{{ marks.bookmark.name }}</a>
+                    </div>
+                    <!-- NOTE ACCORDIONS -->
+                    <div class="autosave-text">
+                        <p id="debug"></p>
+                        <input id="realnotetext" ng-model="notetext" ng-change="editNote(note, notetext)"></input>
+                    </div>
+                </div>
+                  <!-- END ACCORDIONS --> 
+                  <!-- DELETE BUTTONS -->
+                <div class="col-md-2">
+                    <div class="note-button">
+                        <img src="../../delete-icon.gif" alt="" class="new-bookmark new-bookmark-icon"><p style="display: inline;"class="note-buttons"><%= link_to "New Bookmark", "#", target: "_blank" %></p>
+                    </div>
+                    <hr>
+                    <div class="note-button">
+                        <a ng-click="deleteNote(note)"><img class="delete-icon" src="../../delete-icon.gif" alt=""><p style="display: inline;" class="note-buttons">Delete Note</p></a>
+                    </div>
+                </div>
+                <!-- END BUTTONS -->
+                </div>
+              </div>
+            </div>
+        </section>
+      </div>
+    </div>
+    <hr>
+  <!-- ANGULAR AND BOOTSTRAP SETUP -->                   
+    <hr class="button-divider">
+    <div>
+      <!-- NEW NOTE BUTTON -->
+       
+      <div class="row">
         <%= form_tag '/api/notes', method: :post do %>
         <%= hidden_field_tag :note_page_id, @note_pages.id %> 
-            <div class="text-center">
-              <button type="submit" class="btn btn-block btn-round btn-dark">New Note</button>
-            </div>
+          <div class="text-center">
+            <button class="submit-button" type="submit">NEW NOTE</button>
+          </div>
         <% end %>
-      </div>
-      <!-- BUTTON END -->
-      <!-- BACK TO ENV BUTTON -->
-      <div class="col-sm-2 tags font-serif"> 
-        <%= link_to 'Back to Environment', "/environments/#{@note_pages.environment_id}" %>
-      </div> 
-      <!-- END BUTTON -->
-    </div>    
-    <div class="row">
-    <!-- UNASSIGNED BOOKMARKS -->
-      <div class="col-sm-10 tags font-serif">
-        <h3>Unassigned Bookmarks</h3>
-        <% current_user.unassigned_bookmarks.each do |bookmark| %>
-          <%= link_to "#{bookmark.id} #{bookmark.name}", "/bookmarks/#{bookmark.id}", target: "_blank" %>
-        <% end %>
-      </div> 
-    <!-- END /UNASSIGNED BOOKMARKS -->
-    </div>
-        <!-- COMMENTS SECTION -->
-      <div class="row">
-        <div class="col-sm-10">
-          <% @note_pages.comments.each do |comment| %>
-            <p><%= comment.user.handle %>   <%= comment.readable_created_at %>   <%= link_to 'Delete', "/comments/#{comment.id}", method: :delete %></p>
-            <p><%= comment.text %></p>
-            <hr>
-          <% end %>
-          <%= form_tag '/comments', method: :post do %>
-            <%= text_area_tag :text, "..." %>
-            <%= hidden_field_tag :note_page_id, @note_pages.id %>
-             <div class="text-center">
-               <button type="submit" class="btn btn-block btn-round btn-dark">Submit Comment
-               </button>
-             </div>
-          <% end %>
-        </div>    
+        <!-- BUTTON END -->
       </div>
     </div>
   </div>
-</div>
+
+      <div class="row" style="margin-left: 1%;">
+      <!-- UNASSIGNED BOOKMARKS -->
+        <p class="bottom-section">UNASSIGNED BOOKMARKS</p>
+        <div class="col-sm-10 tags font-serif">
+        <% current_user.unassigned_bookmarks.each do |bookmark| %>
+          <div class="bookmarks">
+            <a href="/bookmarks/<%= bookmark.id %>" class="bookmark"><%= bookmark.name %></a>
+          </div>                  
+        <% end %>
+        </div> 
+      <!-- END /UNASSIGNED BOOKMARKS -->
+      </div>
+          <!-- COMMENTS SECTION -->
+      <p class="bottom-section">COMMENTS</p>
+        <div class="row">
+          <div class="comment-section">
+            <% @note_pages.comments.each do |comment| %>
+              <div class="autosave-text">
+                  <p>{{ comment.posted_by }}</p>
+                  <p>{{ comment.text }}</p>
+              </div>
+            <% end %>
+            <!-- <hr class="button-divider">                                    -->
+            <div class="text-center">
+              <button class="submit-button submit-comment" type="submit">NEW COMMENT</button>
+            </div>
+          </div>    
+        </div>
+
+      </div>
+    </div>

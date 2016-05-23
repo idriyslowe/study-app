@@ -21,6 +21,10 @@ class Api::BookmarksController < ApplicationController
   end
   
   def update
+    bookmark = Bookmark.find_by(id: params[:id])
+    bookmark.update(
+      note_id: params[:note_id]
+      )
   end
   
   def destroy

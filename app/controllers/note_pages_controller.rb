@@ -21,4 +21,5 @@ class NotePagesController < ApplicationController
     @note_pages.destroy
     redirect_to '/environments'
   end
+
 end

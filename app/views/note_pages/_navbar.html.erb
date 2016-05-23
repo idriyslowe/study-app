@@ -7,11 +7,12 @@
 
     <% unless current_user %>
 
-      <li role="presentation" class="#"><%= link_to "Sign In", '/users/sign_in' %></li>
-      <li role="presentation" class="#"><%= link_to "Sign Up", '/users/sign_up' %></li>
+      <li role="presentation" class="active"><%= link_to "Sign In", '/users/sign_in' %></li>
+      <li role="presentation" class="active"><%= link_to "Sign Up", '/users/sign_up' %></li>
       
     <% else %>
-      <li role="presentation" class="#"><%= link_to "Sign Out", "/users/sign_out", method: :delete %></li>
+      <li role="presentation" class="active"><%= link_to "Sign Out", "/users/sign_out", method: :delete %></li>
+      <li role="presentation" class="active"><%= link_to "Edit User Info", '/users/edit' %></li>
     <% end %>
 
       <li role="presentation" class="dropdown">

@@ -1081,14 +1081,14 @@ blockquote cite{
 */
 .module-hero{
 	position:relative;
-	/*overflow:hidden;*/
+	overflow:hidden;
 	background-attachment:fixed;
 	background-repeat:no-repeat;
 	background-position:center center;
-	-webkit-background-size:cover !important;
-	-moz-background-size:cover !important;
-	-o-background-size:cover !important;
-	background-size:cover !important;
+	-webkit-background-size:cover;
+	-moz-background-size:cover;
+	-o-background-size:cover;
+	background-size:cover;
 	border-color: #000000;
 	border-style: solid;
 	border-width: 6px;
@@ -1555,8 +1555,12 @@ blockquote cite{
 }
 
 .work-grid-3 .work-item{
-	width:33.3333%;
-	border-radius: 50%;
+	width:30%;
+	max-height:300px;
+	border-color:#000000;
+	border-style:solid;
+	border-width:6px;
+	margin: 10px;
 }
 
 .works-grid-gutter .work-item{
@@ -1587,7 +1591,7 @@ blockquote cite{
 }
 
 .work-item img{
-  height:390px;
+  height:290px;
   overflow: hidden;
 }
 

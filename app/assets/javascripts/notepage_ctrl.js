@@ -1,13 +1,5 @@
 /* global angular */
 
-    // $scope.autoSave = setInterval(function() {
-    //   var form = $('#text');
-    //   var method = form.attr('patch').toLowerCase();
-    //   var action = form.attr('/note_pages');
-    //   $[method](action, form.serialize(), function(data) {
-    //   });
-    // },5000);
-
 (function() {
   angular.module("app").controller("notes", function($scope, $http) {
 
@@ -17,15 +9,11 @@
       $http.get('/api/note_pages/' + $scope.urlId + '.rabl').then(function(response) {
         $scope.inputData = response.data.note_page.notes;
         $scope.notes = [];
-        for ( i = 0; i < $scope.inputData.length; i++) {
+        for (var i = 0; i < $scope.inputData.length; i++) {
           $scope.notes.push($scope.inputData[i].note);
         }
       });
     };
-      // $http.get('/api/bookmarks.json').then(function(response) {
-      //   $scope.bookmarks = response.data;
-      // });
-    // };
 
     $scope.clickedTextArea = function(textArea) {
       console.log(textArea);
@@ -46,27 +34,13 @@
       });
     };
 
-    // $scope.myModel = {};
-    // var timeout = null;
-
-    $scope.editNote = function(inputText, inputNoteObject) {
-      console.log(inputText, inputNoteObject);
-      inputNoteObject.text = inputNoteObject.text + inputText;
+    $scope.editNote = function(inputNoteObject, input) {
+      inputNoteObject.text = input;
       $scope.note = {
         'id': inputNoteObject.id,
-        'text': inputNoteObject.text + inputText,
+        'text': input,
         'note_page_id': inputNoteObject.note_page_id
       };
-
-      // var debounceSaveUpdates = function(newVal, oldVal) {
-      //   if (newVal !== oldVal) {
-      //     if (timeout) {
-      //       $timeout.cancel(timeout);
-      //     }
-      //     timeout = $timeout($scope.editNote, 1000);
-      //   }
-      // };
-      // $scope.$watch('noteText', debounceSaveUpdates);
 
       $http.patch('/api/notes/' + $scope.note.id + '.rabl', $scope.note).then(function(response) {
         console.log(response);
@@ -77,6 +51,24 @@
         $scope.errors = error.data.errors;
       });
     };
+
+    // $scope.editBookmark = function(inputId, inputBookmarkObject) {
+    //   console.log(inputId, inputBookmarkObject);
+    //   inputBookmarkObject.note_id = inputBookmarkObject.text + note_id;
+    //   $scope.bookmark = {
+    //     'id': inputBookmarkObject.id,
+    //     'note_id': inputBookmarkObject.note_id
+    //   };
+
+    //   $http.patch('/api/bookmarks/' + $scope.bookmark.id + '.rabl', $scope.bookmark).then(function(response) {
+    //     console.log(response);
+    //     console.log($scope.bookmark);
+
+    //   }, function(error) {
+    //     console.log(error);
+    //     $scope.errors = error.data.errors;
+    //   });
+    // };
 
     $scope.deleteNote = function(inputNoteObject) {
       $scope.note = {
@@ -92,6 +84,25 @@
         $scope.errors = error.data.errors;
       });
     };
+
     window.$scope = $scope;
   });
 })();
+
+// normal notepage javascript
+
+// function allowDrop(ev) {
+//   ev.preventDefault();
+// }
+// function drag(ev) {
+//   ev.dataTransfer.setData("text", ev.target.id);
+// }
+// var selectedAngularBookmark = angular.element(document.querySelector('[ng-controller="notes"]')).scope().bookmark;
+
+// // last line accesses the bookmark scope variable from notes ng-controller. also, call editBookmark().
+// function drop(ev) {
+//   ev.preventDefault();
+//   var data = ev.dataTransfer.getData("text");
+//   ev.target.appendChild(document.getElementById(data));
+// }
+
