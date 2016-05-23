@@ -93,18 +93,18 @@
 
 // normal notepage javascript
 
-// function allowDrop(ev) {
-//   ev.preventDefault();
-// }
-// function drag(ev) {
-//   ev.dataTransfer.setData("text", ev.target.id);
-// }
-// var selectedAngularBookmark = angular.element(document.querySelector('[ng-controller="notes"]')).scope().bookmark;
+function allowDrop(ev) {
+  ev.preventDefault();
+}
+function drag(ev) {
+  ev.dataTransfer.setData("text", ev.target.id);
+}
+// var selectedAngularBookmark = angular.element(document.querySelector('[ng-controller="notesCtrl"]')).scope().bookmark;
 
-// // last line accesses the bookmark scope variable from notes ng-controller. also, call editBookmark().
-// function drop(ev) {
-//   ev.preventDefault();
-//   var data = ev.dataTransfer.getData("text");
-//   ev.target.appendChild(document.getElementById(data));
-// }
+// last line accesses the bookmark scope variable from notes ng-controller. also, call editBookmark().
+function drop(ev) {
+  ev.preventDefault();
+  var data = ev.dataTransfer.getData("text");
+  ev.target.appendChild(document.getElementById(data));
+}
 
