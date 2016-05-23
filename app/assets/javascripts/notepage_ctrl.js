@@ -1,4 +1,5 @@
 /* global angular */
+(function() {
   var hi = angular.module("app");
   var notepageCtrl = hi.controller('notesCtrl', function notesCtrl($scope, $http) {
 
@@ -87,6 +88,8 @@
     window.$scope = $scope;
   });
   notepageCtrl.$inject = ['$scope', '$http', 'notesCtrl'];
+})();
+  
 
 // normal notepage javascript
 
