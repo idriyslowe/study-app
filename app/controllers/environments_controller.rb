@@ -53,11 +53,4 @@ class EnvironmentsController < ApplicationController
     environment.destroy
     redirect_to '/environments'
   end
-  def index_working
-    @environments = Environment.where("status = ? AND user_id = ?", "active", current_user.id)
-  end
-  def show_working
-    @environment = Environment.find_by(id: params[:id])
-    @environments = Environment.where("status = ? AND user_id = ?", "active", current_user.id)
-  end
 end

@@ -16,14 +16,11 @@ Rails.application.routes.draw do
   delete '/environments/:id/archive' => 'environments#archive'
   patch '/environments/:id/reactivate' => 'environments#reactivate'
   delete '/environments/:id' => 'environments#destroy'
-  get '/environments/working/index' => 'environments#index_working'
-  get '/environments/working/:id' => 'environments#show_working'
 
   post '/note_pages' => 'note_pages#create'
   get '/note_pages/:id' => 'note_pages#show'
   patch '/note_pages/:id' => 'note_pages#update'
   delete '/note_pages/:id' => 'note_pages#destroy'
-  get '/note_pages/working/:id' => 'note_pages#show_working'
 
   get '/bookmarks/:id' => 'bookmarks#show'
 
