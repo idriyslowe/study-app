@@ -1,13 +1,13 @@
 <div class="header-wrapper">
   <div class="col-sm-8 notepage-intro">
-      <p class="notepage-title">ENVIRONMENT:</p>
+      <p class="notepage-title">ENVIRONMENT :</p>
       <p class="notepage-title"><%= @environment.name.upcase %></p>
   </div>
   <div class="col-sm-3">
       <div class="logo">
         <a href="/environments"><img src="../../studere-icon.gif" alt=""></a>
       </div>  
-      <ul class="nav nav-pills">
+      <ul class="nav nav-buttons">
         <li role="presentation" class="active"><%= link_to "Home", '/environments' %></li>  
 
       <% unless current_user %>
@@ -42,7 +42,7 @@
   </div>
 </div>
 <div class="collections-wrapper">
-  <p class="environments-section">NOTEPAGES</p>
+  <p class="section-title">NOTEPAGES</p>
   <div class="well-wrapper">
     <% @environment.note_pages.each do |page| %>
       <div class="notepage-well">

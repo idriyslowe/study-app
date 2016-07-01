@@ -9,7 +9,7 @@
       <a href="/environments"><img src="../../studere-icon.gif" alt=""></a>
     </div> 
      
-    <ul class="nav nav-pills">
+    <ul class="nav nav-buttons">
       <li role="presentation" class="active"><%= link_to "Home", '/environments' %></li>  
 
     <% unless current_user %>
@@ -37,7 +37,7 @@
   </div>
 </div>
 <div class="collections-wrapper">
-  <p class="environments-section">ACTIVE ENVIRONMENTS</p>
+  <p class="section-title">ACTIVE ENVIRONMENTS</p>
   <div class="well-wrapper">
     <% @environments.each do |environment| %>
         <div class="env-np-well">

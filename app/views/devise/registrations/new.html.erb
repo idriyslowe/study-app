@@ -1,14 +1,16 @@
-<div class="devise-title">
-  <div class="logo col-sm-2"><img src="../../studere-icon.gif" alt=""></div>
-  <div class="col-sm-6 notepage-intro">
-      <p class="notepage-title">WELCOME TO STUDERE</p>
+<div class="header-wrapper">
+  <div class="col-sm-8 notepage-intro">
+      <p class="notepage-title">Welcome!</p>
+      <p>Put some useful data here</p>
   </div>
-  <div class="col-sm-2">
-      <p class="notepage-intro">Hamburger on the right</p>
+  <div class="col-sm-3">
+    <div class="logo">
+      <a href="/environments"><img src="../../studere-icon.gif" alt=""></a>
+    </div> 
   </div>
 </div>
-<div class="wrapper-devise-login">
-  <p class="notes-section">SIGN UP</p>           
+<div class="devise-login-wrapper">
+  <p class="section-title">SIGN UP</p>           
     <%= form_for(resource, as: resource_name, url: registration_path(resource_name)) do |f| %>
       <%= devise_error_messages! %>
       <div class="field">
@@ -28,7 +30,7 @@
       </div>
     <% end %>
 
-  <p class="notes-section">LOG IN</p>
+    <p class="section-title">LOG IN</p>
     <%= form_for(resource, as: resource_name, url: session_path(resource_name)) do |f| %>
       <div class="field">
         <%= f.email_field :email, autofocus: true, :class => "form-control", :placeholder => "Email" %>
@@ -48,9 +50,8 @@
           <%= f.label :remember_me %>
         </div>
       <% end %>
-
     <% end %>
-            <%= render "devise/shared/links" %>
-        </div>
-      </div>
-    </div>
+    <%= render "devise/shared/links" %>
+    <!-- </div> -->
+  <!-- </div> -->
+</div>
