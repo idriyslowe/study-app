@@ -32,6 +32,9 @@
   position:relative;
   min-height: 100%;
 }
+.collections-wrapper {
+  margin-left: 5%;  
+}
  .devise-field {
   padding-top: 7px;
   padding-bottom: 7px;
@@ -86,6 +89,7 @@
 }
 .delete-icon {
   height: 20px;
+  margin-left: 3%;
   margin-right: 20px;
 }
 .devise-title {
@@ -99,7 +103,8 @@
   border-style:solid;
   border-width:6px;
   margin-top: 2%;
-  margin-left: 2%;
+  margin-right: 2%;
+  text-align: left;
 }
 .env-np-well a, h3 {
   color: white;
@@ -108,7 +113,6 @@
 .environments-section {
   font-size: 40px;
   color: white;
-  margin-left: 2%;
 }
 hr {
   margin-top: 5px;
@@ -121,6 +125,7 @@ hr {
 .new-bookmark-icon {
   height: 20px;
   margin-top: 0;
+  margin-left: 3%;
   margin-right: 20px;
   -ms-transform: rotate(45deg); /* IE 9 */
   -webkit-transform: rotate(45deg); /* Chrome, Safari, Opera */
@@ -134,16 +139,14 @@ hr {
   background: radial-gradient(rgba(0, 0, 0, 0.41), transparent); /* Standard syntax */
 }
 .note-buttons a, p {
-  color: rgba(255, 255, 255, 0.74);
+  color: white;
 }
 .notepage-title {
   margin-top: 0;
   font-size: 40px;
-  background-color: rgba(0, 0, 0, 0.41);;
 }
 .notepage-summary {
   font-size: 25px;
-  background-color: rgba(0, 0, 0, 0.41);;
 }
 .notepage-intro {
   margin-bottom: 50px;
@@ -152,6 +155,9 @@ hr {
 }
 .note-row {
   margin-bottom: 4%;
+}
+.well-wrapper {
+  text-align: center;
 }
 .notepage-well {
   background-color: transparent;
@@ -164,10 +170,10 @@ hr {
   border-style:solid;
   border-width:6px;
   margin-top: 2%;
-  margin-left: 2%;
+  margin-right: 2%;
   padding-bottom: 1%;
-  padding-left: 1%;
   padding-right: 1%;
+  text-align: left;
 }
 .notepage-well h6 {
   font-size: 24px;
@@ -195,9 +201,7 @@ hr {
   border: none;
 }
 .logo {
-  margin-top: 20px;
   padding-top: 10px;
-  padding-left: 30px;
 }
 .logo img {
   height: 40px;
@@ -217,7 +221,17 @@ hr {
   margin-left: 4%;
   margin-bottom: 5%;
 }
+.header-wrapper {
+  min-height: 300px;
+  background-color: rgba(0, 0, 0, 0.41);
+  padding-top: 2%;
+  padding-left: 2%;
+  margin-bottom: 3%;
+}
 .env-index-title {
   height: 200px;
+}
+.well-wrapper div {
+  background-color: #2677B4;
 }
 

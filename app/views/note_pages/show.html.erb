@@ -1,49 +1,47 @@
 
-
 <div ng-app='app' ng-controller='notesCtrl' ng-init="setup()">
-  <div class="logo col-sm-2">
-    <a href="/environments"><img src="../../studere-icon.gif" alt=""></a>
-  </div>
-  <div class="col-sm-8 notepage-intro">
-      <p class="notepage-title">NOTEPAGE: <%= @note_pages.title %></p>
-      <p class="notepage-summary">SUMMARY: <%= @note_pages.summary %></p>
-  </div>
-  <div class="col-sm-2 notepage-intro">
-    <ul class="nav nav-pills">
-      <li role="presentation" class="active"><%= link_to "Home", '/environments' %></li>  
+  <div class="header-wrapper">
+    <div class="col-sm-8 notepage-intro">
+        <p class="notepage-title">ENVIRONMENT: PROGRAMMING. UPDATE THIS.</p>
+        <p class="notepage-title">NOTEPAGE: <%= @note_pages.title %></p>
+        <p class="notepage-summary">SUMMARY: <%= @note_pages.summary %></p>
+    </div>
 
-    <% unless current_user %>
+    <div class="col-sm-2 notepage-intro">
+      <div class="logo">
+        <a href="/environments"><img src="../../studere-icon.gif" alt=""></a>
+      </div>    
+      <ul class="nav nav-pills">
+        <li role="presentation" class="active"><%= link_to "Home", '/environments' %></li>  
 
-      <li role="presentation" class="active"><%= link_to "Sign In", '/users/sign_in' %></li>
-      <li role="presentation" class="active"><%= link_to "Sign Up", '/users/sign_up' %></li>
-      
-    <% else %>
-      <li role="presentation" class="active"><%= link_to "Sign Out", "/users/sign_out", method: :delete %></li>
-      <li role="presentation" class="active"><%= link_to "Edit User Info", '/users/edit' %></li>
-    <% end %>
-      <li role="presentation" class="active"><%= link_to "Environment.name", '/environments' %></li>
-      <li role="presentation" class="dropdown active">
-        <a class="dropdown-toggle" data-toggle="dropdown" href="#" role="button" aria-haspopup="true" aria-expanded="false">
-          Environments <span class="caret"></span>
-        </a>
-        <ul class="dropdown-menu">
-          <% @environments.each do |environment| %>
-            <li><%= link_to environment.name, "/environments/#{environment.id}" %></li>
-          <% end %>
-          <li><%= link_to "Archive", "/environments/archived" %></li>
-        </ul>
-      </li>   
-  </ul>  
+      <% unless current_user %>
 
-  </div>
-
-  <div class="wrapper">
-  <!-- ANGULAR AND BOOTSTRAP SETUP -->
+        <li role="presentation" class="active"><%= link_to "Sign In", '/users/sign_in' %></li>
+        <li role="presentation" class="active"><%= link_to "Sign Up", '/users/sign_up' %></li>
+        
+      <% else %>
+        <li role="presentation" class="active"><%= link_to "Sign Out", "/users/sign_out", method: :delete %></li>
+        <li role="presentation" class="active"><%= link_to "Edit User Info", '/users/edit' %></li>
+      <% end %>
+        <li role="presentation" class="dropdown active">
+          <a class="dropdown-toggle" data-toggle="dropdown" href="#" role="button" aria-haspopup="true" aria-expanded="false">
+            Environments <span class="caret"></span>
+          </a>
+          <ul class="dropdown-menu">
+            <% @environments.each do |environment| %>
+              <li><%= link_to environment.name, "/environments/#{environment.id}" %></li>
+            <% end %>
+            <li><%= link_to "Archive", "/environments/archived" %></li>
+          </ul>
+        </li>   
+      </ul>  
+    </div>
+  </div>  
+  <div class="collections-wrapper">
     <div>
         <section>
           <div class="container-fluid container-custom">
             <div class="col-sm-12 tags font-serif"> 
-              <!-- END SETUP -->
               <!-- BOOKMARKS -->
               <!-- <div class="col-md-12" ondrop="drop(event)" ondragover="allowDrop(event)"> -->
               <p class="notes-section">NOTES</p>
@@ -60,6 +58,7 @@
                         <p id="debug"></p>
                         <input id="realnotetext" ng-model="notetext" ng-change="editNote(note, notetext)" placeholder="{{note.text}}"></input>
                     </div>
+
                 </div>
                   <!-- END ACCORDIONS --> 
                   <!-- DELETE BUTTONS -->
@@ -73,8 +72,8 @@
                     </div>
                 </div>
                 <!-- END BUTTONS -->
-                </div>
               </div>
+
             </div>
         </section>
       </div>
