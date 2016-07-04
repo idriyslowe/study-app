@@ -48,7 +48,7 @@
       <div class="notepage-well">
         <div>
             <h6>TITLE: <%= page.title.upcase %></h6>
-            <h6 style="display: inline;" contenteditable="true"><%= page.summary.upcase %></h6>
+            <h6 style="display: inline;" contenteditable="true"><%= page.summary.upcase if page.summary %></h6>
         </div>
         <hr>
         <div>
