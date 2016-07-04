@@ -73,7 +73,9 @@
  .button-divider {
   margin: 0;
 }
-
+.bookmarks-wrapper {
+  background-color: rgba(255, 255, 255, 0.2);
+}
 .bookmarks {
   margin-bottom: 2%;
   display: inline;

@@ -1,8 +1,10 @@
+// figure out drag and drop. figure out comments section
+
 /* global angular */
 (function() {
-  var hi = angular.module("app");
+  var app = angular.module("app");
 
-  hi.directive('contenteditable', function() {
+  app.directive('contenteditable', function() {
         return {
           require: 'ngModel',
           restrict: 'A',
@@ -11,8 +13,6 @@
             function updateViewValue() {
               ngModel.$setViewValue(this.innerHTML);
             }
-            //Binding it to keyup, lly bind it to any other events of interest 
-            //like change etc..
             elm.on('keyup', updateViewValue);
 
             scope.$on('$destroy', function() {
@@ -27,7 +27,7 @@
       }
   });
 
-  var notepageCtrl = hi.controller('notesCtrl', function notesCtrl($scope, $http) {
+  var notepageCtrl = app.controller('notesCtrl', function notesCtrl($scope, $http) {
 
     $scope.urlId = window.location.pathname.split("/")[2];
 
@@ -60,7 +60,6 @@
       });
     };
 
-// writing new stuff ovewrites old stuff
     $scope.editNote = function(inputNoteObject, input) {
       $scope.note = {
         'id': inputNoteObject.id,
@@ -78,23 +77,23 @@
       });
     };
 
-    // $scope.editBookmark = function(inputId, inputBookmarkObject) {
-    //   console.log(inputId, inputBookmarkObject);
-    //   inputBookmarkObject.note_id = inputBookmarkObject.text + note_id;
-    //   $scope.bookmark = {
-    //     'id': inputBookmarkObject.id,
-    //     'note_id': inputBookmarkObject.note_id
-    //   };
+    $scope.editBookmark = function(inputId, inputBookmarkObject) {
+      console.log(inputId, inputBookmarkObject);
+      // inputBookmarkObject.note_id = inputBookmarkObject.text + note_id;
+      // $scope.bookmark = {
+      //   'id': inputBookmarkObject.id,
+      //   'note_id': inputBookmarkObject.note_id
+      // };
 
-    //   $http.patch('/api/bookmarks/' + $scope.bookmark.id + '.rabl', $scope.bookmark).then(function(response) {
-    //     console.log(response);
-    //     console.log($scope.bookmark);
+      // $http.patch('/api/bookmarks/' + $scope.bookmark.id + '.rabl', $scope.bookmark).then(function(response) {
+      //   console.log(response);
+      //   console.log($scope.bookmark);
 
-    //   }, function(error) {
-    //     console.log(error);
-    //     $scope.errors = error.data.errors;
-    //   });
-    // };
+      // }, function(error) {
+      //   console.log(error);
+      //   $scope.errors = error.data.errors;
+      // });
+    };
 
     $scope.deleteNote = function(inputNoteObject) {
       $scope.note = {
@@ -115,7 +114,6 @@
   });
   notepageCtrl.$inject = ['$scope', '$http', 'notesCtrl'];
 })();
-  
 
 // normal notepage javascript
 
