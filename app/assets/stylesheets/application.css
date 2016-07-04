@@ -238,6 +238,19 @@ hr {
   cols: 80;
   border: none;
 }
+#notetext {
+  background-color: rgba(255, 255, 255, 0.2);
+  margin-left: 10%;
+  border-width: 0;
+  height: auto;
+  color: white;
+  font-size: 18px;
+  width: 90%;
+  rows: 10;
+  cols: 80;
+  border: none;
+  margin-top: 15px;   
+}
 .logo {
   padding-top: 10px;
 }

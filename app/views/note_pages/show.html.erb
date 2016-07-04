@@ -53,14 +53,9 @@
                     <div class="bookmarks" ng-repeat="marks in note.bookmarks">
                         <a href="/bookmarks/{{marks.bookmark.id}}" target="_blank">{{ marks.bookmark.name }}</a>
                     </div>
-                    <!-- NOTE ACCORDIONS -->
-                    <div class="autosave-text">
-                        <p id="debug"></p>
-                        <input id="realnotetext" ng-model="notetext" ng-change="editNote(note, notetext)" placeholder="{{note.text}}"></input>
-                    </div>
+                    <div contenteditable="true" ng-model="notetext" id="notetext" ng-change="editNote(note, notetext)">{{note.text}}</div>
 
                 </div>
-                  <!-- END ACCORDIONS --> 
                   <!-- DELETE BUTTONS -->
                 <div class="col-md-2">
                     <div class="note-button">
