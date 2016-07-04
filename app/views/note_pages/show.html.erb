@@ -36,89 +36,74 @@
         </li>   
       </ul>  
     </div>
-  </div>  
-  <div class="collections-wrapper">
-    <div>
-        <section>
-          <div class="container-fluid container-custom">
-            <div class="col-sm-12 tags font-serif"> 
-              <!-- BOOKMARKS -->
-              <!-- <div class="col-md-12" ondrop="drop(event)" ondragover="allowDrop(event)"> -->
-              <p class="notes-section">NOTES</p>
-              <p>Bookmarks:</p>
-              <div ng-repeat="note in notes">
-              <div class="row note-row">
-                <div class="col-md-10">
-                <!-- BOOKMARKS -->
-                    <div class="bookmarks" ng-repeat="marks in note.bookmarks">
-                        <a href="/bookmarks/{{marks.bookmark.id}}" target="_blank">{{ marks.bookmark.name }}</a>
-                    </div>
-                    <div contenteditable="true" ng-model="notetext" id="notetext" ng-change="editNote(note, notetext)">{{note.text}}</div>
-
-                </div>
-                  <!-- DELETE BUTTONS -->
-                <div class="col-md-2">
-                    <div class="note-button">
-                        <img src="../../delete-icon.gif" alt="" class="new-bookmark new-bookmark-icon"><p style="display: inline;"class="note-buttons"><%= link_to "New Bookmark", "#", target: "_blank" %></p>
-                    </div>
-                    <hr>
-                    <div class="note-button">
-                        <a ng-click="deleteNote(note)"><img class="delete-icon" src="../../delete-icon.gif" alt=""><p style="display: inline;" class="note-buttons">Delete Note</p></a>
-                    </div>
-                </div>
-                <!-- END BUTTONS -->
-              </div>
-
-            </div>
-        </section>
-      </div>
-    </div>
-    <hr>
-  <!-- ANGULAR AND BOOTSTRAP SETUP -->                   
-    <hr class="button-divider">
-    <div>
-      <!-- NEW NOTE BUTTON -->
-       
-      <div class="row">
-        <%= form_tag '/api/notes', method: :post do %>
-        <%= hidden_field_tag :note_page_id, @note_pages.id %> 
-          <div class="text-center">
-            <button class="submit-button" type="submit">NEW NOTE</button>
-          </div>
-        <% end %>
-        <!-- BUTTON END -->
-      </div>
-    </div>
   </div>
 
-      <div class="row" style="margin-left: 1%;">
-      <!-- UNASSIGNED BOOKMARKS -->
-        <p class="bottom-section">UNASSIGNED BOOKMARKS</p>
-        <div class="col-sm-10 tags font-serif">
-        <% current_user.unassigned_bookmarks.each do |bookmark| %>
-          <div class="bookmarks">
-            <a href="/bookmarks/<%= bookmark.id %>" class="bookmark"><%= bookmark.name %></a>
-          </div>                  
-        <% end %>
-        </div> 
-      <!-- END /UNASSIGNED BOOKMARKS -->
-      </div>
-          <!-- COMMENTS SECTION -->
-      <p class="bottom-section">COMMENTS</p>
-        <div class="row">
-          <div class="comment-section">
-            <% @note_pages.comments.each do |comment| %>
-              <div class="autosave-text">
-                  <p>{{ comment.posted_by }}</p>
-                  <p>{{ comment.text }}</p>
+  <div class="collections-wrapper">
+    <section>
+      <div class="container-fluid container-custom">
+          <!-- BOOKMARKS -->
+          <p class="section-title">NOTES</p>
+          <p>Bookmarks:</p>
+          <div ng-repeat="note in notes">
+            <div class="row note-row">
+              <div class="col-md-10">
+              <!-- BOOKMARKS -->
+                  <div class="bookmarks" ng-repeat="marks in note.bookmarks">
+                      <a href="/bookmarks/{{marks.bookmark.id}}" target="_blank">{{ marks.bookmark.name }}</a>
+                  </div>
+                  <div contenteditable="true" ng-model="notetext" id="notetext" ng-change="editNote(note, notetext)">{{note.text}}</div>
               </div>
-            <% end %>
-            <!-- <hr class="button-divider">                                    -->
-            <div class="text-center">
-              <button class="submit-button submit-comment" type="submit">NEW COMMENT</button>
-            </div>
-          </div>    
+              <!-- END BOOKMARKS -->
+                <!-- DELETE BUTTONS -->
+              <div class="col-md-2">
+                  <div class="note-button">
+                      <img src="../../delete-icon.gif" alt="" class="new-bookmark new-bookmark-icon"><p style="display: inline;"class="note-buttons"><%= link_to "New Bookmark", "#", target: "_blank" %></p>
+                  </div>
+                  <hr>
+                  <div class="note-button">
+                      <a ng-click="deleteNote(note)"><img class="delete-icon" src="../../delete-icon.gif" alt=""><p style="display: inline;" class="note-buttons">Delete Note</p></a>
+                  </div>
+              </div>
+              <!-- END BUTTONS -->
+          </div>
         </div>
-
-      </div>
+    </section>
+    <hr>
+    <hr class="button-divider">
+    <div class="row">
+      <%= form_tag '/api/notes', method: :post do %>
+      <%= hidden_field_tag :note_page_id, @note_pages.id %> 
+        <div class="text-center">
+          <button class="submit-button" type="submit">NEW NOTE</button>
+        </div>
+      <% end %>
     </div>
+    <div class="row">
+      <p class="section-title">UNASSIGNED BOOKMARKS</p>
+      <div>
+      <% current_user.unassigned_bookmarks.each do |bookmark| %>
+        <div class="bookmarks">
+          <a href="/bookmarks/<%= bookmark.id %>" class="bookmark"><%= bookmark.name %></a>
+        </div>                  
+      <% end %>
+      </div> 
+    <!-- END /UNASSIGNED BOOKMARKS -->
+    </div>
+        <!-- COMMENTS SECTION -->
+    <div class="row">      
+      <p class="section-title">COMMENTS</p>       
+      <div class="comment-section">
+        <% @note_pages.comments.each do |comment| %>
+          <div class="autosave-text">
+              <p>{{ comment.posted_by }}</p>
+              <p>{{ comment.text }}</p>
+          </div>
+        <% end %>
+        <!-- <hr class="button-divider">                                    -->
+        <div class="text-center">
+          <button class="submit-button submit-comment" type="submit">NEW COMMENT</button>
+        </div>
+      </div>    
+    </div>
+  </div> 
+</div>

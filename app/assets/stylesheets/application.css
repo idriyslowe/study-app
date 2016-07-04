@@ -83,10 +83,6 @@
   color: white;
   margin-right: 1%;
 }
-.comment-section{
-  padding-left: 5%;
-  padding-right: 20%;
-}
 .delete-icon {
   height: 20px;
   margin-left: 3%;
@@ -220,11 +216,6 @@ hr {
 .notepage-well h6 {
   font-size: 24px;
   padding-left: 4%;
-}
-.bottom-section {
-  font-size: 40px;
-  color: white;
-  margin-left: 4%;
 }
 .autosave-text input {
   background-color: rgba(255, 255, 255, 0.2);
