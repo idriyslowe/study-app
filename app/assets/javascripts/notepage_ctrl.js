@@ -1,5 +1,3 @@
-// figure out drag and drop. figure out comments section
-
 /* global angular */
 (function() {
   var app = angular.module("app");
@@ -31,6 +29,21 @@
 
     $scope.urlId = window.location.pathname.split("/")[2];
 
+    $scope.editPageSummary = function(notepagesummary) {
+      var page = {
+        'id': $scope.urlId,
+        'summary': notepagesummary
+      };
+      $http.patch('/api/note_pages/' + $scope.urlId + '.rabl', page).then(function(response) {
+        console.log(response);
+        console.log(page);        
+      }, function(error) {
+        console.log(error);
+        $scope.errors = error.data.errors;
+      }
+      )
+    };
+
     $scope.setup = function() {
       $http.get('/api/note_pages/' + $scope.urlId + '.rabl').then(function(response) {
         $scope.inputData = response.data.note_page.notes;
@@ -41,9 +54,9 @@
       });
     };
 
-    $scope.clickedTextArea = function(textArea) {
-      console.log(textArea);
-    };
+    // $scope.clickedTextArea = function(textArea) {
+    //   console.log(textArea);
+    // };
 
     $scope.newNote = function(inputNotePageId) {
       var note = {
@@ -52,8 +65,7 @@
       };
       $http.post('/api/notes.rabl', note).then(function(response) {
         console.log(response);
-        $scope.note.push(note);
-        
+        $scope.note.push(note);        
       }, function(error) {
         console.log(error);
         $scope.errors = error.data.errors;
@@ -82,7 +94,6 @@
         'note_id': targetId
       };
 
-      // you don't need $scope.bookmark. Just use args directly
       $http.patch('/api/bookmarks/' + bookmarkId + '.rabl', $scope.bookmark).then(function(response) {
         console.log(response);
         console.log($scope.bookmark);
@@ -120,12 +131,6 @@ function allowDrop(ev) {
 function drag(ev, bookmarkId) {
   ev.dataTransfer.setData("text", bookmarkId);
 }
-
-// function drop(ev) {
-//   ev.preventDefault();
-//   var data = ev.dataTransfer.getData("text");
-//   ev.target.appendChild(document.getElementById(data));
-// }
 
 function drop(ev) {
   ev.preventDefault();
