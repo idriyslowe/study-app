@@ -46,17 +46,16 @@
           <div ng-repeat="note in notes">
             <div class="row note-row">
               <div class="col-md-10">
-              <!-- BOOKMARKS -->
-              <p>How to get "Drop Bookmark Here..." and droppable to show even if there are no bookmarks</p>
                   <div class="bookmarks-wrapper">
+                    <div class="bookmarks" ng-hide="note.bookmarks.length" ondrop="drop(event)" ondragover="allowDrop(event)" style="display: inline;"><p id="{{note.id}}" class="bookmark" style="display: inline;">...</p></div>
+
                     <div class="bookmarks" ng-repeat="marks in note.bookmarks">
-                        <div ondrop="drop(event)" ondragover="allowDrop(event)" style="display: inline;"><p id="{{note.id}}" class="bookmark" style="display: inline;">...</p></div>
-                        <a href="/bookmarks/{{marks.bookmark.id}}" target="_blank">{{ marks.bookmark.name }}</a>
+                      <div ondrop="drop(event)" ondragover="allowDrop(event)" style="display: inline;"><p id="{{note.id}}" class="bookmark.length" style="display: inline;">...</p></div>
+                      <a href="/bookmarks/{{marks.bookmark.id}}" target="_blank">{{ marks.bookmark.name }}</a>
                     </div>
                   </div>
                   <div contenteditable="true" ng-model="notetext" id="notetext" ng-change="editNote(note, notetext)">{{note.text}} {{note.id}}</div>
               </div>
-              <!-- END BOOKMARKS -->
                 <!-- DELETE BUTTONS -->
               <div class="col-md-2">
                   <div class="note-button">
