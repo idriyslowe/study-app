@@ -117,10 +117,6 @@ function allowDrop(ev) {
   ev.preventDefault();
 }
 
-// function drag(ev) {
-//   ev.dataTransfer.setData("text", ev.target.id);
-// }
-
 function drag(ev, bookmarkId) {
   ev.dataTransfer.setData("text", bookmarkId);
 }
@@ -135,6 +131,5 @@ function drop(ev) {
   ev.preventDefault();
   var data = ev.dataTransfer.getData("text");
   $scope.editBookmark(data, ev.target.id);
-  console.log(ev.target.id);
-  // I may have to appendchild here if adding to db does no refresh
+  ev.target.appendChild(document.getElementById("bookmark" + data));
 }

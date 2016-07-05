@@ -50,7 +50,7 @@
               <p>How to get "Drop Bookmark Here..." and droppable to show even if there are no bookmarks</p>
                   <div class="bookmarks-wrapper">
                     <div class="bookmarks" ng-repeat="marks in note.bookmarks">
-                        <div ondrop="drop(event)" ondragover="allowDrop(event)"><p id="{{note.id}}" class="bookmark">Drop Bookmark Here...</p></div>
+                        <div ondrop="drop(event)" ondragover="allowDrop(event)" style="display: inline;"><p id="{{note.id}}" class="bookmark" style="display: inline;">...</p></div>
                         <a href="/bookmarks/{{marks.bookmark.id}}" target="_blank">{{ marks.bookmark.name }}</a>
                     </div>
                   </div>
@@ -86,7 +86,7 @@
       <div>
       <% current_user.unassigned_bookmarks.each do |bookmark| %>
         <div class="bookmarks">
-          <a href="/bookmarks/<%= bookmark.id %>" id="dragbookmark" ondragstart="drag(event, <%= bookmark.id %>)" class="bookmark" draggable="true"><%= bookmark.name %></a>
+          <a href="/bookmarks/<%= bookmark.id %>" id="bookmark<%= bookmark.id %>" ondragstart="drag(event, <%= bookmark.id %>)" class="bookmark" draggable="true"><%= bookmark.name %></a>
         </div>                  
       <% end %>
       </div> 

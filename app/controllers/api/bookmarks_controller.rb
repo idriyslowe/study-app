@@ -20,6 +20,7 @@ class Api::BookmarksController < ApplicationController
     end
   end
   
+  # I DONT THINK I NEED TO INCLUDE THE ATTRIBUTES I WON'T BE UPDATING
   def update
     bookmark = Bookmark.find_by(id: params[:id])
     bookmark.update(
