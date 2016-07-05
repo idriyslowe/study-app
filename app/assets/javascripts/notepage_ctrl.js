@@ -70,29 +70,26 @@
       $http.patch('/api/notes/' + $scope.note.id + '.rabl', $scope.note).then(function(response) {
         console.log(response);
         console.log($scope.note);
-
       }, function(error) {
         console.log(error);
         $scope.errors = error.data.errors;
       });
     };
 
-    $scope.editBookmark = function(inputId, inputBookmarkObject) {
-      console.log(inputId, inputBookmarkObject);
-      // inputBookmarkObject.note_id = inputBookmarkObject.text + note_id;
-      // $scope.bookmark = {
-      //   'id': inputBookmarkObject.id,
-      //   'note_id': inputBookmarkObject.note_id
-      // };
+    $scope.editBookmark = function(bookmarkId, targetId) {
+      $scope.bookmark = {
+        'id': bookmarkId,
+        'note_id': targetId
+      };
 
-      // $http.patch('/api/bookmarks/' + $scope.bookmark.id + '.rabl', $scope.bookmark).then(function(response) {
-      //   console.log(response);
-      //   console.log($scope.bookmark);
-
-      // }, function(error) {
-      //   console.log(error);
-      //   $scope.errors = error.data.errors;
-      // });
+      // you don't need $scope.bookmark. Just use args directly
+      $http.patch('/api/bookmarks/' + bookmarkId + '.rabl', $scope.bookmark).then(function(response) {
+        console.log(response);
+        console.log($scope.bookmark);
+      }, function(error) {
+        console.log(error);
+        $scope.errors = error.data.errors;
+      });
     };
 
     $scope.deleteNote = function(inputNoteObject) {
@@ -116,19 +113,28 @@
 })();
 
 // normal notepage javascript
-
 function allowDrop(ev) {
   ev.preventDefault();
 }
-function drag(ev) {
-  ev.dataTransfer.setData("text", ev.target.id);
-}
-// var selectedAngularBookmark = angular.element(document.querySelector('[ng-controller="notesCtrl"]')).scope().bookmark;
 
-// last line accesses the bookmark scope variable from notes ng-controller. also, call editBookmark().
+// function drag(ev) {
+//   ev.dataTransfer.setData("text", ev.target.id);
+// }
+
+function drag(ev, bookmarkId) {
+  ev.dataTransfer.setData("text", bookmarkId);
+}
+
+// function drop(ev) {
+//   ev.preventDefault();
+//   var data = ev.dataTransfer.getData("text");
+//   ev.target.appendChild(document.getElementById(data));
+// }
+
 function drop(ev) {
   ev.preventDefault();
   var data = ev.dataTransfer.getData("text");
-  ev.target.appendChild(document.getElementById(data));
+  $scope.editBookmark(data, ev.target.id);
+  console.log(ev.target.id);
+  // I may have to appendchild here if adding to db does no refresh
 }
-

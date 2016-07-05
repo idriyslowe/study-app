@@ -23,8 +23,17 @@ class Api::BookmarksController < ApplicationController
   def update
     bookmark = Bookmark.find_by(id: params[:id])
     bookmark.update(
-      note_id: params[:note_id]
+      name: bookmark.name,
+      path: bookmark.path,
+      note_id: params[:note_id],
+      user_id: current_user.id,
+      screenshot_data: bookmark.screenshot_data
       )
+    if bookmark.save
+      render json: { message: "success"}
+    else
+      render json: { errors: bookmark.full_messages }, status: 422
+    end
   end
   
   def destroy

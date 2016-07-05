@@ -43,18 +43,18 @@
       <div class="container-fluid container-custom">
           <!-- BOOKMARKS -->
           <p class="section-title">NOTES</p>
-          <p>Bookmarks:</p>
           <div ng-repeat="note in notes">
             <div class="row note-row">
               <div class="col-md-10">
               <!-- BOOKMARKS -->
-                  <div class="bookmarks-wrapper" ondrop="drop(event)" ondragover="allowDrop(event)">
-                    <div class="bookmarks" ng-repeat="marks in notes[0].bookmarks">
-                        <p style="display: inline;">Drop Bookmark Here...</p>
+              <p>How to get "Drop Bookmark Here..." and droppable to show even if there are no bookmarks</p>
+                  <div class="bookmarks-wrapper">
+                    <div class="bookmarks" ng-repeat="marks in note.bookmarks">
+                        <div ondrop="drop(event)" ondragover="allowDrop(event)"><p id="{{note.id}}" class="bookmark">Drop Bookmark Here...</p></div>
                         <a href="/bookmarks/{{marks.bookmark.id}}" target="_blank">{{ marks.bookmark.name }}</a>
                     </div>
                   </div>
-                  <div contenteditable="true" ng-model="notetext" id="notetext" ng-change="editNote(note, notetext)">{{note.text}}</div>
+                  <div contenteditable="true" ng-model="notetext" id="notetext" ng-change="editNote(note, notetext)">{{note.text}} {{note.id}}</div>
               </div>
               <!-- END BOOKMARKS -->
                 <!-- DELETE BUTTONS -->
@@ -86,7 +86,7 @@
       <div>
       <% current_user.unassigned_bookmarks.each do |bookmark| %>
         <div class="bookmarks">
-          <a href="/bookmarks/<%= bookmark.id %>" class="bookmark"><%= bookmark.name %></a>
+          <a href="/bookmarks/<%= bookmark.id %>" id="dragbookmark" ondragstart="drag(event, <%= bookmark.id %>)" class="bookmark" draggable="true"><%= bookmark.name %></a>
         </div>                  
       <% end %>
       </div> 
